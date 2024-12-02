@@ -1,5 +1,5 @@
-import { useContext } from 'react';
 import * as yup from 'yup';
+import { useContext } from 'react';
 import { Formik, Form } from 'formik';
 import PopupButtons from '../Popup/PopupButtons';
 import { PopupContext } from '$providers/PopupProvider';
@@ -10,7 +10,7 @@ export interface PopupPromptProps {
   label: string,
   submitLabel: string,
   defaultValue?: string,
-  yupValidator?: yup.Schema<any>,
+  yupValidator?: yup.Schema,
   maxLength?: number,
 }
 

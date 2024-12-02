@@ -17,8 +17,9 @@
 
     "baseUrl": ".",
     "paths": {
-      "$/*": ["./src/*"],
+      "@/*": ["./src/*"],
       ":storybook/*": ["./.storybook/*"],
+      "$lib/*": ["./src/lib/*"],
       "$hooks/*": ["./src/hooks/*"],
       "$redux/*": ["./src/redux/*"],
       "$types/*": ["./src/types/*"],

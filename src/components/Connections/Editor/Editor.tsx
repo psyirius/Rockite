@@ -1,5 +1,5 @@
-import { useContext } from 'react';
 import 'twin.macro';
+import { useContext } from 'react';
 import { MdAdd } from 'react-icons/md';
 import TabModel from '$models/tab';
 import Tab from './EditorTab';
@@ -16,9 +16,9 @@ import {
   tabCreate,
   tabSwitch,
   tabUpdateContent,
-} from '../../../redux/actions/tabs';
-import { savedPayloadCreateFromTab, savedPayloadUpdate } from '../../../redux/actions/saved-payloads';
-import { socketSend } from '../../../redux/actions/connection-sockets';
+} from '$redux/actions/tabs.ts';
+import { savedPayloadCreateFromTab, savedPayloadUpdate } from '$redux/actions/saved-payloads.ts';
+import { socketSend } from '$redux/actions/connection-sockets.ts';
 
 export interface EditorProps {
   connection: Connection,

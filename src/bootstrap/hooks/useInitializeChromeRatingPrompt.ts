@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import config from '$/config';
+import config from '@/config';
 import isPlatform from '$helpers/isPlatform';
 import NotificationsActions from '$providers/notifications/notifications.actions';
 import { NotificationsDispatchContext } from '$providers/notifications/notifications.provider';

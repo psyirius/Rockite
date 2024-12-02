@@ -1,4 +1,5 @@
 import React from 'react';
+import { Toaster } from "sonner";
 import { Provider } from 'react-redux';
 import Store from './redux/store';
 import LayoutConnected from './LayoutConnected';
@@ -15,6 +16,7 @@ export default function App() {
   return (
     <React.StrictMode>
       <Provider store={Store}>
+        <Toaster />
         <GlobalStyles />
         <InitializeRedux>
           <ContextMenuProvider>
