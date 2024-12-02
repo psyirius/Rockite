@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Form, Formik } from 'formik';
 import 'twin.macro';
 import * as yup from 'yup';

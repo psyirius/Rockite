@@ -16,11 +16,8 @@
 
 # misc
 .DS_Store
-.env.dev
-.env.prod.chrome
-.env.prod.web
-.env.prod.sentry
-.env.prod.electron
+.env*
+!.env*.example
 
 npm-debug.log*
 yarn-debug.log*

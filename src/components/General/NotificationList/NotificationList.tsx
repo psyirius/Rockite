@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import 'twin.macro';
 import Notification from '../../../types/UserInterface/Notification';
 import Spacer from '../Utilities/Spacer';

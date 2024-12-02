@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import 'twin.macro';
 import { MdAdd } from 'react-icons/md';
 import TabModel from '../../../models/tab';

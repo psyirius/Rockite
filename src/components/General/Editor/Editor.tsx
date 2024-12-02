@@ -1,4 +1,4 @@
-import React, { ReactEventHandler } from 'react';
+import { ReactEventHandler } from 'react';
 import { theme } from 'twin.macro';
 import SimpleCodeEditor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs';

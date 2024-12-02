@@ -1,4 +1,3 @@
-import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import List, { ListProps } from './List';
 import ContextMenuDecorator from '../../../../.storybook/decorators/ContextMenuDecorator';

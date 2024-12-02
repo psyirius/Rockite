@@ -1,4 +1,3 @@
-import React from 'react';
 import 'twin.macro';
 import { ErrorMessage, Field } from 'formik';
 

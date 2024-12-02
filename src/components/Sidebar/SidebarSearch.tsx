@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import tw from 'twin.macro';
 import { MdClose } from 'react-icons/md';
 import ButtonSecondary from '../General/Styled/ButtonSecondary';

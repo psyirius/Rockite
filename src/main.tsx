@@ -1,7 +1,7 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactGA from 'react-ga';
 import * as Sentry from '@sentry/browser';
+import "./global.scss";
 import App from './App';
 import env from './helpers/env';
 

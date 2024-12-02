@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import 'twin.macro';
 import { format } from 'date-fns';
 import Project from '../../models/project';

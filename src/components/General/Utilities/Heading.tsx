@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import 'twin.macro';
 import ButtonSecondary from '../Styled/ButtonSecondary';
 

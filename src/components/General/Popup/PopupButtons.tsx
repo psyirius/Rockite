@@ -1,4 +1,3 @@
-import React from 'react';
 import 'twin.macro';
 import ButtonAction from '../../../types/UserInterface/ButtonAction';
 import ButtonPrimary from '../Styled/ButtonPrimary';

@@ -9,7 +9,7 @@ import tabPersist from '../../models/tab/persist';
 import userInterfacePropertyPersist from '../../models/user-interface-property/persist';
 import windowPersist from '../../models/window/persist';
 
-const persistenceStratergies: { [key in keyof State ]?: PersistenceStratergy<any> } = {
+const persistenceStrategies: { [key in keyof State ]?: PersistenceStratergy<any> } = {
   connections: connectionPersist,
   events: eventPersist,
   internalProperties: internalPropertyPersist,
@@ -20,4 +20,4 @@ const persistenceStratergies: { [key in keyof State ]?: PersistenceStratergy<any
   windows: windowPersist,
 };
 
-export default persistenceStratergies;
+export default persistenceStrategies;

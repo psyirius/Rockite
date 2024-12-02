@@ -1,4 +1,3 @@
-import React from 'react';
 import 'twin.macro';
 import ContextMenuAction from '../../../providers/context-menu-action';
 

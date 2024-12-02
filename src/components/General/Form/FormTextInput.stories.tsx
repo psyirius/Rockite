@@ -1,4 +1,3 @@
-import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import FormikDecorator, { FormikDecoratorProps } from '../../../../.storybook/decorators/FormikDecorator';
 import FormTextInput, { FormTextInputProps } from './FormTextInput';

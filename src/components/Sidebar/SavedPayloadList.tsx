@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import 'twin.macro';
 import SavedPayload from '../../models/saved-payload';
 import TextLimit from '../General/Utilities/TextLimit';

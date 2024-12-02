@@ -1,4 +1,3 @@
-import React from 'react';
 import 'twin.macro';
 import ConnectionModel from '../../models/connection';
 import EventsConnected from './Events/EventsConnected';

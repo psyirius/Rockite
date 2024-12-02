@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import useInitializeChromeRatingPrompt from './hooks/useInitializeChromeRatingPrompt';
 import useInitializeTourPrompt from './hooks/useInitializeTourPrompt';
 

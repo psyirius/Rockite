@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import tw from 'twin.macro';
 import { MdClose } from 'react-icons/md';
 import { GoDash, RiSettings3Line } from 'react-icons/all';

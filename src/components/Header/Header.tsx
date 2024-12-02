@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import tw from 'twin.macro';
 import { FaTh } from 'react-icons/fa';
 import Project from '../../models/project';

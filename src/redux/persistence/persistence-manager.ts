@@ -5,7 +5,7 @@ import { migrate } from '../migrations';
 import { internalPropertiesAppIsReady } from '../selectors/internal-properties';
 import State from '../state';
 import PersistenceDriver from './persistence-driver';
-import persistenceStratergies from './persistence-stratergies';
+import persistenceStrategies from './persistence-strategies';
 
 let driver: PersistenceDriver;
 
@@ -41,8 +41,8 @@ export const storeState = async (state: State) => {
   const transformedState = mapValues(
     state,
     (value, key) => (
-      (persistenceStratergies as any)[key]?.persist
-        ? (persistenceStratergies as any)[key as any].persist(value, state)
+      (persistenceStrategies as any)[key]?.persist
+        ? (persistenceStrategies as any)[key as any].persist(value, state)
         : value
     ),
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import tw from 'twin.macro';
 import ConnectionModel from '../../models/connection';
 import EmptyMessage from '../General/Utilities/EmptyMessage';

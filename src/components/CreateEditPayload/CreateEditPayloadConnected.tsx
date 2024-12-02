@@ -4,7 +4,7 @@ import { savedPayloadCreate, savedPayloadUpdate } from '../../redux/actions/save
 import State from '../../redux/state';
 import EditPayload from './CreateEditPayload';
 
-function mapStateToProps(state: State, props: any) {
+function mapStateToProps(_state: State, props: any) {
   return {
     name: props.savedPayload?.name || '',
     content: props.savedPayload?.content || '',

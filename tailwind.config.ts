@@ -1,4 +1,9 @@
-module.exports = {
+import type { Config } from 'tailwindcss'
+
+export default {
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+  ],
   theme: {
     screens: {
       sm: '640px',
@@ -147,4 +152,5 @@ module.exports = {
       },
     },
   },
-};
+  plugins: [],
+} satisfies Config

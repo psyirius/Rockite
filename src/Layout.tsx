@@ -1,4 +1,3 @@
-import React from 'react';
 import 'twin.macro';
 import ConnectionsConnected from './components/Connections/ConnectionsConnected';
 import SidebarConnected from './components/Sidebar/SidebarConnected';

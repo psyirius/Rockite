@@ -33,7 +33,7 @@ function useInitializeChromeRatingPrompt() {
               {
                 label: 'Give rating',
                 theme: 'primary',
-                onClick: () => window.open(config.chromeWebstoreLink, '_blank'),
+                onClick: () => window.open(config.chromeWebStoreLink, '_blank'),
               },
             ],
           },

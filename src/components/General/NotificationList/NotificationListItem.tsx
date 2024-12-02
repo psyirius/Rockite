@@ -1,4 +1,3 @@
-import React from 'react';
 import 'twin.macro';
 import { MdClose } from 'react-icons/md';
 import ButtonPrimary from '../Styled/ButtonPrimary';

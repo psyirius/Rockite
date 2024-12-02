@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import tw from 'twin.macro';
 import { useField, ErrorMessage } from 'formik';
 import Editor from '../Editor/Editor';

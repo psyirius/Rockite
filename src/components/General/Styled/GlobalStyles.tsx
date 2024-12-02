@@ -1,11 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
-import tw, { theme } from 'twin.macro';
+import tw, { theme, GlobalStyles as BaseStyles } from 'twin.macro';
 
 export interface GlobalStylesProps {
   backgroundColor?: string,
 }
 
-const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
+const CustomStyles = createGlobalStyle<GlobalStylesProps>`
   body {
     ${tw`text-base select-none bg-gray-50 dark:bg-gray-950`}
   }
@@ -58,4 +58,11 @@ const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
   }
 `;
 
-export default GlobalStyles;
+const GlobalStyles = () => (
+    <>
+        <BaseStyles />
+        <CustomStyles />
+    </>
+)
+
+export default GlobalStyles

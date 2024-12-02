@@ -1,6 +1,5 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { GlobalStyles as TwinGlobalStyles } from 'twin.macro';
 import Store from './redux/store';
 import LayoutConnected from './LayoutConnected';
 import { ContextMenuProvider } from './providers/ContextMenuProvider';
@@ -16,7 +15,6 @@ export default function App() {
   return (
     <React.StrictMode>
       <Provider store={Store}>
-        <TwinGlobalStyles />
         <GlobalStyles />
         <InitializeRedux>
           <ContextMenuProvider>

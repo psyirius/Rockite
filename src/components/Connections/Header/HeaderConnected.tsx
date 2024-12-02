@@ -28,7 +28,7 @@ function mapDispatchToProps(dispatch: Dispatch) {
   );
 }
 
-function mapStateToProps(state: State, { connection }: any) {
+function mapStateToProps(_state: State, { connection }: any) {
   return { connection };
 }
 

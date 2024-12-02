@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 import 'twin.macro';
 import { internalPropertiesAppIsReady } from '../redux/selectors/internal-properties';

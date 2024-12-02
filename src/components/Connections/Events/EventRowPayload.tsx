@@ -1,4 +1,3 @@
-import React from 'react';
 import Event, { EventFormat } from '../../../models/event';
 
 export interface EventRowPayloadPropTypes {

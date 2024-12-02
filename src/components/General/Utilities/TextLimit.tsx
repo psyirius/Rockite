@@ -1,5 +1,3 @@
-import React from 'react';
-
 export interface TextLimitProps {
   characters: number,
   children: string,

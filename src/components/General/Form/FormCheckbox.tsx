@@ -1,4 +1,3 @@
-import React from 'react';
 import tw from 'twin.macro';
 import { TiTick } from 'react-icons/all';
 import { useField } from 'formik';

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { theme } from 'twin.macro';
 import ButtonPrimary from '../Styled/ButtonPrimary';
 import ButtonSecondary from '../Styled/ButtonSecondary';

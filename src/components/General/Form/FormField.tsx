@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import 'twin.macro';
 import Spacer from '../Utilities/Spacer';
 

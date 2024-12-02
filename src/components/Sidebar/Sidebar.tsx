@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import 'twin.macro';
 import { FiEdit3, GoPlus } from 'react-icons/all';
 import SavedPayload from '../../models/saved-payload';

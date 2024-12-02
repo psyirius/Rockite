@@ -1,5 +1,5 @@
 import { keyBy, omit } from 'lodash';
-import persistenceStratergies from '../../redux/persistence/persistence-stratergies';
+import persistenceStrategies from '../../redux/persistence/persistence-strategies';
 import State from '../../redux/state';
 import Model from './model';
 import OrmAction, { Mutation, MutationType, OrmActionType } from './orm-action';
@@ -68,13 +68,13 @@ export default function createReducer<T extends Model>(table: keyof State) {
     }
 
     if (action.type === OrmActionType.BroadcastedMutations
-      && persistenceStratergies[table]?.shouldBroadcast
+      && persistenceStrategies[table]?.shouldBroadcast
     ) {
       return transformTable(
         table,
         state,
         (action.payload as any).payload,
-        persistenceStratergies[table]?.broadcast || doNothingTransformer,
+        persistenceStrategies[table]?.broadcast || doNothingTransformer,
       );
     }
 

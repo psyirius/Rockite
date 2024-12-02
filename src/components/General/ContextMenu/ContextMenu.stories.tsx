@@ -1,4 +1,3 @@
-import React from 'react';
 import 'twin.macro';
 import { action } from '@storybook/addon-actions';
 import { Story, Meta } from '@storybook/react/types-6-0';

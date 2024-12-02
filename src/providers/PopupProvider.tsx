@@ -1,4 +1,4 @@
-import React, {
+import {
   createContext,
   createElement,
   ReactElement,
@@ -37,7 +37,7 @@ export function PopupProvider({
   const push = async <T extends any>(
     title: string,
     component: any,
-    componentProps?: Object,
+    componentProps?: any,
   ): Promise<T> => {
     (document.activeElement as HTMLElement)?.blur?.();
 

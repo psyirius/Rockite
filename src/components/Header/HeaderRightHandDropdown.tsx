@@ -1,4 +1,4 @@
-import React, { createRef, useContext } from 'react';
+import { createRef, useContext } from 'react';
 import 'twin.macro';
 import config from '../../config';
 import isPlatform from '../../helpers/isPlatform';
@@ -26,7 +26,7 @@ export default function HeaderRightHandLinks() {
     linkActions.push({
       label: 'Chrome Extension',
       onClick: () => window.open(
-        config.chromeWebstoreLink,
+        config.chromeWebStoreLink,
         '_blank',
       ),
     });
@@ -35,7 +35,7 @@ export default function HeaderRightHandLinks() {
   linkActions.push({
     label: 'Bugs and feature requests',
     onClick: () => window.open(
-      config.githubIssuesLink,
+      config.issueTrackerLink,
       '_blank',
     ),
   });

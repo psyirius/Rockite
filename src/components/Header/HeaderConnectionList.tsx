@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { format, parseISO } from 'date-fns';
 import { FaCaretDown, GoPlus } from 'react-icons/all';
 import tw from 'twin.macro';

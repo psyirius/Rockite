@@ -1,4 +1,3 @@
-import React from 'react';
 import 'twin.macro';
 import { AiOutlineDelete } from 'react-icons/all';
 import useResizeObserver from 'use-resize-observer/polyfilled';

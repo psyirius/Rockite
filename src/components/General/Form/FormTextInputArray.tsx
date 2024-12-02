@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { MdClose } from 'react-icons/md';
 import tw from 'twin.macro';
 import { v4 as uuid } from 'uuid';
