@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import TextLimit, { TextLimitProps } from './TextLimit';
 
 export default {
@@ -6,7 +6,7 @@ export default {
   component: TextLimit,
 } as Meta;
 
-const Template: Story<TextLimitProps> = (args) => (
+const Template: StoryFn<TextLimitProps> = (args) => (
   <TextLimit {...args}>{args.children}</TextLimit>
 );
 

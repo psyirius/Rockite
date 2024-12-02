@@ -1,4 +1,4 @@
-import Event, { EventFormat } from '../../../models/event';
+import Event, { EventFormat } from '$models/event';
 
 export interface EventRowPayloadPropTypes {
   event: Event,

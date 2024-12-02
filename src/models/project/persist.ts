@@ -1,7 +1,7 @@
 import Project from '.';
-import PersistenceStratergy from '../../redux/persistence/persistence-stratergy';
+import PersistenceStrategy from '$redux/persistence/persistence-strategy.ts';
 
-const persist: PersistenceStratergy<Project> = {
+const persist: PersistenceStrategy<Project> = {
   shouldBroadcast: true,
   persist: (table) => table,
 };

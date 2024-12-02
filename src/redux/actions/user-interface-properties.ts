@@ -1,6 +1,6 @@
-import Project from '../../models/project';
-import Window from '../../models/window';
-import createOrmAction from '../../services/orm/create-orm-action';
+import Project from '$models/project';
+import Window from '$models/window';
+import createOrmAction from '$services/orm/create-orm-action';
 import { internalPropertiesInitializeWindowId } from './internal-properties';
 
 export const userInterfaceProjectSwitch = createOrmAction((

@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import socketProtocolArray from '../../services/shared-validators/socket-protocol-array';
+import socketProtocolArray from '$services/shared-validators/socket-protocol-array';
 
 export const Validator = {
   name: yup.string().required().label('Project Name').max(50),

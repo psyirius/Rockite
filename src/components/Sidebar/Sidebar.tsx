@@ -1,21 +1,21 @@
 import { useContext, useState } from 'react';
 import 'twin.macro';
 import { FiEdit3, GoPlus } from 'react-icons/all';
-import SavedPayload from '../../models/saved-payload';
+import SavedPayload from '$models/saved-payload';
 import EmptyMessage from '../General/Utilities/EmptyMessage';
 import SavedPayloadList from './SavedPayloadList';
 import Heading from '../General/Utilities/Heading';
-import Project from '../../models/project';
-import Connection from '../../models/connection';
-import { PopupContext } from '../../providers/PopupProvider';
+import Project from '$models/project';
+import Connection from '$models/connection';
+import { PopupContext } from '$providers/PopupProvider';
 import ButtonSecondary from '../General/Styled/ButtonSecondary';
 import SidebarSearch from './SidebarSearch';
-import useArrayFilter from '../../hooks/useArrayFilter';
+import useArrayFilter from '$hooks/useArrayFilter';
 import EditProjectReduxWrapper from '../EditProject/EditProjectReduxWrapper';
-import { tabCreateFromSavedPayload } from '../../redux/actions/tabs';
-import { savedPayloadRemove } from '../../redux/actions/saved-payloads';
+import { tabCreateFromSavedPayload } from '$redux/actions/tabs.ts';
+import { savedPayloadRemove } from '$redux/actions/saved-payloads.ts';
 import CreateEditPayloadConnected from '../CreateEditPayload/CreateEditPayloadConnected';
-import { connectionCreateFromSavedPayload } from '../../redux/actions/connections';
+import { connectionCreateFromSavedPayload } from '$redux/actions/connections.ts';
 
 export interface SidebarProps {
   savedPayloads: SavedPayload[],

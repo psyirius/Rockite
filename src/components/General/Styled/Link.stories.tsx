@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import Link from './Link';
 
 export default {
@@ -7,7 +7,7 @@ export default {
   argTypes: { },
 } as Meta;
 
-const Template: Story = (args) => (
+const Template: StoryFn = (args) => (
   <Link href="https://google.com">
     {args.children}
   </Link>

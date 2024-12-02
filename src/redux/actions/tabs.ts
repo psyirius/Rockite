@@ -1,8 +1,8 @@
 import { v4 as uuid } from 'uuid';
-import Connection from '../../models/connection';
-import SavedPayload from '../../models/saved-payload';
-import Tab from '../../models/tab';
-import createOrmAction from '../../services/orm/create-orm-action';
+import Connection from '$models/connection';
+import SavedPayload from '$models/saved-payload';
+import Tab from '$models/tab';
+import createOrmAction from '$services/orm/create-orm-action';
 
 export const tabCreate = createOrmAction((
   { builder },

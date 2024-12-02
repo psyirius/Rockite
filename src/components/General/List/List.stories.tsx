@@ -1,7 +1,7 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import List, { ListProps } from './List';
-import ContextMenuDecorator from '../../../../.storybook/decorators/ContextMenuDecorator';
-import DropdownMenuDecorator from '../../../../.storybook/decorators/DropdownMenuDecorator';
+import ContextMenuDecorator from ':storybook/decorators/ContextMenuDecorator';
+import DropdownMenuDecorator from ':storybook/decorators/DropdownMenuDecorator';
 import * as ListItem from './ListItem.stories';
 
 export default {
@@ -13,7 +13,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<ListProps> = (args) => (
+const Template: StoryFn<ListProps> = (args) => (
   <List>
     {args.children}
   </List>

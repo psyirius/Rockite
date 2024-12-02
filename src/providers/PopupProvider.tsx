@@ -5,10 +5,10 @@ import {
   ReactNode,
 } from 'react';
 import { Portal } from 'react-portal';
-import PopupManager from '../types/UserInterface/PopupManager';
-import useStack from '../hooks/useStack';
-import Deferred from '../helpers/deferred';
-import Popup from '../components/General/Popup/Popup';
+import PopupManager from '$types/UserInterface/PopupManager';
+import useStack from '$hooks/useStack';
+import Deferred from '$helpers/deferred';
+import Popup from '$components/General/Popup/Popup';
 
 type StackComponent = {
   title: string,

@@ -1,6 +1,6 @@
 import State from '../state';
-import Connection from '../../models/connection';
-import { dataSource } from '../../models/connection/query';
+import Connection from '$models/connection';
+import { dataSource } from '$models/connection/query';
 
 export const connectionsForProject = (state: State): Connection[] => (
   dataSource().withState(state)

@@ -1,10 +1,10 @@
-import Project from '../models/project';
-import Connection from '../models/connection';
-import SavedPayload from '../models/saved-payload';
-import Event from '../models/event';
-import Tab from '../models/tab';
-import { InternalProperties } from '../models/internal-property';
-import { UserInterfaceProperties } from '../models/user-interface-property';
+import Project from '$models/project';
+import Connection from '$models/connection';
+import SavedPayload from '$models/saved-payload';
+import Event from '$models/event';
+import Tab from '$models/tab';
+import { InternalProperties } from '$models/internal-property';
+import { UserInterfaceProperties } from '$models/user-interface-property';
 
 export default interface State {
   migrations: { [key: string]: any },

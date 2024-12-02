@@ -1,11 +1,11 @@
 import { useContext, useState } from 'react';
 import 'twin.macro';
-import SavedPayload from '../../models/saved-payload';
+import SavedPayload from '$models/saved-payload';
 import TextLimit from '../General/Utilities/TextLimit';
 import List from '../General/List/List';
 import ListItem from '../General/List/ListItem';
-import Connection from '../../models/connection';
-import { PopupContext } from '../../providers/PopupProvider';
+import Connection from '$models/connection';
+import { PopupContext } from '$providers/PopupProvider';
 import PopupConfirmation from '../General/PopupPresets/PopupConfirmation';
 import CreateEditPayloadConnected from '../CreateEditPayload/CreateEditPayloadConnected';
 import EmptyMessage from '../General/Utilities/EmptyMessage';

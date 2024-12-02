@@ -1,16 +1,16 @@
 import { useContext } from 'react';
 import 'twin.macro';
 import { format } from 'date-fns';
-import Project from '../../models/project';
-import ProjectValidator from '../../models/project/validator';
+import Project from '$models/project';
+import ProjectValidator from '$models/project/validator';
 import List from '../General/List/List';
 import ListItem from '../General/List/ListItem';
-import { PopupContext } from '../../providers/PopupProvider';
+import { PopupContext } from '$providers/PopupProvider.tsx';
 import PopupPrompt from '../General/PopupPresets/PopupPrompt';
 import PopupConfirmation from '../General/PopupPresets/PopupConfirmation';
 import ButtonPrimary from '../General/Styled/ButtonPrimary';
-import { projectCreate, projectRemoveRelatedItemsAndDelete } from '../../redux/actions/projects';
-import { userInterfaceProjectSwitch } from '../../redux/actions/user-interface-properties';
+import { projectCreate, projectRemoveRelatedItemsAndDelete } from '$redux/actions/projects.ts';
+import { userInterfaceProjectSwitch } from '$redux/actions/user-interface-properties.ts';
 
 export interface ProjectsProps {
   projects: Project[],

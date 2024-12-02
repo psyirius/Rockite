@@ -1,7 +1,7 @@
-import PersistenceStratergy from '../../redux/persistence/persistence-stratergy';
+import PersistenceStrategy from '$redux/persistence/persistence-strategy.ts';
 import SavedPayload from '.';
 
-const persist: PersistenceStratergy<SavedPayload> = {
+const persist: PersistenceStrategy<SavedPayload> = {
   shouldBroadcast: true,
   persist: (table) => table,
 };

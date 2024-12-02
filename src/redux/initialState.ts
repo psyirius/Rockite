@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 import State from './state';
-import { ConnectionSocketStatus } from '../models/connection';
+import { ConnectionSocketStatus } from '$models/connection';
 import { generateMigrationsWithKeys } from './migrations';
 
 export function createInitialState(): State {

@@ -1,6 +1,6 @@
 import 'twin.macro';
 import { action } from '@storybook/addon-actions';
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import ContextMenu, { ContextMenuProps } from './ContextMenu';
 
 export default {
@@ -34,7 +34,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<ContextMenuProps> = (args) => (
+const Template: StoryFn<ContextMenuProps> = (args) => (
   <ContextMenu {...args} />
 );
 

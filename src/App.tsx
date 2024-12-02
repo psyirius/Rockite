@@ -5,7 +5,7 @@ import LayoutConnected from './LayoutConnected';
 import { ContextMenuProvider } from './providers/ContextMenuProvider';
 import { DropdownMenuProvider } from './providers/DropdownMenuProvider';
 import { PopupProvider } from './providers/PopupProvider';
-import GlobalStyles from './components/General/Styled/GlobalStyles';
+import GlobalStyles from '$components/General/Styled/GlobalStyles';
 import InitializeRedux from './bootstrap/InitializeRedux';
 import NotificationsProvider from './providers/notifications/notifications.provider';
 import InitializeAfterContext from './bootstrap/InitializeAfterContext';

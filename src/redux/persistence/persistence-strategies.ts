@@ -1,15 +1,15 @@
 import State from '../state';
-import PersistenceStratergy from './persistence-stratergy';
-import connectionPersist from '../../models/connection/persist';
-import eventPersist from '../../models/event/persist';
-import internalPropertyPersist from '../../models/internal-property/persist';
-import projectPersist from '../../models/project/persist';
-import savedPayloadPersist from '../../models/saved-payload/persist';
-import tabPersist from '../../models/tab/persist';
-import userInterfacePropertyPersist from '../../models/user-interface-property/persist';
-import windowPersist from '../../models/window/persist';
+import PersistenceStrategy from './persistence-strategy.ts';
+import connectionPersist from '$models/connection/persist';
+import eventPersist from '$models/event/persist';
+import internalPropertyPersist from '$models/internal-property/persist';
+import projectPersist from '$models/project/persist';
+import savedPayloadPersist from '$models/saved-payload/persist';
+import tabPersist from '$models/tab/persist';
+import userInterfacePropertyPersist from '$models/user-interface-property/persist';
+import windowPersist from '$models/window/persist';
 
-const persistenceStrategies: { [key in keyof State ]?: PersistenceStratergy<any> } = {
+const persistenceStrategies: { [key in keyof State ]?: PersistenceStrategy<any> } = {
   connections: connectionPersist,
   events: eventPersist,
   internalProperties: internalPropertyPersist,

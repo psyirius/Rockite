@@ -1,6 +1,6 @@
 import State from '../state';
-import SavedPayload from '../../models/saved-payload';
-import { dataSource } from '../../models/saved-payload/query';
+import SavedPayload from '$models/saved-payload';
+import { dataSource } from '$models/saved-payload/query';
 
 export const savedPayloadsForProject = (state: State, projectId: string): SavedPayload[] => (
   dataSource().withState(state)

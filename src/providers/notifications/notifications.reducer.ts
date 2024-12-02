@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
-import reducer from '../../helpers/reducer/reducer';
-import Notification from '../../types/UserInterface/Notification';
+import reducer from '$helpers/reducer/reducer';
+import Notification from '$types/UserInterface/Notification';
 import NotificationsActions from './notifications.actions';
 
 export default reducer<Notification[]>({

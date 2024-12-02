@@ -1,7 +1,7 @@
-import PersistenceStratergy from '../../redux/persistence/persistence-stratergy';
+import PersistenceStrategy from '$redux/persistence/persistence-strategy.ts';
 import Tab from '.';
 
-const persist: PersistenceStratergy<Tab> = {
+const persist: PersistenceStrategy<Tab> = {
   shouldBroadcast: true,
   persist: (table) => table,
 };

@@ -1,5 +1,5 @@
 import 'twin.macro';
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import Spacer, { SpacerProps } from './Spacer';
 
 export default {
@@ -10,7 +10,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<SpacerProps> = (args) => (
+const Template: StoryFn<SpacerProps> = (args) => (
   <Spacer {...args} />
 );
 

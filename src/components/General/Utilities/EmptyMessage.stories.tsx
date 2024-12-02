@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import EmptyMessage, { EmptyMessageProps } from './EmptyMessage';
 
 export default {
@@ -7,7 +7,7 @@ export default {
   argTypes: { },
 } as Meta;
 
-const Template: Story<EmptyMessageProps> = (args) => (
+const Template: StoryFn<EmptyMessageProps> = (args) => (
   <EmptyMessage {...args}>
     {args.children}
   </EmptyMessage>

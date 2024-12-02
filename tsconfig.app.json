@@ -15,6 +15,21 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    "baseUrl": ".",
+    "paths": {
+      "$/*": ["./src/*"],
+      ":storybook/*": ["./.storybook/*"],
+      "$hooks/*": ["./src/hooks/*"],
+      "$redux/*": ["./src/redux/*"],
+      "$types/*": ["./src/types/*"],
+      "$models/*": ["./src/models/*"],
+      "$helpers/*": ["./src/helpers/*"],
+      "$services/*": ["./src/services/*"],
+      "$bootstrap/*": ["./src/bootstrap/*"],
+      "$providers/*": ["./src/providers/*"],
+      "$components/*": ["./src/components/*"],
+    },
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

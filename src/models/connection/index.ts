@@ -1,5 +1,5 @@
-import SocketProtocol from '../../types/socket-protocol';
-import Model from '../../services/orm/model';
+import SocketProtocol from '$types/socket-protocol';
+import Model from '$services/orm/model';
 
 export enum ConnectionSocketStatus {
   Disconnected,

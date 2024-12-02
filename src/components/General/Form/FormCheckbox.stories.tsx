@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import FormCheckbox, { FormCheckboxProps } from './FormCheckbox';
-import FormikDecorator, { FormikDecoratorProps } from '../../../../.storybook/decorators/FormikDecorator';
+import FormikDecorator, { FormikDecoratorProps } from ':storybook/decorators/FormikDecorator';
 
 export default {
   title: 'Form / Checkbox',
@@ -11,7 +11,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<FormCheckboxProps & FormikDecoratorProps> = (args) => (
+const Template: StoryFn<FormCheckboxProps & FormikDecoratorProps> = (args) => (
   <FormCheckbox {...args} />
 );
 

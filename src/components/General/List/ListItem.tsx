@@ -5,9 +5,9 @@ import React, {
 } from 'react';
 import { FaEllipsisH } from 'react-icons/fa';
 import tw from 'twin.macro';
-import { ContextMenuContext } from '../../../providers/ContextMenuProvider';
-import { DropdownMenuContext } from '../../../providers/DropdownMenuProvider';
-import ContextMenuAction from '../../../providers/context-menu-action';
+import { ContextMenuContext } from '$providers/ContextMenuProvider';
+import { DropdownMenuContext } from '$providers/DropdownMenuProvider';
+import ContextMenuAction from '$providers/context-menu-action';
 
 export interface ListItemProps {
   title: ReactElement | string,

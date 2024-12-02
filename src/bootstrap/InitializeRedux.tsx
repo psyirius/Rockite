@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 import 'twin.macro';
-import { internalPropertiesAppIsReady } from '../redux/selectors/internal-properties';
-import State from '../redux/state';
+import { internalPropertiesAppIsReady } from '$redux/selectors/internal-properties';
+import State from '$redux/state';
 import useInitializeRunCount from './hooks/useInitializeRunCount';
 import useInitializeWindowId from './hooks/useInitializeWindowId';
 

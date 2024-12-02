@@ -1,5 +1,5 @@
 import 'twin.macro';
-import ContextMenuAction from '../../../providers/context-menu-action';
+import ContextMenuAction from '$providers/context-menu-action';
 
 export type ContextMenuProps = {
   position: [number, number],

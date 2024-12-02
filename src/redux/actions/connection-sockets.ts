@@ -1,7 +1,7 @@
-import { EventType } from '../../models/event';
-import Connection, { ConnectionSocketStatus } from '../../models/connection';
-import SocketManager from '../../services/SocketManager';
-import createOrmAction from '../../services/orm/create-orm-action';
+import { EventType } from '$models/event';
+import Connection, { ConnectionSocketStatus } from '$models/connection';
+import SocketManager from '$services/SocketManager';
+import createOrmAction from '$services/orm/create-orm-action';
 import { eventsCreate } from './events';
 
 const manager = new SocketManager();

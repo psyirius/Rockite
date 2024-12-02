@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import State from '../../redux/state';
+import State from '$redux/state';
 import dataSources from './data-sources';
 import { Mutation, OrmActionType } from './orm-action';
 

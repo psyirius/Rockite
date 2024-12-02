@@ -9,7 +9,7 @@ import { loadState } from './persistence-manager';
 import channel from './persistence-broadcast-channel';
 import { PersistenceBroadcastChannelActionType } from './persistence-boardcast-channel-action';
 import { windowsMarkClosed } from '../actions/windows';
-import { OrmActionType } from '../../services/orm/orm-action';
+import { OrmActionType } from '$services/orm/orm-action';
 
 const loadStateAndDispatch = async (dispatch: Dispatch<any>) => (
   dispatch(

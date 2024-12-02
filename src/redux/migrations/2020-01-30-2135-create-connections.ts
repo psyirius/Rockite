@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid';
-import { ConnectionSocketStatus } from '../../models/connection';
+import { ConnectionSocketStatus } from '$models/connection';
 
 export default {
   id: '2020-01-30-2135-create-connections',

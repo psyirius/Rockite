@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import 'twin.macro';
 import PopupButtons from '../Popup/PopupButtons';
-import { PopupContext } from '../../../providers/PopupProvider';
+import { PopupContext } from '$providers/PopupProvider';
 import PopupBody from '../Popup/PopupBody';
 
 export interface PopupConfirmationProps {

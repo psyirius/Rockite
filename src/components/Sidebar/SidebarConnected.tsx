@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import State from '../../redux/state';
-import { savedPayloadsForCurrentProject } from '../../redux/selectors/savedPayloads';
-import { currentProject } from '../../redux/selectors/projects';
+import State from '$redux/state';
+import { savedPayloadsForCurrentProject } from '$redux/selectors/savedPayloads.ts';
+import { currentProject } from '$redux/selectors/projects.ts';
 import Sidebar from './Sidebar';
-import { connectionsForWindow } from '../../redux/selectors/connections';
-import { tabCreateFromSavedPayload } from '../../redux/actions/tabs';
-import { savedPayloadRemove } from '../../redux/actions/saved-payloads';
-import { connectionCreateFromSavedPayload } from '../../redux/actions/connections';
+import { connectionsForWindow } from '$redux/selectors/connections.ts';
+import { tabCreateFromSavedPayload } from '$redux/actions/tabs.ts';
+import { savedPayloadRemove } from '$redux/actions/saved-payloads.ts';
+import { connectionCreateFromSavedPayload } from '$redux/actions/connections.ts';
 
 function mapStateToProps(state: State) {
   return {

@@ -1,16 +1,16 @@
 import { useContext } from 'react';
 import tw from 'twin.macro';
 import { FaTh } from 'react-icons/fa';
-import Project from '../../models/project';
-import Connection from '../../models/connection';
-import Window from '../../models/window';
+import Project from '$models/project';
+import Connection from '$models/connection';
+import Window from '$models/window';
 import HeaderRightHandDropdown from './HeaderRightHandDropdown';
 import HeaderConnectionList from './HeaderConnectionList';
 import ProjectsConnected from '../Projects/ProjectsConnected';
-import { PopupContext } from '../../providers/PopupProvider';
+import { PopupContext } from '$providers/PopupProvider';
 import ButtonSecondary from '../General/Styled/ButtonSecondary';
 import { connectionCreate, connectionToggleMaximize, connectionUpdateName } from '../../redux/actions/connections';
-import { userInterfaceSidebarToggle } from '../../redux/actions/user-interface-properties';
+import { userInterfaceSidebarToggle } from '$redux/actions/user-interface-properties.ts';
 import SidebarIcon from '../General/Icons/SidebarIcon';
 import { windowsReassignConnectionsAndDelete, windowsRemoveClosedForProject } from '../../redux/actions/windows';
 

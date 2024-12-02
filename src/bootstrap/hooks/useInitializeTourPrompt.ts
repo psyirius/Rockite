@@ -1,11 +1,11 @@
 import { useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import NotificationsActions from '../../providers/notifications/notifications.actions';
-import { NotificationsDispatchContext } from '../../providers/notifications/notifications.provider';
-import TourActions from '../../providers/tour/tour.actions';
-import { TourDispatchContext } from '../../providers/tour/tour.provider';
-import { internalPropertiesSet } from '../../redux/actions/internal-properties';
-import State from '../../redux/state';
+import NotificationsActions from '$providers/notifications/notifications.actions';
+import { NotificationsDispatchContext } from '$providers/notifications/notifications.provider';
+import TourActions from '$providers/tour/tour.actions';
+import { TourDispatchContext } from '$providers/tour/tour.provider';
+import { internalPropertiesSet } from '$redux/actions/internal-properties.ts';
+import State from '$redux/state';
 
 function useInitializeTourPrompt() {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import { keyBy, omit } from 'lodash';
-import persistenceStrategies from '../../redux/persistence/persistence-strategies';
-import State from '../../redux/state';
+import persistenceStrategies from '$redux/persistence/persistence-strategies';
+import State from '$redux/state';
 import Model from './model';
 import OrmAction, { Mutation, MutationType, OrmActionType } from './orm-action';
 import Table from './table';

@@ -1,4 +1,4 @@
-import Model from '../../services/orm/model';
+import Model from '$services/orm/model';
 
 export default interface UserInterfaceProperty<T> extends Model {
   value: T,

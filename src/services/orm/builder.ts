@@ -1,4 +1,4 @@
-import State from '../../redux/state';
+import State from '$redux/state';
 import Model from './model';
 
 export default class Builder<T extends Model> {

@@ -6,8 +6,8 @@ import {
 } from 'react';
 import 'twin.macro';
 import { Portal } from 'react-portal';
-import NotificationList from '../../components/General/NotificationList/NotificationList';
-import Notification from '../../types/UserInterface/Notification';
+import NotificationList from '$components/General/NotificationList/NotificationList';
+import Notification from '$types/UserInterface/Notification';
 import notificationsReducer from './notifications.reducer';
 import NotificationsActions from './notifications.actions';
 

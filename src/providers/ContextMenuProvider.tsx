@@ -1,7 +1,7 @@
 import React, { createContext, ReactNode, useState } from 'react';
 import { Portal } from 'react-portal';
-import Deferred from '../helpers/deferred';
-import ContextMenu from '../components/General/ContextMenu/ContextMenu';
+import Deferred from '$helpers/deferred';
+import ContextMenu from '$components/General/ContextMenu/ContextMenu';
 import ContextMenuAction from './context-menu-action';
 
 interface Context {

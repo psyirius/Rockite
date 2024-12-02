@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import 'twin.macro';
-import { PopupContext } from '../../../providers/PopupProvider';
-import ConnectionValidators from '../../../models/connection/validator';
+import { PopupContext } from '$providers/PopupProvider';
+import ConnectionValidators from '$models/connection/validator';
 import PopupPrompt from '../../General/PopupPresets/PopupPrompt';
 
 export interface HeaderNameProps {

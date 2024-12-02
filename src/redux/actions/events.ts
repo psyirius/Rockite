@@ -1,8 +1,8 @@
 import { v4 as uuid } from 'uuid';
-import { EventType } from '../../models/event';
-import Connection from '../../models/connection';
-import detectPayloadFormat from '../../services/DetectPayloadFormat';
-import createOrmAction from '../../services/orm/create-orm-action';
+import { EventType } from '$models/event';
+import Connection from '$models/connection';
+import detectPayloadFormat from '$services/DetectPayloadFormat';
+import createOrmAction from '$services/orm/create-orm-action';
 
 export const eventsCreate = createOrmAction((
   { builder },

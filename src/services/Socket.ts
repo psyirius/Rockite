@@ -1,4 +1,4 @@
-import Connection from '../models/connection';
+import Connection from '$models/connection';
 
 export default class Socket {
   public socket?: WebSocket;

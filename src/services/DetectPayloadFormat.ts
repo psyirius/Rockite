@@ -1,4 +1,4 @@
-import { EventFormat } from '../models/event';
+import { EventFormat } from '$models/event';
 
 const isJson = (payload: string): boolean => {
   try {

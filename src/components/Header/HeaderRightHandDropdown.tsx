@@ -1,9 +1,9 @@
 import { createRef, useContext } from 'react';
 import 'twin.macro';
-import config from '../../config';
-import isPlatform from '../../helpers/isPlatform';
-import { DropdownMenuContext } from '../../providers/DropdownMenuProvider';
-import LabelClickAction from '../../types/UserInterface/LabelClickAction';
+import config from '$/config';
+import isPlatform from '$helpers/isPlatform';
+import { DropdownMenuContext } from '$providers/DropdownMenuProvider';
+import LabelClickAction from '$types/UserInterface/LabelClickAction';
 import ButtonSecondary from '../General/Styled/ButtonSecondary';
 
 export default function HeaderRightHandLinks() {

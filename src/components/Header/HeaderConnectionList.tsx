@@ -2,14 +2,14 @@ import { useContext, useState } from 'react';
 import { format, parseISO } from 'date-fns';
 import { FaCaretDown, GoPlus } from 'react-icons/all';
 import tw from 'twin.macro';
-import Connection from '../../models/connection';
-import ConnectionValidators from '../../models/connection/validator';
-import Window from '../../models/window';
-import { PopupContext } from '../../providers/PopupProvider';
-import { ContextMenuContext } from '../../providers/ContextMenuProvider';
+import Connection from '$models/connection';
+import ConnectionValidators from '$models/connection/validator';
+import Window from '$models/window';
+import { PopupContext } from '$providers/PopupProvider';
+import { ContextMenuContext } from '$providers/ContextMenuProvider';
 import PopupPrompt from '../General/PopupPresets/PopupPrompt';
 import ButtonSecondary from '../General/Styled/ButtonSecondary';
-import { DropdownMenuContext } from '../../providers/DropdownMenuProvider';
+import { DropdownMenuContext } from '$providers/DropdownMenuProvider';
 
 export interface HeaderConnectionListProps {
   windowConnections: Connection[],
@@ -110,7 +110,7 @@ export default function HeaderConnectionList({
               tw`rounded-lg p-2 mb-1`,
               closedTabsButtonActive && tw`bg-gray-300 dark:bg-gray-700`,
             ]}
-            onClick={async (event) => {
+            onClick={async (event: any) => {
               setClosedTabsButtonActive(true);
               await dropdownMenu.openForElement(
                 event.currentTarget as HTMLElement,

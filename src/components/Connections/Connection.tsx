@@ -1,5 +1,5 @@
 import 'twin.macro';
-import ConnectionModel from '../../models/connection';
+import ConnectionModel from '$models/connection';
 import EventsConnected from './Events/EventsConnected';
 import HeaderConnected from './Header/HeaderConnected';
 import EditorConnected from './Editor/EditorConnected';

@@ -1,6 +1,6 @@
-import Window from '../../models/window';
-import Project from '../../models/project';
-import createOrmAction from '../../services/orm/create-orm-action';
+import Window from '$models/window';
+import Project from '$models/project';
+import createOrmAction from '$services/orm/create-orm-action';
 
 export const windowsMarkClosed = createOrmAction((
   { builder },

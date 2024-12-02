@@ -1,6 +1,6 @@
 import State from '../state';
-import { dataSource } from '../../models/window/query';
-import Window from '../../models/window';
+import { dataSource } from '$models/window/query';
+import Window from '$models/window';
 
 export const closedWindowsForProject = (state: State): Window[] => (
   dataSource().withState(state)

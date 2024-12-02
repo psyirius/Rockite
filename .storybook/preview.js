@@ -1,16 +1,19 @@
-import { GlobalStyles as TwinGlobalStyles } from 'twin.macro';
 import GlobalStyles from '../src/components/General/Styled/GlobalStyles';
 
-export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
+/** @type {import('@storybook/react').Preview} */
+const preview = {
+  parameters: {
+    actions: { argTypesRegex: '^on.*' },
+  },
+  decorators: [
+      (Story) => (
+          <>
+            <GlobalStyles backgroundColor="white" />
+            <Story />
+          </>
+      ),
+  ],
+  tags: ['autodocs']
 };
 
-export const decorators = [
-  (Story) => (
-    <>
-      <TwinGlobalStyles />
-      <GlobalStyles backgroundColor="white" />
-      <Story />
-    </>
-  ),
-];
+export default preview;

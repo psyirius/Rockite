@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import ButtonSecondary from './ButtonSecondary';
 
 export default {
@@ -7,7 +7,7 @@ export default {
   component: ButtonSecondary,
 } as Meta;
 
-const Template: Story = (args) => (
+const Template: StoryFn = (args) => (
   <ButtonSecondary {...args}>
     {args.children}
   </ButtonSecondary>

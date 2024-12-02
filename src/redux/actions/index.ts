@@ -1,4 +1,4 @@
-import OrmAction, { OrmActionType } from '../../services/orm/orm-action';
+import OrmAction, { OrmActionType } from '$services/orm/orm-action';
 import State from '../state';
 
 export enum ActionType {

@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import FormEditor, { FormEditorProps } from './FormEditor';
-import FormikDecorator, { FormikDecoratorProps } from '../../../../.storybook/decorators/FormikDecorator';
+import FormikDecorator, { FormikDecoratorProps } from ':storybook/decorators/FormikDecorator';
 
 export default {
   title: 'Form / Editor',
@@ -11,7 +11,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<FormEditorProps & FormikDecoratorProps> = (args) => (
+const Template: StoryFn<FormEditorProps & FormikDecoratorProps> = (args) => (
   <FormEditor {...args} />
 );
 

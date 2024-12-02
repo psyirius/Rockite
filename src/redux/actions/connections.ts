@@ -1,11 +1,11 @@
 import { v4 as uuid } from 'uuid';
-import Project from '../../models/project';
-import SocketProtocol from '../../types/socket-protocol';
-import Connection, { ConnectionSocketStatus } from '../../models/connection';
+import Project from '$models/project';
+import SocketProtocol from '$types/socket-protocol';
+import Connection, { ConnectionSocketStatus } from '$models/connection';
 import { socketDisconnect } from './connection-sockets';
-import Tab from '../../models/tab';
-import createOrmAction from '../../services/orm/create-orm-action';
-import SavedPayload from '../../models/saved-payload';
+import Tab from '$models/tab';
+import createOrmAction from '$services/orm/create-orm-action';
+import SavedPayload from '$models/saved-payload';
 import { tabCreateFromSavedPayload } from './tabs';
 
 export const connectionCreate = createOrmAction((

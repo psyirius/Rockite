@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import SocketProtocol from '../../types/socket-protocol';
+import SocketProtocol from '$types/socket-protocol';
 
 export default () => yup.array()
   .test(

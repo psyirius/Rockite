@@ -1,4 +1,4 @@
-import Model from '../../services/orm/model';
+import Model from '$services/orm/model';
 
 export enum EventType {
   Meta,

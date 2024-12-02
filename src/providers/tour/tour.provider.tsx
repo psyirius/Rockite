@@ -5,7 +5,7 @@ import {
   useReducer,
 } from 'react';
 import tourReducer from './tour.reducer';
-import Tour from '../../components/General/Tour/Tour';
+import Tour from '$components/General/Tour/Tour';
 import TourActions from './tour.actions';
 
 export const TourDispatchContext = createContext<Dispatch<any> | null>(null);

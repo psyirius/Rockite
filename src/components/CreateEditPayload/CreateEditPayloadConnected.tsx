@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { savedPayloadCreate, savedPayloadUpdate } from '../../redux/actions/saved-payloads';
+import { savedPayloadCreate, savedPayloadUpdate } from '$redux/actions/saved-payloads.ts';
 import State from '../../redux/state';
 import EditPayload from './CreateEditPayload';
 

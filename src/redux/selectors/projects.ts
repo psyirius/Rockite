@@ -1,5 +1,5 @@
 import State from '../state';
-import Project from '../../models/project';
+import Project from '$models/project';
 
 export const projectById = (state: State, id: string): Project => (
   state.projects[id]

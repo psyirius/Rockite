@@ -1,5 +1,5 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
-import FormikDecorator, { FormikDecoratorProps } from '../../../../.storybook/decorators/FormikDecorator';
+import { StoryFn, Meta } from '@storybook/react';
+import FormikDecorator, { FormikDecoratorProps } from ':storybook/decorators/FormikDecorator';
 import FormTextInputArray, { FormTextInputArrayProps } from './FormTextInputArray';
 
 export default {
@@ -11,7 +11,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<FormTextInputArrayProps & FormikDecoratorProps> = (args) => (
+const Template: StoryFn<FormTextInputArrayProps & FormikDecoratorProps> = (args) => (
   <FormTextInputArray {...args} />
 );
 

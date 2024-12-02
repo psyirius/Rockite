@@ -1,7 +1,7 @@
 import UserInterfaceProperty from '.';
-import PersistenceStratergy from '../../redux/persistence/persistence-stratergy';
+import PersistenceStrategy from '$redux/persistence/persistence-strategy.ts';
 
-const persist: PersistenceStratergy<UserInterfaceProperty<any>> = {
+const persist: PersistenceStrategy<UserInterfaceProperty<any>> = {
   shouldBroadcast: false,
   persist: (table, state) => (
     {

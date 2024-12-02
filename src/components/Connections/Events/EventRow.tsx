@@ -6,7 +6,7 @@ import {
 } from 'react-icons/fa';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { MdDone, RiInformationLine } from 'react-icons/all';
-import Event, { EventType } from '../../../models/event';
+import Event, { EventType } from '$models/event';
 import EventRowPayload from './EventRowPayload';
 
 export interface EventRowProps {

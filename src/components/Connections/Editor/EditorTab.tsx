@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { MdClose } from 'react-icons/md';
 import tw from 'twin.macro';
-import TabModel from '../../../models/tab';
-import SavedPayload from '../../../models/saved-payload';
+import TabModel from '$models/tab';
+import SavedPayload from '$models/saved-payload';
 import TextLimit from '../../General/Utilities/TextLimit';
-import { ContextMenuContext } from '../../../providers/ContextMenuProvider';
+import { ContextMenuContext } from '$providers/ContextMenuProvider';
 
 export interface EditorTabProps {
   tab: TabModel,

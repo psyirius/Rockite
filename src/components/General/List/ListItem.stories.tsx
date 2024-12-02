@@ -1,8 +1,8 @@
 import { action } from '@storybook/addon-actions';
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import ListItem, { ListItemProps } from './ListItem';
-import ContextMenuDecorator from '../../../../.storybook/decorators/ContextMenuDecorator';
-import DropdownMenuDecorator from '../../../../.storybook/decorators/DropdownMenuDecorator';
+import ContextMenuDecorator from ':storybook/decorators/ContextMenuDecorator';
+import DropdownMenuDecorator from ':storybook/decorators/DropdownMenuDecorator';
 
 export default {
   title: 'List / List Item',
@@ -13,7 +13,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<ListItemProps> = (args) => (
+const Template: StoryFn<ListItemProps> = (args) => (
   <ListItem {...args} />
 );
 

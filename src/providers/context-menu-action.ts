@@ -1,4 +1,4 @@
-import LabelClickAction from '../types/UserInterface/LabelClickAction';
+import LabelClickAction from '$types/UserInterface/LabelClickAction';
 
 type ContextMenuAction = LabelClickAction | '-' | string;
 

@@ -1,9 +1,9 @@
 import { v4 as uuid } from 'uuid';
-import Project from '../../models/project';
-import Connection, { ConnectionSocketStatus } from '../../models/connection';
-import Tab from '../../models/tab';
-import Window from '../../models/window';
-import createOrmAction from '../../services/orm/create-orm-action';
+import Project from '$models/project';
+import Connection, { ConnectionSocketStatus } from '$models/connection';
+import Tab from '$models/tab';
+import Window from '$models/window';
+import createOrmAction from '$services/orm/create-orm-action';
 
 export const projectCreate = createOrmAction((
   { builder },

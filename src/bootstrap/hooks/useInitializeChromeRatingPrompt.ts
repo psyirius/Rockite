@@ -1,11 +1,11 @@
 import { useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import config from '../../config';
-import isPlatform from '../../helpers/isPlatform';
-import NotificationsActions from '../../providers/notifications/notifications.actions';
-import { NotificationsDispatchContext } from '../../providers/notifications/notifications.provider';
-import { internalPropertiesSet } from '../../redux/actions/internal-properties';
-import State from '../../redux/state';
+import config from '$/config';
+import isPlatform from '$helpers/isPlatform';
+import NotificationsActions from '$providers/notifications/notifications.actions';
+import { NotificationsDispatchContext } from '$providers/notifications/notifications.provider';
+import { internalPropertiesSet } from '$redux/actions/internal-properties.ts';
+import State from '$redux/state';
 
 function useInitializeChromeRatingPrompt() {
   const dispatch = useDispatch();

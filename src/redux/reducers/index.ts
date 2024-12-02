@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
 import State from '../state';
-import createReducer from '../../services/orm/reducer';
-import SavedPayload from '../../models/saved-payload';
-import Window from '../../models/window';
-import Project from '../../models/project';
-import Event from '../../models/event';
-import Tab from '../../models/tab';
-import Connection from '../../models/connection';
-import InternalProperty from '../../models/internal-property';
-import UserInterfaceProperty from '../../models/user-interface-property';
+import createReducer from '$services/orm/reducer';
+import SavedPayload from '$models/saved-payload';
+import Window from '$models/window';
+import Project from '$models/project';
+import Event from '$models/event';
+import Tab from '$models/tab';
+import Connection from '$models/connection';
+import InternalProperty from '$models/internal-property';
+import UserInterfaceProperty from '$models/user-interface-property';
 import { ActionType } from '../actions';
 
 const reducers = combineReducers({

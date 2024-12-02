@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import reducer from './reducers';
 import persistence from './persistence/persistence-middleware';
 import persistenceEnhancer from './persistence/persistence-enhancer';
-import env from '../helpers/env';
+import env from '$helpers/env';
 
 const enhancers = [
   applyMiddleware(thunk, persistence),

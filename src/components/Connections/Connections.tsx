@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import tw from 'twin.macro';
-import ConnectionModel from '../../models/connection';
+import ConnectionModel from '$models/connection';
 import EmptyMessage from '../General/Utilities/EmptyMessage';
 import Connection from './Connection';
-import useArrayInsertCallback from '../../hooks/useArrayInsertCallback';
+import useArrayInsertCallback from '$hooks/useArrayInsertCallback';
 import { ConnectionWrapperComponent } from './Connections.styles';
 
 export interface ConnectionsProps {

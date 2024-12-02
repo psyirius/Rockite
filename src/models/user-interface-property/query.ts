@@ -1,6 +1,6 @@
 import UserInterfaceProperty from '.';
 
-import { createDataSource, createMutableDataSource } from '../../services/orm/data-source';
+import { createDataSource, createMutableDataSource } from '$services/orm/data-source';
 
 export const mutableDataSource = createMutableDataSource<UserInterfaceProperty<string | number | boolean | null>>('userInterfaceProperties');
 

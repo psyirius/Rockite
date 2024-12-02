@@ -2,15 +2,15 @@ import { useContext } from 'react';
 import { Form, Formik } from 'formik';
 import * as yup from 'yup';
 import PopupButtons from '../General/Popup/PopupButtons';
-import { PopupContext } from '../../providers/PopupProvider';
+import { PopupContext } from '$providers/PopupProvider';
 import FormField from '../General/Form/FormField';
 import PopupBody from '../General/Popup/PopupBody';
 import FormCheckbox from '../General/Form/FormCheckbox';
 import FormTextInputArray from '../General/Form/FormTextInputArray';
 import Spacer from '../General/Utilities/Spacer';
 import Link from '../General/Styled/Link';
-import Connection from '../../models/connection';
-import ConnectionValidator from '../../models/connection/validator';
+import Connection from '$models/connection';
+import ConnectionValidator from '$models/connection/validator';
 import { connectionUpdateAutoReconnect, connectionUpdateProtocols } from '../../redux/actions/connections';
 
 export interface EditConnectionProps {

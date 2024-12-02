@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import 'twin.macro';
-import Project from '../../models/project';
-import { PopupContext } from '../../providers/PopupProvider';
+import Project from '$models/project';
+import { PopupContext } from '$providers/PopupProvider';
 import List from '../General/List/List';
 import ListItem from '../General/List/ListItem';
 import EditProjectConnectionDefaults from './EditProjectConnectionDefaults';
 import EditProjectGeneral from './EditProjectGeneral';
-import { projectUpdate } from '../../redux/actions/projects';
+import { projectUpdate } from '$redux/actions/projects.ts';
 
 export interface EditProjectProps {
   project: Project,

@@ -2,11 +2,11 @@ import { v4 as uuid } from 'uuid';
 import State from '../state';
 import channel from '../persistence/persistence-broadcast-channel';
 import { PersistenceBroadcastChannelActionType } from '../persistence/persistence-boardcast-channel-action';
-import sleep from '../../helpers/sleep';
-import createOrmAction from '../../services/orm/create-orm-action';
+import sleep from '$helpers/sleep';
+import createOrmAction from '$services/orm/create-orm-action';
 import { windowsMarkClosed } from './windows';
-import Window from '../../models/window';
-import Project from '../../models/project';
+import Window from '$models/window';
+import Project from '$models/project';
 
 export const connectionRemove = createOrmAction((
   { builder, state, dispatch },

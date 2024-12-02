@@ -1,4 +1,4 @@
-import Connection from '../models/connection';
+import Connection from '$models/connection';
 import Socket from './Socket';
 
 export default class SocketManager {

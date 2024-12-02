@@ -1,10 +1,10 @@
 import { mapValues } from 'lodash';
 import Connection, { ConnectionSocketStatus } from '.';
-import PersistenceStratergy from '../../redux/persistence/persistence-stratergy';
-import State from '../../redux/state';
-import Table from '../../redux/table';
+import PersistenceStrategy from '$redux/persistence/persistence-strategy.ts';
+import State from '$redux/state';
+import Table from '$redux/table';
 
-const persist: PersistenceStratergy<Connection> = {
+const persist: PersistenceStrategy<Connection> = {
   shouldBroadcast: true,
   broadcast: (model) => ({
     ...model,

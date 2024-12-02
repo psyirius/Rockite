@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import 'twin.macro';
-import Tab from '../../../models/tab';
-import SavedPayload from '../../../models/saved-payload';
-import Connection, { ConnectionSocketStatus } from '../../../models/connection';
+import Tab from '$models/tab';
+import SavedPayload from '$models/saved-payload';
+import Connection, { ConnectionSocketStatus } from '$models/connection';
 import ButtonPrimary from '../../General/Styled/ButtonPrimary';
 import ButtonSecondary from '../../General/Styled/ButtonSecondary';
 import Editor from '../../General/Editor/Editor';

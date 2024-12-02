@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { MdAccessTime, MdAddLocation } from 'react-icons/md';
 import Heading, { HeadingProps } from './Heading';
@@ -11,7 +11,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<HeadingProps> = (args) => (
+const Template: StoryFn<HeadingProps> = (args) => (
   <Heading {...args}>
     {args.children}
   </Heading>

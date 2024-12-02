@@ -1,5 +1,5 @@
 import { mapValues } from 'lodash';
-import env from '../../helpers/env';
+import env from '$helpers/env';
 import { createInitialState } from '../initialState';
 import { migrate } from '../migrations';
 import { internalPropertiesAppIsReady } from '../selectors/internal-properties';

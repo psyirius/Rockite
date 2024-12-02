@@ -1,15 +1,15 @@
 import { useContext } from 'react';
 import 'twin.macro';
 import { MdAdd } from 'react-icons/md';
-import TabModel from '../../../models/tab';
+import TabModel from '$models/tab';
 import Tab from './EditorTab';
-import SavedPayload from '../../../models/saved-payload';
-import SavedPayloadValidator from '../../../models/saved-payload/validator';
-import Connection from '../../../models/connection';
-import Project from '../../../models/project';
+import SavedPayload from '$models/saved-payload';
+import SavedPayloadValidator from '$models/saved-payload/validator';
+import Connection from '$models/connection';
+import Project from '$models/project';
 import EditorContent from './EditorContent';
 import PopupPrompt from '../../General/PopupPresets/PopupPrompt';
-import { PopupContext } from '../../../providers/PopupProvider';
+import { PopupContext } from '$providers/PopupProvider';
 import ButtonSecondary from '../../General/Styled/ButtonSecondary';
 import {
   tabClose,

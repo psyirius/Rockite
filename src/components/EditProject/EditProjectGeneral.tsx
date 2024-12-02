@@ -1,16 +1,16 @@
 import { useContext } from 'react';
 import { Form, Formik } from 'formik';
 import * as yup from 'yup';
-import Project from '../../models/project';
-import ProjectValidator from '../../models/project/validator';
+import Project from '$models/project';
+import ProjectValidator from '$models/project/validator';
 import PopupButtons from '../General/Popup/PopupButtons';
-import { PopupContext } from '../../providers/PopupProvider';
+import { PopupContext } from '$providers/PopupProvider';
 import FormField from '../General/Form/FormField';
 import FormTextInput from '../General/Form/FormTextInput';
 import PopupBody from '../General/Popup/PopupBody';
 import FormCheckbox from '../General/Form/FormCheckbox';
 import Spacer from '../General/Utilities/Spacer';
-import { projectUpdate } from '../../redux/actions/projects';
+import { projectUpdate } from '$redux/actions/projects.ts';
 
 export interface EditProjectProps {
   project: Project,

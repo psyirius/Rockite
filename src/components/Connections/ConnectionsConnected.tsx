@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import State from '../../redux/state';
-import { connectionsMaximizedForWindow, connectionsMinimizedForWindow } from '../../redux/selectors/connections';
+import State from '$redux/state';
+import { connectionsMaximizedForWindow, connectionsMinimizedForWindow } from '$redux/selectors/connections.ts';
 import Connections from './Connections';
 
 function mapStateToProps(state: State) {

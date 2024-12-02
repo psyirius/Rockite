@@ -1,18 +1,18 @@
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import State from '../../redux/state';
-import { currentProject } from '../../redux/selectors/projects';
+import State from '$redux/state';
+import { currentProject } from '$redux/selectors/projects.ts';
 import {
   connectionCreate,
   connectionDisconnectSocketAndRemove,
   connectionToggleMaximize,
   connectionUpdateName,
-} from '../../redux/actions/connections';
-import { connectionsForProject, connectionsForWindow } from '../../redux/selectors/connections';
-import { userInterfaceSidebarToggle } from '../../redux/actions/user-interface-properties';
+} from '$redux/actions/connections.ts';
+import { connectionsForProject, connectionsForWindow } from '$redux/selectors/connections.ts';
+import { userInterfaceSidebarToggle } from '$redux/actions/user-interface-properties.ts';
 import Header from './Header';
-import { closedWindowsForProject, currentWindow } from '../../redux/selectors/windows';
-import { windowsReassignConnectionsAndDelete, windowsRemoveClosedForProject } from '../../redux/actions/windows';
+import { closedWindowsForProject, currentWindow } from '$redux/selectors/windows.ts';
+import { windowsReassignConnectionsAndDelete, windowsRemoveClosedForProject } from '$redux/actions/windows.ts';
 
 export function mapDispatchToProps(dispatch: Dispatch) {
   return bindActionCreators(

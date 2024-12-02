@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import * as yup from 'yup';
 import { Formik, Form } from 'formik';
 import PopupButtons from '../Popup/PopupButtons';
-import { PopupContext } from '../../../providers/PopupProvider';
+import { PopupContext } from '$providers/PopupProvider';
 import FormTextInput from '../Form/FormTextInput';
 import PopupBody from '../Popup/PopupBody';
 

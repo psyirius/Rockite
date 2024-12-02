@@ -2,11 +2,11 @@ import { useContext, useState } from 'react';
 import tw from 'twin.macro';
 import { MdClose } from 'react-icons/md';
 import { GoDash, RiSettings3Line } from 'react-icons/all';
-import Connection, { ConnectionSocketStatus } from '../../../models/connection';
+import Connection, { ConnectionSocketStatus } from '$models/connection';
 import HeaderName from './HeaderName';
 import ButtonSecondary from '../../General/Styled/ButtonSecondary';
 import ButtonPrimary from '../../General/Styled/ButtonPrimary';
-import { PopupContext } from '../../../providers/PopupProvider';
+import { PopupContext } from '$providers/PopupProvider';
 import EditConnection from '../../EditConnection/EditConnection';
 import { socketConnect, socketDisconnect } from '../../../redux/actions/connection-sockets';
 import {

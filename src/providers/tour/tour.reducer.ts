@@ -1,4 +1,4 @@
-import reducer from '../../helpers/reducer/reducer';
+import reducer from '$helpers/reducer/reducer';
 import TourActions from './tour.actions';
 
 export default reducer<{ open: boolean }>({

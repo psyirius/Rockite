@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { internalPropertiesIncrement, internalPropertiesSet } from '../../redux/actions/internal-properties';
+import { internalPropertiesIncrement, internalPropertiesSet } from '$redux/actions/internal-properties.ts';
 
 function useInitializeRunCount(storeReady: boolean) {
   const dispatch = useDispatch();

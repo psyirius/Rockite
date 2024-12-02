@@ -1,4 +1,4 @@
-import State from '../../redux/state';
+import State from '$redux/state';
 import Builder from './builder';
 import Model from './model';
 import MutableBuilder from './mutable-builder';

@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tsconfigPaths from 'vite-tsconfig-paths'
 import {fileURLToPath} from 'node:url'
 
 const projectPath = (path: string) => fileURLToPath(new URL(path, import.meta.url));
@@ -34,6 +35,7 @@ export default defineConfig({
           'babel-plugin-styled-components'
         ],
       }
-    })
+    }),
+    tsconfigPaths(),
   ],
 })
