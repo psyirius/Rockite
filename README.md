@@ -13,26 +13,26 @@ WebSocket King is a tool designed to assist in developing and debugging WebSocke
 
 1. Clone project
 2. `cp .env.dev.example .env.dev`
-3. `yarn start`
+3. `pnpm start`
 
 ## Production
 
-### `yarn build:chrome`
+### `pnpm build:chrome`
 
 Builds the app for production (Chrome Extension) to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### `yarn build:web`
+### `pnpm build:web`
 
 Builds the app for production (web) to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### `yarn build:electron`
+### `pnpm build:electron`
 
 BETA. Builds the app for production (Electron) to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### `yarn eject`
+### `pnpm eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 

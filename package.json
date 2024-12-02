@@ -2,6 +2,18 @@
   "name": "websocket-king",
   "version": "4.0",
   "private": true,
+  "scripts": {
+    "start": "node_modules/.bin/env-cmd -f ./.env.dev react-scripts start",
+    "build:web": "node_modules/.bin/env-cmd -f ./.env.prod.web react-scripts build",
+    "build:chrome": "export INLINE_RUNTIME_CHUNK=false && node_modules/.bin/env-cmd -f ./.env.prod.chrome react-scripts build && node ./scripts/chrome.js",
+    "build:electron": "export INLINE_RUNTIME_CHUNK=false && node_modules/.bin/env-cmd -f ./.env.prod.electron react-scripts build && node ./scripts/electron.js",
+    "copy-env": "node ./scripts/copy-env",
+    "sentry:source-maps": "node ./scripts/sentry",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "start:storybook": "start-storybook -p 6006 -s public",
+    "build:storybook": "build-storybook -s public"
+  },
   "dependencies": {
     "@sentry/browser": "^5.14.2",
     "@testing-library/jest-dom": "^5.11.5",
@@ -63,18 +75,6 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "react-is": "^17.0.1"
-  },
-  "scripts": {
-    "start": "node_modules/.bin/env-cmd -f ./.env.dev react-scripts start",
-    "build:web": "node_modules/.bin/env-cmd -f ./.env.prod.web react-scripts build",
-    "build:chrome": "export INLINE_RUNTIME_CHUNK=false && node_modules/.bin/env-cmd -f ./.env.prod.chrome react-scripts build && node ./scripts/chrome.js",
-    "build:electron": "export INLINE_RUNTIME_CHUNK=false && node_modules/.bin/env-cmd -f ./.env.prod.electron react-scripts build && node ./scripts/electron.js",
-    "copy-env": "node ./scripts/copy-env",
-    "sentry:source-maps": "node ./scripts/sentry",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "start:storybook": "start-storybook -p 6006 -s public",
-    "build:storybook": "build-storybook -s public"
   },
   "browserslist": {
     "production": [
