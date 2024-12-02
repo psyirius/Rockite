@@ -2,7 +2,7 @@
 
 ## About
 
-WebSocket King is a a tool designed to assist in developing and debugging WebSocket connections.
+WebSocket King is a tool designed to assist in developing and debugging WebSocket connections.
 
 - Website - https://websocketking.com
 - Chrome Extension - https://chrome.google.com/webstore/detail/cbcbkhdmedgianpaifchdaddpnmgnknn
