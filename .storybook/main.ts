@@ -1,6 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-vite'
 
-export default {
+const config: StorybookConfig ={
   framework: {
     name: '@storybook/react-vite',
     options: {}
@@ -15,9 +15,11 @@ export default {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/preset-create-react-app',
     '@storybook/addon-controls',
     '@chromatic-com/storybook'
   ],
   docs: {},
-} satisfies StorybookConfig
+  staticDirs: ['../public'],
+}
+
+export default config
