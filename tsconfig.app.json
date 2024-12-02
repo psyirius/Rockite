@@ -15,10 +15,10 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    /* Path alias */
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      ":storybook/*": ["./.storybook/*"],
       "$lib/*": ["./src/lib/*"],
       "$hooks/*": ["./src/hooks/*"],
       "$redux/*": ["./src/redux/*"],
@@ -29,6 +29,7 @@
       "$bootstrap/*": ["./src/bootstrap/*"],
       "$providers/*": ["./src/providers/*"],
       "$components/*": ["./src/components/*"],
+      ":storybook/*": ["./.storybook/*"]
     },
 
     /* Linting */
@@ -38,5 +39,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "types"]
+  "include": ["src", "types", ".storybook"],
 }

@@ -1,4 +1,4 @@
-import { DropdownMenuProvider } from '../../src/providers/DropdownMenuProvider';
+import { DropdownMenuProvider } from '$providers/DropdownMenuProvider.tsx';
 
 export default function DropdownMenuDecorator(
   component: any,

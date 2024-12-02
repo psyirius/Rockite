@@ -1,4 +1,4 @@
-import { ContextMenuProvider } from '../../src/providers/ContextMenuProvider';
+import { ContextMenuProvider } from '$providers/ContextMenuProvider.tsx';
 
 export default function ContextMenuDecorator(
   component: any,

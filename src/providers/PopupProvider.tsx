@@ -1,6 +1,6 @@
 import {
   createContext,
-  createElement,
+  createElement, FunctionComponent,
   ReactElement,
   ReactNode,
 } from 'react';
@@ -36,7 +36,7 @@ export function PopupProvider({
 
   const push = async <T extends any>(
     title: string,
-    component: any,
+    component: FunctionComponent<any>,
     componentProps?: any,
   ): Promise<T> => {
     (document.activeElement as HTMLElement)?.blur?.();

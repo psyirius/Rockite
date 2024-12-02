@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from 'react';
+import {FunctionComponent, ReactElement} from 'react';
 
 export default interface PopupManager {
   visible: boolean,
@@ -6,5 +6,5 @@ export default interface PopupManager {
   component: ReactElement | null,
   popToRoot: () => void,
   pop: (value?: any) => void,
-  push: <T>(title: string, component: ReactNode, props?: any) => Promise<T>,
+  push: <T>(title: string, component: FunctionComponent<any>, props?: any) => Promise<T>,
 }
