@@ -45,6 +45,8 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "lightningcss": "^1.28.2",
+    "terser": "^5.36.0",
     "@dotenvx/dotenvx": "^1.26.2",
     "@storybook/addon-actions": "^8.4.6",
     "@storybook/addon-controls": "^8.4.6",
