@@ -3,6 +3,7 @@ import ConnectionsConnected from '$components/Connections/ConnectionsConnected';
 import SidebarConnected from '$components/Sidebar/SidebarConnected';
 import HeaderConnected from '$components/Header/HeaderConnected';
 import EmptyMessage from '$components/General/Utilities/EmptyMessage';
+import { Toaster } from "sonner";
 
 export interface LayoutProps {
   sidebarOpen: boolean,
@@ -46,6 +47,7 @@ export default function Layout({
           )}
         </div>
       </div>
+      <Toaster />
     </>
   );
 }

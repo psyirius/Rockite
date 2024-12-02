@@ -1,5 +1,8 @@
 import type { Config } from 'tailwindcss'
-import * as animate from 'tailwindcss-animate'
+import forms from '@tailwindcss/forms';
+import animate from 'tailwindcss-animate'
+import typography from '@tailwindcss/typography';
+import containerQueries from '@tailwindcss/container-queries';
 
 export default {
   content: [
@@ -192,9 +195,18 @@ export default {
         md: `calc(var(--radius) - 2px)`,
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        'dm-sans': ['"DM Sans"', 'sans-serif'],
+        'lexend': ['Lexend', 'sans-serif'],
+        'manrope': ['Manrope', 'sans-serif'],
+        'figtree': ['Figtree', 'sans-serif'],
+      }
     },
   },
   plugins: [
+    forms({ strategy: 'class' }),
+    typography({ className: 'prose' }),
+    containerQueries,
     animate,
   ],
 } satisfies Config
