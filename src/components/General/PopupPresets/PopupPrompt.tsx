@@ -17,7 +17,7 @@ export interface PopupPromptProps {
 export default function PopupPrompt({
   label,
   submitLabel,
-  defaultValue,
+  defaultValue = '',
   yupValidator,
   maxLength,
 }: PopupPromptProps) {
@@ -62,7 +62,3 @@ export default function PopupPrompt({
     </Formik>
   );
 }
-
-PopupPrompt.defaultValues = {
-  defaultValue: '',
-};

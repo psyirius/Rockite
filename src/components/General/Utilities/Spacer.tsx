@@ -5,7 +5,7 @@ export interface SpacerProps {
 }
 
 export default function Spacer({
-  size,
+  size = 'default',
 }: SpacerProps) {
   return (
     <div
@@ -17,7 +17,3 @@ export default function Spacer({
     />
   );
 }
-
-Spacer.defaultProps = {
-  size: 'default',
-};

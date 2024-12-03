@@ -23,8 +23,8 @@ export default function ListItem({
   subtitle,
   isSelected: isSelectedExternal,
   onClick,
-  primaryClickActions,
-  secondaryClickActions,
+  primaryClickActions = [],
+  secondaryClickActions = [],
 }: ListItemProps) {
   const contextMenu = useContext(ContextMenuContext);
   const dropdownMenu = useContext(DropdownMenuContext);
@@ -113,8 +113,3 @@ export default function ListItem({
     </li>
   );
 }
-
-ListItem.defaultProps = {
-  primaryClickActions: [],
-  secondaryClickActions: [],
-};
