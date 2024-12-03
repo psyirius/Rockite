@@ -77,26 +77,27 @@ export default function EventRow({
         </pre>
       </div>
 
-    <div
+      <div
         css={[
-            // tw`invisible group-hover:visible`,
-            tw`bg-gray-100 dark:bg-gray-800 rounded`,
-            layout === 'narrow' && tw`order-3`,
-            layout === 'wide' && tw`order-4`,
+          // tw`invisible group-hover:visible`,
+          event.type === EventType.Sent && tw`text-green-500 dark:text-green-200`,
+          event.type === EventType.Received && tw`text-red-500 dark:text-red-200`,
+          layout === 'narrow' && tw`order-3`,
+          layout === 'wide' && tw`order-4`,
         ]}
-    >
+      >
         {event.payloadType === EventPayloadType.Text && (
-            <div tw="text-green-500 dark:text-green-200 p-1 text-xs" title="Text">
-                <LuText size={14}/>
-            </div>
+          <div tw="bg-gray-100 dark:bg-gray-800 rounded p-1 text-xs" title="Text">
+            <LuText size={14}/>
+          </div>
         )}
 
         {event.payloadType === EventPayloadType.Binary && (
-            <div tw="text-green-500 dark:text-green-200 p-1 text-xs" title="Binary">
-                <LuBinary size={14}/>
-            </div>
+          <div tw="bg-gray-100 dark:bg-gray-800 rounded p-1 text-xs" title="Binary">
+            <LuBinary size={14}/>
+          </div>
         )}
-    </div>
+      </div>
 
       <div
         css={[

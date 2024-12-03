@@ -3,8 +3,10 @@ import {EventPayloadType, EventType} from '$models/event';
 import Connection from '$models/connection';
 import detectPayloadFormat from '$services/DetectPayloadFormat';
 import createOrmAction from '$services/orm/create-orm-action';
+import {blob2Uint8Array} from '$lib/blob'
+import { Buffer } from 'buffer';
 
-export const eventsCreate = createOrmAction(async (
+export const eventsCreate = createOrmAction((
   { builder },
   connection: Connection,
   type: EventType,
@@ -29,11 +31,12 @@ export const eventsCreate = createOrmAction(async (
 
     // message type is "binary" and if binaryType is "arraybuffer"
     if (payload instanceof ArrayBuffer) {
-      msg = new TextDecoder('utf-8').decode(payload);
+      msg = Buffer.from(payload).toString('hex')
     }
     // message type is "binary" and if binaryType is "blob" (with no media type)
     else if (payload instanceof Blob) {
-      msg = await payload.text();
+      const u8a = blob2Uint8Array(payload)
+      msg = Buffer.from(u8a).toString('hex')
     }
     // message type is "text"
     else {
