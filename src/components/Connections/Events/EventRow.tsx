@@ -1,12 +1,11 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import tw from 'twin.macro';
-import { format } from 'date-fns';
-import {
-  FaRegCopy, FaRegEdit, FaArrowUp, FaArrowDown,
-} from 'react-icons/fa';
+import {format} from 'date-fns';
+import {FaArrowDown, FaArrowUp, FaRegCopy, FaRegEdit,} from 'react-icons/fa';
+import { Text as LuText, Binary as LuBinary } from 'lucide-react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { MdDone, RiInformationLine } from 'react-icons/all';
-import Event, { EventType } from '$models/event';
+import {MdDone, RiInformationLine} from 'react-icons/all';
+import Event, {EventPayloadType, EventType} from '$models/event';
 import EventRowPayload from './EventRowPayload';
 
 export interface EventRowProps {
@@ -34,25 +33,32 @@ export default function EventRow({
       ]}
     >
       <div tw="order-1 flex flex-shrink-0">
+        {/* Timestamp */}
         <div tw="text-gray-400 dark:text-gray-600 font-mono">
           {format(new Date(event.timestamp), 'HH:mm ss.SS')}
         </div>
+
+        {/* Icon */}
         {event.type === EventType.Sent && (
           <div tw="text-green-500 dark:text-green-200 ml-2 p-1 text-xs">
-            <FaArrowUp title="Sent payload" />
+            <FaArrowUp title="Sent payload"/>
           </div>
         )}
+
         {event.type === EventType.Received && (
           <div tw="text-red-500 dark:text-red-200 ml-2 p-1 text-xs">
             <FaArrowDown title="Received payload" />
           </div>
         )}
+
         {event.type === EventType.Meta && (
           <div tw="text-gray-500 dark:text-gray-700 ml-2 p-1 text-xs">
             <RiInformationLine title="Information" />
           </div>
         )}
       </div>
+
+      {/* Payload */}
       <div
         css={[
           tw`flex-grow min-w-0 font-mono`,
@@ -70,6 +76,28 @@ export default function EventRow({
           />
         </pre>
       </div>
+
+    <div
+        css={[
+            // tw`invisible group-hover:visible`,
+            tw`bg-gray-100 dark:bg-gray-800 rounded`,
+            layout === 'narrow' && tw`order-3`,
+            layout === 'wide' && tw`order-4`,
+        ]}
+    >
+        {event.payloadType === EventPayloadType.Text && (
+            <div tw="text-green-500 dark:text-green-200 p-1 text-xs" title="Text">
+                <LuText size={14}/>
+            </div>
+        )}
+
+        {event.payloadType === EventPayloadType.Binary && (
+            <div tw="text-green-500 dark:text-green-200 p-1 text-xs" title="Binary">
+                <LuBinary size={14}/>
+            </div>
+        )}
+    </div>
+
       <div
         css={[
           tw`invisible group-hover:visible text-gray-400`,
