@@ -32,6 +32,9 @@ export default class Socket {
       return;
     }
 
+    // Use arraybuffer for binary messages for synchronous processing
+    this.socket.binaryType = 'arraybuffer';
+
     this.socket.onopen = () => {
       this.failedConnectionAttempts = 0;
       this.hasEverConnected = true;
@@ -92,7 +95,7 @@ export default class Socket {
     this.callbacks.onReconnect = callback;
   }
 
-  public onMessage(callback: (message: string) => void) {
+  public onMessage(callback: (message: string | Blob | ArrayBuffer) => void) {
     this.callbacks.onMessage = callback;
   }
 

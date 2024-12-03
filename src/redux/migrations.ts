@@ -13,6 +13,7 @@ import migration9 from "./migrations/2020-11-13-0822-remove-options-panel-open-f
 import migration10 from "./migrations/2020-11-15-1655-move-selected-project-id-to-user-interface";
 import migration11 from "./migrations/2020-11-22-2244-add-meta";
 import migration12 from "./migrations/2020-12-08-2201-add-user-interface-and-windows";
+import migration13 from "./migrations/2024-12-01-1638-add-payload-type-to-event";
 
 export const migrations = [
   migration0,
@@ -28,6 +29,7 @@ export const migrations = [
   migration10,
   migration11,
   migration12,
+  migration13,
 ];
 
 export const generateMigrationsWithKeys = () => {

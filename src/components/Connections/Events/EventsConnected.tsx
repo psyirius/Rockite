@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import Events from './Events';
-import State from '../../../redux/state';
-import { eventsRemoveForConnection } from '../../../redux/actions/events';
-import { eventsForConnection } from '../../../redux/selectors/events';
-import { tabCreate } from '../../../redux/actions/tabs';
-import { currentProject } from '../../../redux/selectors/projects';
+import State from '$redux/state';
+import { eventsRemoveForConnection } from '$redux/actions/events.ts';
+import { eventsForConnection } from '$redux/selectors/events.ts';
+import { tabCreate } from '$redux/actions/tabs.ts';
+import { currentProject } from '$redux/selectors/projects.ts';
 
 function mapStateToProps(state: State, props: any) {
   return {

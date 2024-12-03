@@ -15,7 +15,7 @@ export default function createOrmAction<T extends any[]>(
       dispatch: Dispatch<any>,
     },
     ...props: T
-  ) => void,
+  ) => void | Promise<void>,
 ) {
   return (...props: T) => (
     async (dispatch: Dispatch<any>, getState: () => State) => {
@@ -28,7 +28,7 @@ export default function createOrmAction<T extends any[]>(
           .withMutationsList(mutations) as any)
       );
 
-      await action({ builder, state, dispatch }, ...props);
+      await action({builder, state, dispatch}, ...props);
 
       if (mutations.length > 0) {
         dispatch({
