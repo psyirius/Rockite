@@ -1,14 +1,15 @@
 import { useContext, useState } from 'react';
 import tw from 'twin.macro';
 import { MdClose } from 'react-icons/md';
-import { GoDash, RiSettings3Line } from 'react-icons/all';
+import { GoDash } from 'react-icons/go';
+import { RiSettings3Line } from 'react-icons/ri';
 import Connection, { ConnectionSocketStatus } from '$models/connection';
 import HeaderName from './HeaderName';
 import ButtonSecondary from '../../General/Styled/ButtonSecondary';
 import ButtonPrimary from '../../General/Styled/ButtonPrimary';
 import { PopupContext } from '$providers/PopupProvider';
 import EditConnection from '../../EditConnection/EditConnection';
-import { socketConnect, socketDisconnect } from '../../../redux/actions/connection-sockets';
+import { socketConnect, socketDisconnect } from '$redux/actions/connection-sockets.ts';
 import {
   connectionDisconnectSocketAndRemove,
   connectionMinimize,
@@ -16,7 +17,7 @@ import {
   connectionUpdateName,
   connectionUpdateProtocols,
   connectionUpdateSocketUrl,
-} from '../../../redux/actions/connections';
+} from '$redux/actions/connections.ts';
 
 export interface HeaderProps {
   onWebSocketUrlChange: typeof connectionUpdateSocketUrl,

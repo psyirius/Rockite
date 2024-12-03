@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { format, parseISO } from 'date-fns';
-import { FaCaretDown, GoPlus } from 'react-icons/all';
+import { FaCaretDown } from 'react-icons/fa';
+import { GoPlus } from 'react-icons/go';
 import tw from 'twin.macro';
 import Connection from '$models/connection';
 import ConnectionValidators from '$models/connection/validator';

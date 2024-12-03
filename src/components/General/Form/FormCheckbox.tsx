@@ -1,5 +1,5 @@
 import tw from 'twin.macro';
-import { TiTick } from 'react-icons/all';
+import { TiTick } from 'react-icons/ti';
 import { useField } from 'formik';
 
 export interface FormCheckboxProps {

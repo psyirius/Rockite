@@ -1,17 +1,14 @@
-import { createStore } from 'redux';
-import State from '../state';
+import { StoreEnhancerStoreCreator } from '@reduxjs/toolkit';
 import { storeState } from './persistence-manager';
+import State from '../state';
 
-const persistenceEnhancer = (create: typeof createStore) => (
-  (
-    reducer: any,
-    initialState: Object,
-    enhancer: any,
-  ) => {
-    const store = create(reducer, initialState, enhancer);
+const persistenceEnhancer = (next: StoreEnhancerStoreCreator<any, any>) => (
+    (reducer: any, preloadedState?: any) => {
 
-    store.subscribe(() => {
-      storeState(store.getState() as State);
+    const store = next(reducer, preloadedState);
+
+    store.subscribe(async () => {
+      await storeState(store.getState() as State);
     });
 
     return store;

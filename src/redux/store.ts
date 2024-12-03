@@ -1,12 +1,11 @@
-import { applyMiddleware, compose, legacy_createStore as createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 import reducer from './reducers';
-import persistence from './persistence/persistence-middleware';
+import persistenceMiddleware from './persistence/persistence-middleware';
 import persistenceEnhancer from './persistence/persistence-enhancer';
 import env from '$helpers/env';
 
 const enhancers = [
-  applyMiddleware(thunk, persistence),
   persistenceEnhancer,
 ];
 
@@ -24,10 +23,12 @@ if (env('ENABLE_REDUX_DEV_TOOLS')) {
   /* eslint-enable */
 }
 
-const store: any = createStore(
+const store: any = configureStore({
   reducer,
-  { },
-  compose(...enhancers),
-);
+  middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(thunk, persistenceMiddleware),
+  enhancers: (defaultEnhancers) =>
+      defaultEnhancers.concat(enhancers),
+});
 
 export default store;

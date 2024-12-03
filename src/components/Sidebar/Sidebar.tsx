@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import 'twin.macro';
-import { FiEdit3, GoPlus } from 'react-icons/all';
+import { GoPlus } from 'react-icons/go';
+import { FiEdit3 } from 'react-icons/fi';
 import SavedPayload from '$models/saved-payload';
 import EmptyMessage from '../General/Utilities/EmptyMessage';
 import SavedPayloadList from './SavedPayloadList';

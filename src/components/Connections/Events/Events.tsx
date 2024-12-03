@@ -1,13 +1,13 @@
 import 'twin.macro';
-import { AiOutlineDelete } from 'react-icons/all';
+import { AiOutlineDelete } from 'react-icons/ai';
 import useResizeObserver from 'use-resize-observer/polyfilled';
 import Event from '$models/event';
 import EmptyMessage from '../../General/Utilities/EmptyMessage';
 import Heading from '../../General/Utilities/Heading';
 import Connection from '$models/connection';
 import EventRow from './EventRow';
-import { eventsRemoveForConnection } from '../../../redux/actions/events';
-import { tabCreate } from '../../../redux/actions/tabs';
+import { eventsRemoveForConnection } from '$redux/actions/events.ts';
+import { tabCreate } from '$redux/actions/tabs.ts';
 
 export interface EventsProps {
   connection: Connection,

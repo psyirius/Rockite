@@ -4,7 +4,8 @@ import {format} from 'date-fns';
 import {FaArrowDown, FaArrowUp, FaRegCopy, FaRegEdit,} from 'react-icons/fa';
 import { Text as LuText, Binary as LuBinary } from 'lucide-react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import {MdDone, RiInformationLine} from 'react-icons/all';
+import {MdDone} from 'react-icons/md';
+import {RiInformationLine} from 'react-icons/ri';
 import Event, {EventPayloadType, EventType} from '$models/event';
 import EventRowPayload from './EventRowPayload';
 

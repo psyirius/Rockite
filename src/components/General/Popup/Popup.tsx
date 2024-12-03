@@ -1,8 +1,8 @@
 import React from 'react';
 import 'twin.macro';
 import { MdClose } from 'react-icons/md';
-import { BsArrowRightShort } from 'react-icons/all';
-import PopupManager from '../../../types/UserInterface/PopupManager';
+import { BsArrowRightShort } from 'react-icons/bs';
+import PopupManager from '$types/UserInterface/PopupManager';
 
 export interface PopupProps {
   popup: PopupManager,
