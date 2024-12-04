@@ -45,9 +45,9 @@ export default function ListItem({
         onClick={async (event) => {
           if (primaryClickActions?.length) {
             setIsSelected(true);
-            await contextMenu.openForMouseEvent(
-              event,
-              primaryClickActions,
+            contextMenu.openForMouseEvent(
+                event,
+                primaryClickActions
             );
             setIsSelected(false);
           }
@@ -57,9 +57,9 @@ export default function ListItem({
         onContextMenu={async (event) => {
           if (secondaryClickActions?.length) {
             setIsSelected(true);
-            await contextMenu.openForMouseEvent(
-              event,
-              secondaryClickActions,
+            contextMenu.openForMouseEvent(
+                event,
+                secondaryClickActions
             );
             setIsSelected(false);
           }
@@ -86,7 +86,7 @@ export default function ListItem({
           <div
             role="presentation"
             css={[
-              tw`ml-2 text-xs text-gray-700 dark:text-gray-300 p-1 ml-2 hover:bg-gray-300 hover:dark:bg-gray-700`,
+              tw`ml-2 text-xs text-gray-700 dark:text-gray-300 p-1 ml-2 hover:bg-gray-300 hover:dark:bg-gray-700 rounded`,
               !isDropdownSelected && tw`invisible group-hover:visible`,
               isDropdownSelected && tw`bg-gray-300 dark:bg-gray-900 visible`,
             ]}
@@ -94,9 +94,9 @@ export default function ListItem({
               event.stopPropagation();
               setIsSelected(true);
               setIsDropdownSelected(true);
-              await dropdownMenu.openForElement(
-                event.currentTarget as HTMLElement,
-                secondaryClickActions!,
+              dropdownMenu.openForElement(
+                  event.currentTarget as HTMLElement,
+                  secondaryClickActions!
               );
               setIsSelected(false);
               setIsDropdownSelected(false);

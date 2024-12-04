@@ -70,7 +70,7 @@ export default function Editor({
         <ButtonSecondary
           type="button"
           title="New Tab"
-          tw="px-4 py-2 cursor-pointer flex items-center"
+          tw="px-2 py-2 cursor-pointer flex items-center"
           onClick={() => onCreateTab(connection)}
         >
           <MdAdd />

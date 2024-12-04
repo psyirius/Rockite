@@ -61,7 +61,7 @@ export default function Sidebar({
           </span>
           <ButtonSecondary
             type="button"
-            tw="p-2"
+            tw="p-2 rounded"
             title="Edit Project"
             onClick={() => popup.push(
               'Edit Project',

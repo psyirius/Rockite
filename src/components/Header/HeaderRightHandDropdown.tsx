@@ -42,7 +42,7 @@ export default function HeaderRightHandLinks() {
 
   return (
     <ButtonSecondary
-      tw="flex items-center text-xs text-gray-700 dark:text-gray-400 py-1 px-2 rounded-lg"
+      tw="flex items-center text-xs text-gray-700 dark:text-gray-400 py-1.5 px-2 rounded"
       ref={buttonElement}
       onClick={() => dropdown.openForElement(
         buttonElement.current!,
@@ -59,7 +59,7 @@ export default function HeaderRightHandLinks() {
         src="/images/logo16.png"
         alt="WebSocket King logo"
       />
-      <span>WebSocket King</span>
+      <span>{config.appName}</span>
     </ButtonSecondary>
   );
 }

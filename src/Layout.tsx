@@ -22,6 +22,7 @@ export default function Layout({
         <div tw="flex-grow-0">
           <HeaderConnected />
         </div>
+
         <div tw="flex flex-grow pb-2">
           {projectOpen && (
             <>

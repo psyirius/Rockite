@@ -113,7 +113,7 @@ export default function Header({
                 title="Connection Options"
                 css={[
                   tw`m-1 h-6 flex-none p-1 rounded`,
-                  connectionOptionsPopupOpen && tw`bg-gray-400`,
+                  connectionOptionsPopupOpen && tw`bg-gray-700`,
                   connection.socketStatus !== ConnectionSocketStatus.Disconnected && tw`text-gray-300 dark:text-gray-600`,
                   connection.socketStatus === ConnectionSocketStatus.Disconnected && tw`text-gray-600 dark:text-gray-300`,
                 ]}
@@ -144,7 +144,7 @@ export default function Header({
         <div tw="flex-none h-8 ml-2">
           <ButtonSecondary
             title="Minimize"
-            tw="px-2 h-8"
+            tw="px-2 h-8 rounded"
             onClick={() => onMinimize(connection)}
             type="button"
           >
@@ -152,7 +152,7 @@ export default function Header({
           </ButtonSecondary>
           <ButtonSecondary
             title="Close"
-            tw="px-2 h-8"
+            tw="px-2 h-8 rounded"
             onClick={() => onClose(connection)}
             type="button"
           >

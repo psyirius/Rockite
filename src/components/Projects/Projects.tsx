@@ -63,7 +63,7 @@ export default function Projects({
                 <>
                   Created
                   {' '}
-                  {project.createdAt ? format(new Date(project.createdAt), 'd MMM Y') : 'Unknown'}
+                  {project.createdAt ? format(new Date(project.createdAt), 'd MMM y') : 'Unknown'}
                 </>
               )}
               onClick={() => {

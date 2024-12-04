@@ -63,7 +63,7 @@ export default function EditorTab({
             event.stopPropagation();
             onClose();
           }}
-          tw="text-xs text-gray-700 dark:text-gray-400 p-1 ml-2 hover:bg-gray-500 hover:dark:bg-gray-700 hover:text-white cursor-pointer"
+          tw="text-xs text-gray-700 dark:text-gray-400 p-1 ml-2 hover:bg-gray-500 hover:dark:bg-gray-700 hover:text-white cursor-pointer rounded"
         >
           <MdClose />
         </div>
