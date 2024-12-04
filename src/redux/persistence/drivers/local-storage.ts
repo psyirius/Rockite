@@ -1,6 +1,7 @@
 import PersistenceDriver from '../persistence-driver';
+import config from "@/config.ts";
 
-const prefix: string = 'SocketKing';
+const prefix: string = config.persistencePrefix;
 
 const driver: PersistenceDriver = {
   load: () => {

@@ -24,7 +24,7 @@ function useInitializeChromeRatingPrompt() {
         notificationsDispatch({
           type: NotificationsActions.Push,
           payload: {
-            title: 'Enjoying WebSocket King?',
+            title: `Enjoying ${config.appName}?`,
             body: 'Why not leave a rating on the Chrome Web Store.',
             actions: [
               {

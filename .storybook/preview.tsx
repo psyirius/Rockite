@@ -1,7 +1,7 @@
-import type { Preview } from '@storybook/react';
-import { fn } from '@storybook/test';
+import type { Preview } from '@storybook/react'
+import { fn } from '@storybook/test'
 
-import GlobalStyles from '$components/General/Styled/GlobalStyles';
+import GlobalStyles from '$components/General/Styled/GlobalStyles'
 
 const preview: Preview = {
   parameters: {
@@ -18,6 +18,6 @@ const preview: Preview = {
       ),
   ],
   tags: ['autodocs']
-};
+}
 
-export default preview;
+export default preview

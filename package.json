@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "dotenvx run -f ./.env.dev -- vite",
+    "dev": "dotenvx run -f ./.env.dev -- vite dev",
     "preview": "dotenvx run -f ./.env.dev -- vite preview",
     "type-check": "tsc -b",
     "build:web": "dotenvx run -f ./.env.prod.web -- tsc -b && vite build",
@@ -20,6 +20,7 @@
     "@fontsource/figtree": "^5.1.1",
     "@fontsource/lexend": "^5.1.1",
     "@fontsource/manrope": "^5.1.0",
+    "@headlessui/react": "^2.2.0",
     "@reduxjs/toolkit": "^1.9.7",
     "@sentry/browser": "^8.42.0",
     "buffer": "^6.0.3",

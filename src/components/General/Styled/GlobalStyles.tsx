@@ -58,10 +58,10 @@ const CustomStyles = createGlobalStyle<GlobalStylesProps>`
   }
 `;
 
-const GlobalStyles = () => (
+const GlobalStyles = (props: GlobalStylesProps) => (
     <>
         <BaseStyles />
-        <CustomStyles />
+        <CustomStyles {...props} />
     </>
 )
 

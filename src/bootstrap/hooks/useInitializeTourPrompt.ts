@@ -6,6 +6,7 @@ import TourActions from '$providers/tour/tour.actions';
 import { TourDispatchContext } from '$providers/tour/tour.provider';
 import { internalPropertiesSet } from '$redux/actions/internal-properties.ts';
 import State from '$redux/state';
+import config from "@/config.ts";
 
 function useInitializeTourPrompt() {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ function useInitializeTourPrompt() {
           type: NotificationsActions.Push,
           payload: {
             title: 'Welcome!',
-            body: 'WebSocket King is a client for developing, testing and debugging WebSocket connections. Would you like to learn the basics?',
+            body: `${config.appName} is a client for developing, testing and debugging WebSocket connections. Would you like to learn the basics?`,
             actions: [
               {
                 label: 'No thanks',

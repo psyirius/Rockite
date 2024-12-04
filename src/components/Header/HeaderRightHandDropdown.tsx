@@ -57,7 +57,7 @@ export default function HeaderRightHandLinks() {
           /images/logo16.png 1x
         `}
         src="/images/logo16.png"
-        alt="WebSocket King logo"
+        alt={`${config.appName} logo`}
       />
       <span>{config.appName}</span>
     </ButtonSecondary>
