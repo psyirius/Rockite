@@ -1,6 +1,6 @@
 {
-  "short_name": "WebSocket King",
-  "name": "WebSocket King client: A testing and debugging tool for WebSockets",
+  "short_name": "Rockite",
+  "name": "Rockite: A testing and debugging tool for WebSockets",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,18 +8,18 @@
       "type": "image/x-icon"
     },
     {
-      "src": "images/logo192.png",
+      "src": "android-chrome-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "images/logo512.png",
+      "src": "android-chrome-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#6C09DC",
   "background_color": "#ffffff"
 }

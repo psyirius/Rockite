@@ -1,6 +1,6 @@
 {
-  "name": "websocket-king",
-  "version": "3.0",
+  "name": "rockite",
+  "version": "0.4",
   "main": "main.js",
   "scripts": {
     "start": "electron ."

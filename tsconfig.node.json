@@ -24,5 +24,6 @@
     "vite.config.ts",
     "tailwind.config.ts",
     "postcss.config.js",
+    "scripts"
   ],
 }

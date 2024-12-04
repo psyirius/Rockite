@@ -22,15 +22,16 @@ export default function HeaderRightHandLinks() {
     });
   }
 
-  if (!isPlatform('chrome')) {
-    linkActions.push({
-      label: 'Chrome Extension',
-      onClick: () => window.open(
-        config.chromeWebStoreLink,
-        '_blank',
-      ),
-    });
-  }
+  // Make sure to uncomment this block after getting the Chrome extension published
+  // if (!isPlatform('chrome')) {
+  //   linkActions.push({
+  //     label: 'Chrome Extension',
+  //     onClick: () => window.open(
+  //       config.chromeWebStoreLink,
+  //       '_blank',
+  //     ),
+  //   });
+  // }
 
   linkActions.push({
     label: 'Bugs and feature requests',

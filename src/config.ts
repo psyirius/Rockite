@@ -1,9 +1,10 @@
 const config = {
-  appName: 'WebSocket King',
-  persistencePrefix: 'SocketKing',
-  websiteLink: 'https://websocketking.com',
-  issueTrackerLink: 'https://github.com/tomlerendu/Websocket-King-Issues/issues',
-  chromeWebStoreLink: 'https://chrome.google.com/webstore/detail/cbcbkhdmedgianpaifchdaddpnmgnknn',
+  appName: 'Rockite',
+  persistencePrefix: 'RockitePrefs',
+  websiteLink: 'https://psyirius.github.io/rockite/',
+  issueTrackerLink: 'https://github.com/psyirius/rockite/issues',
+  // TODO: Update this link once the extension is published
+  chromeWebStoreLink: 'https://chrome.google.com/webstore/detail/aabbaabbccddccddeeffeeffgggghhhi',
 };
 
 export default config;

@@ -1,5 +1,5 @@
 const env = (name: string): string | boolean | number | undefined => {
-  const value = import.meta.env[`WSK_${name}`];
+  const value = import.meta.env[`ROCKITE_${name}`];
 
   if (value === 'true') {
     return true;

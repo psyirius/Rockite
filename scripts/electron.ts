@@ -1,5 +1,5 @@
-const fs = require('fs');
-const execSync = require('child_process').execSync;
+import fs from "node:fs";
+import { execSync } from "node:child_process";
 
 const workingDir = process.cwd();
 const buildDir = `${ workingDir }/build`;

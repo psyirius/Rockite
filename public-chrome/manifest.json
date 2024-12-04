@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "WebSocket King Client",
-  "short_name": "WebSocket King",
-  "version": "4.0",
+  "name": "Rockite WebSocket Client",
+  "short_name": "Rockite",
+  "version": "0.4",
   "permissions": [
     "unlimitedStorage"
   ],
@@ -16,7 +16,7 @@
       "19": "images/logo19.png",
       "38": "images/logo38.png"
     },
-    "default_title": "WebSocket King"
+    "default_title": "Rockite"
   },
   "commands" : {
     "_execute_browser_action": {

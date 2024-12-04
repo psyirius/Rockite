@@ -1,19 +1,29 @@
-# Websocket King
+<p style="text-align: center;">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/psyirius/rockite/master/images/rockite-dark.svg">
+    <img alt="Rockite - Modern WebSockets Client" src="https://raw.githubusercontent.com/psyirius/rockite/master/images/rockite-light.svg" width="256px">
+  </picture>
+</p>
 
-## About
+<div style="text-align: center;">
 
-WebSocket King is a tool designed to assist in developing and debugging WebSocket connections.
+[![License](https://img.shields.io/npm/l/nx.svg?style=flat-square)]()
 
-- Website - https://websocketking.com
-- Chrome Extension - https://chrome.google.com/webstore/detail/cbcbkhdmedgianpaifchdaddpnmgnknn
+</div>
 
-![Banner](public/images/banner-small.png)
+<hr>
+
+# Rockite
+
+Rockite is a tool designed to assist in developing and debugging WebSocket connections.
+
+#### Rockite is a fork of the original project: [WebSocket King](https://github.com/tomlerendu/Websocket-King)
 
 ## Development
 
-1. Clone project
-2. `cp .env.dev.example .env.dev`
-3. `pnpm start`
+1. Clone the project repo
+2. `pnpm copy-env`
+3. `pnpm dev`
 
 ## Production
 
@@ -31,13 +41,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 BETA. Builds the app for production (Electron) to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
-
-### `pnpm eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.

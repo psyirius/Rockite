@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
   return {
     publicDir: projectPath('public'),
     envDir: projectPath('.'),
-    envPrefix: 'WSK_',
+    envPrefix: 'ROCKITE_',
     build: {
       emptyOutDir: true,
       assetsDir: 'assets',
