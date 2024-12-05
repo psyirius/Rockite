@@ -26,10 +26,12 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 
 ## Features
 
+- No Account Required (Data stored locally)
 - Projects
 - Connections
 - Payloads
 - Connection History
+- Light & Dark Mode
 - Incoming Text & Binary Messages
 - Outgoing Text Messages (Binary coming soon)
 - Custom WebSocket Protocols
@@ -40,10 +42,9 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 - Collections
 - Import/Export
 - Binary data support
-- Light and dark mode
-- Hotkeys support
 - Custom HTTP headers
 - Connection Timeout
+- Optional Cloud Sync
 - Hex and Syntax Highlighted Editor & Viewer
 - Low-level logging in Desktop builds
 - Other Real-time protocols support like MQTT, Socket.io, etc.

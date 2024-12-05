@@ -1,7 +1,7 @@
-import GlobalStyles from '$components/General/Styled/GlobalStyles'
 import React from 'react'
 import { Provider } from 'react-redux'
 import LayoutConnected from './LayoutConnected'
+import GlobalStyles from '$components/General/Styled/GlobalStyles'
 import InitializeAfterContext from './bootstrap/InitializeAfterContext'
 import InitializeRedux from './bootstrap/InitializeRedux'
 import { ContextMenuProvider } from './providers/ContextMenuProvider'

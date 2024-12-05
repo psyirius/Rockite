@@ -6,7 +6,7 @@ import type LabelClickAction from '$types/UserInterface/LabelClickAction'
 import config from '@/config'
 import ButtonSecondary from '../General/Styled/ButtonSecondary'
 
-export default function HeaderRightHandLinks() {
+export default function HeaderRightHandDropdown() {
   const dropdown = useContext(DropdownMenuContext)
   const buttonElement = createRef<HTMLButtonElement>()
 

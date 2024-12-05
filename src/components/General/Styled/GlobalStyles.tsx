@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
 import tw, { theme, GlobalStyles as BaseStyles } from 'twin.macro'
+import { createGlobalStyle } from 'styled-components'
 
 export interface GlobalStylesProps {
   backgroundColor?: string
@@ -7,10 +7,10 @@ export interface GlobalStylesProps {
 
 const CustomStyles = createGlobalStyle<GlobalStylesProps>`
   body {
-    ${tw`text-base select-none bg-gray-50 dark:bg-gray-950`}
+    ${tw`text-base select-none`}
   }
   
-  #root {
+  #app {
     ${tw`h-screen text-sm`}
   }
   
@@ -23,23 +23,22 @@ const CustomStyles = createGlobalStyle<GlobalStylesProps>`
   }
 
   .editor {
-    @media (prefers-color-scheme: light) {
-      .token {
-        &.punctuation {
-          color: ${theme`colors.gray.900`};
-        }
-        &.property {
-          color: ${theme`colors.teal.700`};
-        }
-        &.operator {
-          color: ${theme`colors.gray.700`};
-        }
-        &.string {
-          color: ${theme`colors.blue.900`};
-        }
+    .token {
+      &.punctuation {
+        color: ${theme`colors.gray.900`};
+      }
+      &.property {
+        color: ${theme`colors.teal.700`};
+      }
+      &.operator {
+        color: ${theme`colors.gray.700`};
+      }
+      &.string {
+        color: ${theme`colors.blue.900`};
       }
     }
-    @media (prefers-color-scheme: dark) {
+    
+    .dark {
       .token {
         &.punctuation {
           color: ${theme`colors.gray.100`};

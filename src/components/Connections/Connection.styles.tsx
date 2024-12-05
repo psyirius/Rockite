@@ -10,7 +10,8 @@ export const ConnectionComponent = styled.div(({ highlighted }: { highlighted: b
         ${tw`transition-all duration-300 absolute inset-0 pointer-events-none z-30 rounded-lg`}
         content: "";
         box-shadow: inset 0 0 0 ${highlighted ? `2px ${purpleLight}` : '0 transparent'};
-        @media (prefers-color-scheme: dark) {
+        
+        .dark {
           box-shadow: inset 0 0 0 ${highlighted ? `2px ${purpleDark}` : '0 transparent'};
         }
       }

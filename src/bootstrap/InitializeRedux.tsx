@@ -1,5 +1,4 @@
 import 'twin.macro'
-import { internalPropertiesAppIsReady } from '$redux/selectors/internal-properties'
 import type State from '$redux/state'
 import config from '@/config'
 import { motion } from 'motion/react'
@@ -7,6 +6,37 @@ import type { ReactNode } from 'react'
 import { useSelector } from 'react-redux'
 import useInitializeRunCount from './hooks/useInitializeRunCount'
 import useInitializeWindowId from './hooks/useInitializeWindowId'
+import { internalPropertiesAppIsReady } from '$redux/selectors/internal-properties'
+
+const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+const themeChangeHandler = (isDark: boolean) => {
+  console.log('Dark mode changed to:', isDark)
+
+  // check localStorage for theme
+  const theme = localStorage.getItem('theme')
+
+  document.body.classList.remove('light')
+  document.body.classList.remove('dark')
+
+  if (!theme) { // follow system theme
+    if (isDark) {
+      document.body.classList.add('dark')
+    } else {
+      document.body.classList.add('light')
+    }
+  } else {
+    if (theme === 'dark') {
+      document.body.classList.add('dark')
+    } else {
+      document.body.classList.add('light')
+    }
+  }
+}
+
+darkModeMediaQuery.addEventListener('change', (e) => themeChangeHandler(e.matches))
+
+themeChangeHandler(darkModeMediaQuery.matches)
 
 export interface InitializeReduxProps {
   children: ReactNode
@@ -14,7 +44,6 @@ export interface InitializeReduxProps {
 
 export default function InitializeRedux({ children }: InitializeReduxProps) {
   const storeReady = useSelector<State, boolean>((state) => state.internalProperties !== null)
-
   const reduxReady = useSelector<State, boolean>((state) => internalPropertiesAppIsReady(state))
 
   useInitializeRunCount(storeReady)
@@ -22,7 +51,7 @@ export default function InitializeRedux({ children }: InitializeReduxProps) {
 
   return (
     <>
-      {!reduxReady && (
+      {reduxReady ? children : (
         <div tw="h-full p-10">
           <motion.div
             tw="flex flex-col h-full items-center justify-center"
@@ -39,7 +68,6 @@ export default function InitializeRedux({ children }: InitializeReduxProps) {
           </motion.div>
         </div>
       )}
-      {reduxReady && children}
     </>
   )
 }

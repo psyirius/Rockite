@@ -1,13 +1,14 @@
+import tw from 'twin.macro'
+import { useContext } from 'react'
+import { FaTh } from 'react-icons/fa'
+import ThemeSwitch from '$components/General/Utilities/ThemeSwitch'
 import type Connection from '$models/connection'
 import type Project from '$models/project'
 import type Window from '$models/window'
 import { PopupContext } from '$providers/PopupProvider'
-import type { connectionCreate, connectionToggleMaximize, connectionUpdateName } from '$redux/actions/connections'
 import type { userInterfaceSidebarToggle } from '$redux/actions/user-interface-properties'
+import type { connectionCreate, connectionToggleMaximize, connectionUpdateName } from '$redux/actions/connections'
 import type { windowsReassignConnectionsAndDelete, windowsRemoveClosedForProject } from '$redux/actions/windows'
-import { useContext } from 'react'
-import { FaTh } from 'react-icons/fa'
-import tw from 'twin.macro'
 import SidebarIcon from '../General/Icons/SidebarIcon'
 import ButtonSecondary from '../General/Styled/ButtonSecondary'
 import ProjectsConnected from '../Projects/ProjectsConnected'
@@ -88,8 +89,13 @@ export default function Header({
           />
         </div>
       )}
-      <div tw="w-40 pr-1 flex flex-shrink-0 flex-col items-end">
-        <HeaderRightHandDropdown />
+      <div tw="pr-1 flex items-end gap-x-2 items-center">
+        <div tw="flex items-center">
+          <ThemeSwitch/>
+        </div>
+        <div tw="flex items-center">
+          <HeaderRightHandDropdown/>
+        </div>
       </div>
     </header>
   )

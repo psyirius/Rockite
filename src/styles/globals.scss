@@ -54,6 +54,7 @@
 @layer base {
   * {
     @apply border-border;
+    @apply dark:border-gray-50;
   }
   body {
     @apply font-lexend antialiased bg-background text-foreground;
