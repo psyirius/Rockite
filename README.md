@@ -13,9 +13,7 @@
 
 </div>
 
-<hr>
-
-# Rockite
+<h1 align="center">Rockite</h1>
 
 Rockite is a tool designed to assist in developing and debugging WebSocket connections.
 
