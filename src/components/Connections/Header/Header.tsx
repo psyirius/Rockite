@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import {useContext, useEffect, useState} from 'react';
 import tw from 'twin.macro';
 import { MdClose } from 'react-icons/md';
 import { GoDash } from 'react-icons/go';
@@ -43,8 +43,16 @@ export default function Header({
   connection,
 }: HeaderProps) {
   const popup = useContext(PopupContext);
+  const [connectionUrl, setConnectionUrl] = useState(connection.socketUrl);
   const [socketUrlInputFocused, setSocketUrlInputFocused] = useState<boolean>(false);
   const [connectionOptionsPopupOpen, setConnectionOptionsPopupOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    onWebSocketUrlChange(
+      connection,
+      connectionUrl,
+    );
+  }, [connectionUrl]);
 
   const connectOrDisconnectClick = () => {
     if (connection.socketStatus === ConnectionSocketStatus.Disconnected) {
@@ -87,13 +95,10 @@ export default function Header({
                   type="text"
                   placeholder="WebSocket URL"
                   tw="w-full py-1 pl-2 pr-1 bg-transparent text-gray-900 dark:text-gray-100"
-                  onChange={(event) => onWebSocketUrlChange(
-                    connection,
-                    (event.target as HTMLInputElement).value,
-                  )}
+                  onChange={(event) => setConnectionUrl(event.target.value)}
                   onFocus={() => setSocketUrlInputFocused(true)}
                   onBlur={() => setSocketUrlInputFocused(false)}
-                  value={connection.socketUrl}
+                  value={connectionUrl}
                 />
               </label>
               <ButtonSecondary
