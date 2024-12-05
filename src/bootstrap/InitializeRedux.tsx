@@ -2,7 +2,7 @@ import 'twin.macro'
 import { internalPropertiesAppIsReady } from '$redux/selectors/internal-properties'
 import type State from '$redux/state'
 import config from '@/config'
-import { motion } from 'motion/react'
+import { AnimatePresence, motion } from 'motion/react'
 import type { ReactNode } from 'react'
 import { useSelector } from 'react-redux'
 import useInitializeRunCount from './hooks/useInitializeRunCount'
@@ -48,16 +48,17 @@ export default function InitializeRedux({ children }: InitializeReduxProps) {
   useInitializeRunCount(storeReady)
   useInitializeWindowId(storeReady)
 
-  return (
-    <>
-      {reduxReady ? (
-        children
-      ) : (
-        <div tw="h-full p-10">
+  return reduxReady ? (
+    <div tw="h-full">{children}</div>
+  ) : (
+    <AnimatePresence>
+      {!reduxReady && (
+        <div tw="h-full p-10" key="splash-overlay">
           <motion.div
             tw="flex flex-col h-full items-center justify-center"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
+            key="logo"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
           >
             <img
               tw="w-16 h-16 animate-bounce"
@@ -69,6 +70,6 @@ export default function InitializeRedux({ children }: InitializeReduxProps) {
           </motion.div>
         </div>
       )}
-    </>
+    </AnimatePresence>
   )
 }
