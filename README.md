@@ -23,7 +23,8 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 
 ## Screenshots
 
-![App Screenshot](/images/screenshot-0.png)
+![Rockite - First Look](/images/screenshot-0.png)
+![Rockite - Dual Pane](/images/screenshot-1.png)
 
 ## Roadmap
 
