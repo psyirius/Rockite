@@ -45,8 +45,12 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 - Hotkeys support
 - Custom HTTP headers
 - Hex and Syntax Highlighted Editor & Viewer
-- Low-level logging in Electron/Tauri build
+- Low-level logging in Desktop builds
 - Other Real-time protocols support like MQTT, Socket.io, etc.
+
+## Limitations
+
+- No access to localhost servers in web version (available in Desktop and Chrome Extension)
 
 ## Development
 
