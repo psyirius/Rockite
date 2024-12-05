@@ -1,11 +1,13 @@
-<p style="text-align: center;">
+<div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/psyirius/rockite/master/images/rockite-dark.svg">
     <img alt="Rockite - Modern WebSockets Client" src="https://raw.githubusercontent.com/psyirius/rockite/master/images/rockite-light.svg" width="256px">
   </picture>
-</p>
+</div>
 
-<div style="text-align: center;">
+###
+
+<div align="center">
 
 [![License](https://img.shields.io/npm/l/nx.svg?style=flat-square)]()
 
