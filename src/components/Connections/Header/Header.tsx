@@ -93,6 +93,12 @@ export default function Header({
                   onChange={(event) => setConnectionUrl(event.target.value)}
                   onFocus={() => setSocketUrlInputFocused(true)}
                   onBlur={() => setSocketUrlInputFocused(false)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter') {
+                      (event.target as HTMLInputElement).blur()
+                      connectOrDisconnectClick()
+                    }
+                  }}
                   value={connectionUrl}
                 />
               </label>

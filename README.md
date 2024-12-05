@@ -42,6 +42,7 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 - Import/Export
 - Binary data support
 - Light and dark mode
+- Hotkeys support
 - Custom HTTP headers
 - Hex and Syntax Highlighted Editor & Viewer
 - Low-level logging in Electron/Tauri build
