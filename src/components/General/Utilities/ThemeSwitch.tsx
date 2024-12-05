@@ -1,9 +1,9 @@
+import isDarkMode from '$helpers/is-dark-mode'
+import { cn } from '$lib/utils'
 import { Switch } from '@headlessui/react'
-import { SunIcon, MoonIcon } from '@heroicons/react/24/solid'
+import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
 import { useEffect, useState } from 'react'
 import { useLocalStorage } from 'usehooks-ts'
-import isDarkMode from "$helpers/is-dark-mode";
-import {cn} from "$lib/utils";
 
 // TODO: make it reactive to system dark mode changes
 

@@ -1,4 +1,5 @@
 import 'twin.macro'
+import { internalPropertiesAppIsReady } from '$redux/selectors/internal-properties'
 import type State from '$redux/state'
 import config from '@/config'
 import { motion } from 'motion/react'
@@ -6,7 +7,6 @@ import type { ReactNode } from 'react'
 import { useSelector } from 'react-redux'
 import useInitializeRunCount from './hooks/useInitializeRunCount'
 import useInitializeWindowId from './hooks/useInitializeWindowId'
-import { internalPropertiesAppIsReady } from '$redux/selectors/internal-properties'
 
 const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
@@ -19,7 +19,8 @@ const themeChangeHandler = (isDark: boolean) => {
   document.body.classList.remove('light')
   document.body.classList.remove('dark')
 
-  if (!theme) { // follow system theme
+  if (!theme) {
+    // follow system theme
     if (isDark) {
       document.body.classList.add('dark')
     } else {
@@ -51,7 +52,9 @@ export default function InitializeRedux({ children }: InitializeReduxProps) {
 
   return (
     <>
-      {reduxReady ? children : (
+      {reduxReady ? (
+        children
+      ) : (
         <div tw="h-full p-10">
           <motion.div
             tw="flex flex-col h-full items-center justify-center"

@@ -95,7 +95,7 @@ export default function Header({
                   onBlur={() => setSocketUrlInputFocused(false)}
                   onKeyDown={(event) => {
                     if (event.key === 'Enter') {
-                      (event.target as HTMLInputElement).blur()
+                      ;(event.target as HTMLInputElement).blur()
                       connectOrDisconnectClick()
                     }
                   }}

@@ -3,18 +3,14 @@ import SimpleCodeEditor from 'react-simple-code-editor'
 import { theme } from 'twin.macro'
 import 'prismjs/components/prism-clike'
 import 'prismjs/components/prism-json'
-import type {
-  FocusEventHandler,
-  KeyboardEventHandler,
-  MouseEventHandler
-} from 'react'
+import type { FocusEventHandler, KeyboardEventHandler, MouseEventHandler } from 'react'
 
 type EventHandlers = {
-  onBlur?: FocusEventHandler<HTMLDivElement> & FocusEventHandler<HTMLTextAreaElement>;
-  onClick?: MouseEventHandler<HTMLDivElement> & MouseEventHandler<HTMLTextAreaElement>;
-  onFocus?: FocusEventHandler<HTMLDivElement> & FocusEventHandler<HTMLTextAreaElement>;
-  onKeyDown?: KeyboardEventHandler<HTMLDivElement> & KeyboardEventHandler<HTMLTextAreaElement>;
-  onKeyUp?: KeyboardEventHandler<HTMLDivElement> & KeyboardEventHandler<HTMLTextAreaElement>;
+  onBlur?: FocusEventHandler<HTMLDivElement> & FocusEventHandler<HTMLTextAreaElement>
+  onClick?: MouseEventHandler<HTMLDivElement> & MouseEventHandler<HTMLTextAreaElement>
+  onFocus?: FocusEventHandler<HTMLDivElement> & FocusEventHandler<HTMLTextAreaElement>
+  onKeyDown?: KeyboardEventHandler<HTMLDivElement> & KeyboardEventHandler<HTMLTextAreaElement>
+  onKeyUp?: KeyboardEventHandler<HTMLDivElement> & KeyboardEventHandler<HTMLTextAreaElement>
 }
 
 export type EditorProps = EventHandlers & {
