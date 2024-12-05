@@ -127,6 +127,7 @@ export default function EventRow({
             {copiedToClipboard && <MdDone title="Copied to Clipboard" />}
           </button>
         </CopyToClipboard>
+
         {event.type !== EventType.Meta && (
           <button
             type="button"

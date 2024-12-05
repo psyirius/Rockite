@@ -24,7 +24,7 @@ export default function Popup({
               layout
               initial={{opacity: 0, y: 50, scale: 0.3}}
               animate={{opacity: 1, y: 0, scale: 1}}
-              exit={{opacity: 0, scale: 0.5, transition: {duration: 0.2}}}
+              transition={{duration: 0.15, ease: 'easeOut'}}
               role="presentation"
               onClick={(e) => e.stopPropagation()}
               tw="flex flex-col bg-white dark:bg-gray-900 w-full max-w-lg rounded overflow-hidden shadow-md dark:border dark:border-gray-700"

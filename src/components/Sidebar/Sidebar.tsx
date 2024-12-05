@@ -17,6 +17,7 @@ import { tabCreateFromSavedPayload } from '$redux/actions/tabs.ts';
 import { savedPayloadRemove } from '$redux/actions/saved-payloads.ts';
 import CreateEditPayloadConnected from '../CreateEditPayload/CreateEditPayloadConnected';
 import { connectionCreateFromSavedPayload } from '$redux/actions/connections.ts';
+import { motion } from 'motion/react';
 
 export interface SidebarProps {
   savedPayloads: SavedPayload[],
@@ -44,16 +45,20 @@ export default function Sidebar({
     (payload) => payload.name,
   );
 
-  const openCreatePayload = () => {
-    popup.push(
+  const openCreatePayload = async () => {
+    await popup.push(
       'Create Payload',
       CreateEditPayloadConnected,
-      { project },
+      {project},
     );
   };
 
   return (
-    <div tw="flex flex-col w-full bg-white dark:bg-gray-850 rounded-r-lg border border-gray-250 dark:border-gray-700 border-l-0 overflow-hidden">
+    <motion.div
+      initial={{ x: -500 }}
+      animate={{ x: 0 }}
+      transition={{ duration: 0.15, ease: 'circOut' }}
+      tw="flex flex-col w-full bg-white dark:bg-gray-850 rounded-r-lg border border-gray-250 dark:border-gray-700 border-l-0 overflow-hidden">
       <div tw="bg-gray-200 dark:bg-gray-900 border-b dark:border-gray-800 py-2 pl-4 pr-2">
         <div tw="flex items-center justify-between pb-1">
           <span tw="font-semibold select-text text-gray-900 dark:text-gray-100">
@@ -119,11 +124,11 @@ export default function Sidebar({
               buttonText="Create"
               buttonOnClick={() => openCreatePayload()}
             >
-              Create one or use the &quot;Save As&quot; button on a connection.
+              {'Create one or use the "Save As" button on a connection.'}
             </EmptyMessage>
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
