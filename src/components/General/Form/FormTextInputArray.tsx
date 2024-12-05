@@ -26,7 +26,7 @@ export default function FormTextInputArray({ name, maxLength, addItemCta }: Form
       >
         {field.value.map((item) => (
           <Fragment key={item.id}>
-            <div className="group" tw="flex">
+            <div className="group" tw="flex items-center">
               <input
                 type="text"
                 tw="w-full py-1 px-4 bg-transparent"
@@ -34,8 +34,8 @@ export default function FormTextInputArray({ name, maxLength, addItemCta }: Form
                 value={item.value}
                 onFocus={() => setFocusedItem(item)}
                 onBlur={() => setFocusedItem(undefined)}
-                onChange={(event) => {
-                  helpers.setValue(
+                onChange={async (event) => {
+                  await helpers.setValue(
                     field.value.map((existingItem) =>
                       item === existingItem
                         ? {
@@ -45,15 +45,15 @@ export default function FormTextInputArray({ name, maxLength, addItemCta }: Form
                         : existingItem,
                     ),
                   )
-                  helpers.setTouched(true)
+                  await helpers.setTouched(true)
                 }}
               />
               <ButtonSecondary
                 type="button"
-                tw="mr-3 p-1 invisible group-hover:visible"
+                tw="mr-3 h-fit p-1 invisible group-hover:visible rounded"
                 onClick={() => helpers.setValue(field.value.filter((existingItem) => existingItem.id !== item.id))}
               >
-                <MdClose />
+                <MdClose size={14} />
               </ButtonSecondary>
             </div>
             <div
