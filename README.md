@@ -19,6 +19,21 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 
 #### Rockite is a fork of the original project: [WebSocket King](https://github.com/tomlerendu/Websocket-King)
 
+## Screenshots
+
+![App Screenshot](/images/screenshot-0.png)
+
+## Roadmap
+
+- Collection
+- Import/Export
+- Binary data support
+- Light and dark mode
+- Custom HTTP headers
+- Hex and Syntax Highlighted Editor & Viewer
+- Low-level logging in Electron/Tauri build
+- Other Real-time protocols support
+
 ## Development
 
 1. Clone the project repo
@@ -41,3 +56,13 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 BETA. Builds the app for production (Electron) to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+## Authors
+
+- [@tomlerendu](https://www.github.com/tomlerendu)
+
