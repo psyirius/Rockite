@@ -48,6 +48,13 @@ export default function EditorContent({
             value={content}
             onChange={(newContent) => setContent(newContent)}
             onBlur={() => onTabContentChanged(selectedTab, content)}
+            onKeyDown={(event) => {
+              // On Shift + Enter, send the payload
+              if (event.key === 'Enter' && event.shiftKey) {
+                event.preventDefault()
+                onSend(content)
+              }
+            }}
             minLines={3}
             maxLines={6}
             placeholder="Payload"

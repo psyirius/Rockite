@@ -1,16 +1,26 @@
 import { highlight, languages } from 'prismjs'
-import type { ReactEventHandler } from 'react'
 import SimpleCodeEditor from 'react-simple-code-editor'
 import { theme } from 'twin.macro'
 import 'prismjs/components/prism-clike'
 import 'prismjs/components/prism-json'
+import type {
+  FocusEventHandler,
+  KeyboardEventHandler,
+  MouseEventHandler
+} from 'react'
 
-export interface EditorProps {
+type EventHandlers = {
+  onBlur?: FocusEventHandler<HTMLDivElement> & FocusEventHandler<HTMLTextAreaElement>;
+  onClick?: MouseEventHandler<HTMLDivElement> & MouseEventHandler<HTMLTextAreaElement>;
+  onFocus?: FocusEventHandler<HTMLDivElement> & FocusEventHandler<HTMLTextAreaElement>;
+  onKeyDown?: KeyboardEventHandler<HTMLDivElement> & KeyboardEventHandler<HTMLTextAreaElement>;
+  onKeyUp?: KeyboardEventHandler<HTMLDivElement> & KeyboardEventHandler<HTMLTextAreaElement>;
+}
+
+export type EditorProps = EventHandlers & {
   name?: string
   value: string
   onChange: (value: string) => void
-  onBlur?: (event: ReactEventHandler) => void
-  onFocus?: (event: ReactEventHandler) => void
   minLines: number
   maxLines: number
   placeholder?: string
@@ -22,6 +32,8 @@ export default function Editor({
   onChange,
   onBlur,
   onFocus,
+  onKeyUp,
+  onKeyDown,
   placeholder,
   minLines,
   maxLines,
@@ -39,8 +51,10 @@ export default function Editor({
         name={name}
         onValueChange={onChange}
         value={value}
-        onFocus={(event: any) => onFocus?.(event)}
-        onBlur={(event: any) => onBlur?.(event)}
+        onBlur={onBlur}
+        onFocus={onFocus}
+        onKeyUp={onKeyUp}
+        onKeyDown={onKeyDown}
         placeholder={placeholder}
         highlight={(code) => highlight(code, languages.json, 'json')}
         tw="text-gray-800 dark:text-gray-200 font-mono text-sm leading-snug"
