@@ -1,27 +1,24 @@
-import { useContext } from 'react';
-import { Form, Formik } from 'formik';
-import * as yup from 'yup';
-import Project from '$models/project';
-import ProjectValidator from '$models/project/validator';
-import PopupButtons from '../General/Popup/PopupButtons';
-import { PopupContext } from '$providers/PopupProvider';
-import FormField from '../General/Form/FormField';
-import FormTextInput from '../General/Form/FormTextInput';
-import PopupBody from '../General/Popup/PopupBody';
-import FormCheckbox from '../General/Form/FormCheckbox';
-import Spacer from '../General/Utilities/Spacer';
-import { projectUpdate } from '$redux/actions/projects.ts';
+import type Project from '$models/project'
+import ProjectValidator from '$models/project/validator'
+import { PopupContext } from '$providers/PopupProvider'
+import type { projectUpdate } from '$redux/actions/projects'
+import { Form, Formik } from 'formik'
+import { useContext } from 'react'
+import * as yup from 'yup'
+import FormCheckbox from '../General/Form/FormCheckbox'
+import FormField from '../General/Form/FormField'
+import FormTextInput from '../General/Form/FormTextInput'
+import PopupBody from '../General/Popup/PopupBody'
+import PopupButtons from '../General/Popup/PopupButtons'
+import Spacer from '../General/Utilities/Spacer'
 
 export interface EditProjectProps {
-  project: Project,
-  onProjectChange: typeof projectUpdate,
+  project: Project
+  onProjectChange: typeof projectUpdate
 }
 
-export default function EditProject({
-  project,
-  onProjectChange,
-}: EditProjectProps) {
-  const popup = useContext(PopupContext);
+export default function EditProject({ project, onProjectChange }: EditProjectProps) {
+  const popup = useContext(PopupContext)
 
   return (
     <Formik
@@ -36,18 +33,14 @@ export default function EditProject({
       validateOnChange={false}
       validateOnBlur={false}
       onSubmit={(value) => {
-        onProjectChange(project, value);
-        popup.pop();
+        onProjectChange(project, value)
+        popup.pop()
       }}
     >
       <Form>
         <PopupBody>
           <FormField title="Project Name">
-            <FormTextInput
-              name="name"
-              placeholder="Project name"
-              maxLength={ProjectValidator.nameLength}
-            />
+            <FormTextInput name="name" placeholder="Project name" maxLength={ProjectValidator.nameLength} />
           </FormField>
           <Spacer />
           <FormField title="Formatting">
@@ -57,20 +50,21 @@ export default function EditProject({
             />
           </FormField>
         </PopupBody>
-        <PopupButtons actions={[
-          {
-            label: 'Cancel',
-            theme: 'secondary',
-            onClick: () => popup.pop(),
-          },
-          {
-            label: 'Save',
-            theme: 'primary',
-            type: 'submit',
-          },
-        ]}
+        <PopupButtons
+          actions={[
+            {
+              label: 'Cancel',
+              theme: 'secondary',
+              onClick: () => popup.pop(),
+            },
+            {
+              label: 'Save',
+              theme: 'primary',
+              type: 'submit',
+            },
+          ]}
         />
       </Form>
     </Formik>
-  );
+  )
 }

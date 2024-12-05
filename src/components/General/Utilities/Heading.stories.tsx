@@ -1,7 +1,7 @@
-import { StoryFn, Meta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { MdAccessTime, MdAddLocation } from 'react-icons/md';
-import Heading, { HeadingProps } from './Heading';
+import { action } from '@storybook/addon-actions'
+import type { Meta, StoryFn } from '@storybook/react'
+import { MdAccessTime, MdAddLocation } from 'react-icons/md'
+import Heading, { type HeadingProps } from './Heading'
 
 export default {
   title: 'Utilities / Heading',
@@ -9,22 +9,18 @@ export default {
   argTypes: {
     buttons: { control: 'object' },
   },
-} as Meta;
+} as Meta
 
-const Template: StoryFn<HeadingProps> = (args) => (
-  <Heading {...args}>
-    {args.children}
-  </Heading>
-);
+const Template: StoryFn<HeadingProps> = (args) => <Heading {...args}>{args.children}</Heading>
 
-export const WithoutButtons = Template.bind({ });
+export const WithoutButtons = Template.bind({})
 
 WithoutButtons.args = {
   children: 'Heading',
   buttons: [],
-};
+}
 
-export const WithButtons = Template.bind({ });
+export const WithButtons = Template.bind({})
 
 WithButtons.args = {
   children: 'Heading',
@@ -40,4 +36,4 @@ WithButtons.args = {
       onClick: action('Location click'),
     },
   ],
-};
+}

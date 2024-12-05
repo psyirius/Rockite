@@ -1,19 +1,15 @@
-import { EventFormat } from '$models/event';
+import { EventFormat } from '$models/event'
 
 const isJson = (payload: string): boolean => {
   try {
-    JSON.parse(payload);
+    JSON.parse(payload)
   } catch (error) {
-    return false;
+    return false
   }
 
-  return true;
-};
+  return true
+}
 
-const detectPayloadFormat = (payload: string) => (
-  isJson(payload)
-    ? EventFormat.Json
-    : EventFormat.Unknown
-);
+const detectPayloadFormat = (payload: string) => (isJson(payload) ? EventFormat.Json : EventFormat.Unknown)
 
-export default detectPayloadFormat;
+export default detectPayloadFormat

@@ -1,34 +1,34 @@
-import { useContext } from 'react';
-import tw from 'twin.macro';
-import { FaTh } from 'react-icons/fa';
-import Project from '$models/project';
-import Connection from '$models/connection';
-import Window from '$models/window';
-import HeaderRightHandDropdown from './HeaderRightHandDropdown';
-import HeaderConnectionList from './HeaderConnectionList';
-import ProjectsConnected from '../Projects/ProjectsConnected';
-import { PopupContext } from '$providers/PopupProvider';
-import ButtonSecondary from '../General/Styled/ButtonSecondary';
-import { connectionCreate, connectionToggleMaximize, connectionUpdateName } from '../../redux/actions/connections';
-import { userInterfaceSidebarToggle } from '$redux/actions/user-interface-properties.ts';
-import SidebarIcon from '../General/Icons/SidebarIcon';
-import { windowsReassignConnectionsAndDelete, windowsRemoveClosedForProject } from '../../redux/actions/windows';
+import type Connection from '$models/connection'
+import type Project from '$models/project'
+import type Window from '$models/window'
+import { PopupContext } from '$providers/PopupProvider'
+import type { connectionCreate, connectionToggleMaximize, connectionUpdateName } from '$redux/actions/connections'
+import type { userInterfaceSidebarToggle } from '$redux/actions/user-interface-properties'
+import type { windowsReassignConnectionsAndDelete, windowsRemoveClosedForProject } from '$redux/actions/windows'
+import { useContext } from 'react'
+import { FaTh } from 'react-icons/fa'
+import tw from 'twin.macro'
+import SidebarIcon from '../General/Icons/SidebarIcon'
+import ButtonSecondary from '../General/Styled/ButtonSecondary'
+import ProjectsConnected from '../Projects/ProjectsConnected'
+import HeaderConnectionList from './HeaderConnectionList'
+import HeaderRightHandDropdown from './HeaderRightHandDropdown'
 
 export type HeaderProps = {
-  onConnectionCreate: typeof connectionCreate,
-  onConnectionRemove: (connection: Connection) => void,
-  onConnectionUpdateName: typeof connectionUpdateName,
-  onConnectionToggleMaximize: typeof connectionToggleMaximize,
-  onSidebarToggle: typeof userInterfaceSidebarToggle,
-  onClearClosedWindows: typeof windowsRemoveClosedForProject,
-  onReassignWindow: typeof windowsReassignConnectionsAndDelete,
-  project: Project | undefined,
-  windowConnections: Connection[],
-  projectConnections: Connection[],
-  windows: Window[],
-  currentWindow: Window,
-  sidebarOpen: boolean,
-};
+  onConnectionCreate: typeof connectionCreate
+  onConnectionRemove: (connection: Connection) => void
+  onConnectionUpdateName: typeof connectionUpdateName
+  onConnectionToggleMaximize: typeof connectionToggleMaximize
+  onSidebarToggle: typeof userInterfaceSidebarToggle
+  onClearClosedWindows: typeof windowsRemoveClosedForProject
+  onReassignWindow: typeof windowsReassignConnectionsAndDelete
+  project: Project | undefined
+  windowConnections: Connection[]
+  projectConnections: Connection[]
+  windows: Window[]
+  currentWindow: Window
+  sidebarOpen: boolean
+}
 
 export default function Header({
   project,
@@ -45,7 +45,7 @@ export default function Header({
   onReassignWindow,
   sidebarOpen,
 }: HeaderProps) {
-  const popup = useContext(PopupContext);
+  const popup = useContext(PopupContext)
 
   return (
     <header tw="w-full px-2 py-1 flex flex-row justify-between items-center">
@@ -74,10 +74,7 @@ export default function Header({
         )}
       </div>
       {project && (
-        <div
-          tw="px-4"
-          data-tour="connection-list"
-        >
+        <div tw="px-4" data-tour="connection-list">
           <HeaderConnectionList
             windowConnections={windowConnections}
             projectConnections={projectConnections}
@@ -87,10 +84,7 @@ export default function Header({
             onCreate={() => onConnectionCreate(project)}
             onRename={(connection, name) => onConnectionUpdateName(connection, name)}
             onClearClosedWindows={() => onClearClosedWindows(project)}
-            onReassignWindow={(window) => onReassignWindow(
-              window,
-              currentWindow,
-            )}
+            onReassignWindow={(window) => onReassignWindow(window, currentWindow)}
           />
         </div>
       )}
@@ -98,5 +92,5 @@ export default function Header({
         <HeaderRightHandDropdown />
       </div>
     </header>
-  );
+  )
 }

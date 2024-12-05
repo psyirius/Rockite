@@ -1,23 +1,23 @@
 const env = (name: string): string | boolean | number | undefined => {
-  const value = import.meta.env[`ROCKITE_${name}`];
+  const value = import.meta.env[`ROCKITE_${name}`]
 
   if (value === 'true') {
-    return true;
+    return true
   }
 
   if (value === 'false') {
-    return false;
+    return false
   }
 
   if (value === 'null') {
-    return undefined;
+    return undefined
   }
 
   if (!Number.isNaN(Number(value))) {
-    return Number(value);
+    return Number(value)
   }
 
-  return value;
-};
+  return value
+}
 
-export default env;
+export default env

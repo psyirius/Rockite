@@ -1,14 +1,14 @@
-import { v4 as uuid } from 'uuid';
-import State from './state';
-import { ConnectionSocketStatus } from '$models/connection';
-import { generateMigrationsWithKeys } from './migrations';
+import { ConnectionSocketStatus } from '$models/connection'
+import { v4 as uuid } from 'uuid'
+import { generateMigrationsWithKeys } from './migrations'
+import type State from './state'
 
 export function createInitialState(): State {
-  const windowId = uuid();
-  const projectId = uuid();
-  const tabId = uuid();
-  const connectionId = uuid();
-  const now = new Date().toISOString();
+  const windowId = uuid()
+  const projectId = uuid()
+  const tabId = uuid()
+  const connectionId = uuid()
+  const now = new Date().toISOString()
 
   return {
     migrations: generateMigrationsWithKeys(),
@@ -55,8 +55,8 @@ export function createInitialState(): State {
         content: '',
       },
     },
-    events: { },
-    savedPayloads: { },
+    events: {},
+    savedPayloads: {},
     userInterfaceProperties: {
       SelectedWindowId: {
         id: 'SelectedWindowId',
@@ -97,5 +97,5 @@ export function createInitialState(): State {
         value: false,
       },
     },
-  };
+  }
 }

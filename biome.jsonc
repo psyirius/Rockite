@@ -1,0 +1,72 @@
+{
+  "$schema": "node_modules/@biomejs/biome/configuration_schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "include": [
+      "src/**/*.js",
+      "src/**/*.ts",
+      "src/**/*.jsx",
+      "src/**/*.tsx",
+      "src/**/*.json",
+      "src/**/*.css",
+      "src/**/*.scss",
+      "src/**/*.sass",
+      "src/**/*.pcss",
+      "types/**/*.d.ts",
+      ".storybook/**/*.ts",
+      ".storybook/**/*.tsx",
+      "public-chrome/**/*.js",
+      "public-chrome/**/*.json",
+      "public-electron/**/*.js",
+      "public-electron/**/*.json",
+      "scripts/**/*.js",
+      "scripts/**/*.ts"
+    ],
+    "ignore": ["images", "node_modules", ".vscode", ".idea", "public"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "lineWidth": 100
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "suspicious": {
+        "noExplicitAny": "off"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "off"
+      },
+      "a11y": {
+        "all": false
+      },
+      "style": {
+        "noNonNullAssertion": "off"
+      },
+      "performance": {
+        "all": false // fixme: enable performance rules
+      },
+      "complexity": {
+        "all": false
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "asNeeded",
+      "lineEnding": "crlf",
+      "indentWidth": 2,
+      "lineWidth": 120
+    }
+  }
+}

@@ -1,28 +1,24 @@
-import {useState} from 'react';
-import tw from 'twin.macro';
-import {format} from 'date-fns';
-import {FaArrowDown, FaArrowUp, FaRegCopy, FaRegEdit,} from 'react-icons/fa';
-import { Text as LuText, Binary as LuBinary } from 'lucide-react';
-import CopyToClipboard from 'react-copy-to-clipboard';
-import {MdDone} from 'react-icons/md';
-import {RiInformationLine} from 'react-icons/ri';
-import Event, {EventPayloadType, EventType} from '$models/event';
-import EventRowPayload from './EventRowPayload';
+import type Event from '$models/event'
+import { EventPayloadType, EventType } from '$models/event'
+import { format } from 'date-fns'
+import { Binary as LuBinary, Text as LuText } from 'lucide-react'
+import { useState } from 'react'
+import CopyToClipboard from 'react-copy-to-clipboard'
+import { FaArrowDown, FaArrowUp, FaRegCopy, FaRegEdit } from 'react-icons/fa'
+import { MdDone } from 'react-icons/md'
+import { RiInformationLine } from 'react-icons/ri'
+import tw from 'twin.macro'
+import EventRowPayload from './EventRowPayload'
 
 export interface EventRowProps {
-  event: Event,
-  shouldFormatPayload: boolean,
-  onOpenInNewTab: () => void,
-  layout: 'narrow' | 'wide',
+  event: Event
+  shouldFormatPayload: boolean
+  onOpenInNewTab: () => void
+  layout: 'narrow' | 'wide'
 }
 
-export default function EventRow({
-  event,
-  shouldFormatPayload,
-  onOpenInNewTab,
-  layout,
-}: EventRowProps) {
-  const [copiedToClipboard, setCopiedToClipboard] = useState(false);
+export default function EventRow({ event, shouldFormatPayload, onOpenInNewTab, layout }: EventRowProps) {
+  const [copiedToClipboard, setCopiedToClipboard] = useState(false)
 
   return (
     <div
@@ -35,14 +31,12 @@ export default function EventRow({
     >
       <div tw="order-1 flex flex-shrink-0">
         {/* Timestamp */}
-        <div tw="text-gray-400 dark:text-gray-600 font-mono">
-          {format(new Date(event.timestamp), 'HH:mm ss.SS')}
-        </div>
+        <div tw="text-gray-400 dark:text-gray-600 font-mono">{format(new Date(event.timestamp), 'HH:mm ss.SS')}</div>
 
         {/* Icon */}
         {event.type === EventType.Sent && (
           <div tw="text-green-500 dark:text-green-200 ml-2 p-1 text-xs">
-            <FaArrowUp title="Sent payload"/>
+            <FaArrowUp title="Sent payload" />
           </div>
         )}
 
@@ -71,10 +65,7 @@ export default function EventRow({
         ]}
       >
         <pre tw="whitespace-pre-wrap break-words">
-          <EventRowPayload
-            event={event}
-            shouldFormatPayload={shouldFormatPayload}
-          />
+          <EventRowPayload event={event} shouldFormatPayload={shouldFormatPayload} />
         </pre>
       </div>
 
@@ -89,13 +80,13 @@ export default function EventRow({
       >
         {event.payloadType === EventPayloadType.Text && (
           <div tw="bg-gray-100 dark:bg-gray-800 rounded p-1 text-xs" title="Text">
-            <LuText size={14}/>
+            <LuText size={14} />
           </div>
         )}
 
         {event.payloadType === EventPayloadType.Binary && (
           <div tw="bg-gray-100 dark:bg-gray-800 rounded p-1 text-xs" title="Binary">
-            <LuBinary size={14}/>
+            <LuBinary size={14} />
           </div>
         )}
       </div>
@@ -111,33 +102,23 @@ export default function EventRow({
           text={event.payload}
           onCopy={() => {
             if (!copiedToClipboard) {
-              setCopiedToClipboard(true);
-              setTimeout(() => setCopiedToClipboard(false), 2000);
+              setCopiedToClipboard(true)
+              setTimeout(() => setCopiedToClipboard(false), 2000)
             }
           }}
         >
-          <button
-            type="button"
-            css={[
-              tw`ml-2 hover:text-gray-600`,
-              copiedToClipboard && tw`cursor-default`,
-            ]}
-          >
+          <button type="button" css={[tw`ml-2 hover:text-gray-600`, copiedToClipboard && tw`cursor-default`]}>
             {!copiedToClipboard && <FaRegCopy title="Copy to Clipboard" />}
             {copiedToClipboard && <MdDone title="Copied to Clipboard" />}
           </button>
         </CopyToClipboard>
 
         {event.type !== EventType.Meta && (
-          <button
-            type="button"
-            tw="ml-2 hover:text-gray-600"
-            onClick={() => onOpenInNewTab()}
-          >
+          <button type="button" tw="ml-2 hover:text-gray-600" onClick={() => onOpenInNewTab()}>
             <FaRegEdit title="Open in Editor" />
           </button>
         )}
       </div>
     </div>
-  );
+  )
 }

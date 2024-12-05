@@ -1,16 +1,16 @@
-import { bindActionCreators, Dispatch } from 'redux';
-import { connect } from 'react-redux';
-import { socketConnect, socketDisconnect } from '../../../redux/actions/connection-sockets';
+import { socketConnect, socketDisconnect } from '$redux/actions/connection-sockets.ts'
 import {
+  connectionDisconnectSocketAndRemove,
   connectionMinimize,
-  connectionUpdateName,
   connectionUpdateAutoReconnect,
+  connectionUpdateName,
   connectionUpdateProtocols,
   connectionUpdateSocketUrl,
-  connectionDisconnectSocketAndRemove,
-} from '../../../redux/actions/connections';
-import Header from './Header';
-import State from '../../../redux/state';
+} from '$redux/actions/connections.ts'
+import type State from '$redux/state'
+import { connect } from 'react-redux'
+import { type Dispatch, bindActionCreators } from 'redux'
+import Header from './Header'
 
 function mapDispatchToProps(dispatch: Dispatch) {
   return bindActionCreators(
@@ -25,11 +25,11 @@ function mapDispatchToProps(dispatch: Dispatch) {
       onMinimize: connectionMinimize,
     },
     dispatch,
-  );
+  )
 }
 
 function mapStateToProps(_state: State, { connection }: any) {
-  return { connection };
+  return { connection }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

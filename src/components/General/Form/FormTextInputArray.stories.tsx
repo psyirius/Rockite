@@ -1,21 +1,17 @@
-import { StoryFn, Meta } from '@storybook/react';
-import FormikDecorator, { FormikDecoratorProps } from ':storybook/decorators/FormikDecorator';
-import FormTextInputArray, { FormTextInputArrayProps } from './FormTextInputArray';
+import FormikDecorator, { type FormikDecoratorProps } from ':storybook/decorators/FormikDecorator'
+import type { Meta, StoryFn } from '@storybook/react'
+import FormTextInputArray, { type FormTextInputArrayProps } from './FormTextInputArray'
 
 export default {
   title: 'Form / Text Input Array',
   component: FormTextInputArray,
-  argTypes: { },
-  decorators: [
-    FormikDecorator,
-  ],
-} as Meta;
+  argTypes: {},
+  decorators: [FormikDecorator],
+} as Meta
 
-const Template: StoryFn<FormTextInputArrayProps & FormikDecoratorProps> = (args) => (
-  <FormTextInputArray {...args} />
-);
+const Template: StoryFn<FormTextInputArrayProps & FormikDecoratorProps> = (args) => <FormTextInputArray {...args} />
 
-export const Primary = Template.bind({ });
+export const Primary = Template.bind({})
 
 Primary.args = {
   name: 'test',
@@ -26,4 +22,4 @@ Primary.args = {
       { id: 'b', value: 'Test 2' },
     ],
   },
-};
+}

@@ -1,31 +1,31 @@
-import { v4 as uuid } from 'uuid';
+import { v4 as uuid } from 'uuid'
 
 export default {
   id: '2020-12-08-2201-add-user-interface-and-windows',
   migrator: (state: any) => {
-    let selectedWindowId: any = null;
-    state.windows = { };
+    let selectedWindowId: any = null
+    state.windows = {}
 
     Object.values(state.projects).forEach((project: any) => {
-      const windowId = uuid();
+      const windowId = uuid()
 
       state.windows[windowId] = {
         id: windowId,
         projectId: project.id,
         openedAt: new Date().toISOString(),
         closedAt: new Date().toISOString(),
-      };
+      }
 
       if (state.userInterface.selectedProjectId === project.id) {
-        selectedWindowId = windowId;
+        selectedWindowId = windowId
       }
 
       Object.values(state.connections)
         .filter((connection: any) => connection.projectId === project.id)
         .forEach((connection: any) => {
-          connection.windowId = windowId;
-        });
-    });
+          connection.windowId = windowId
+        })
+    })
 
     state.userInterfaceProperties = {
       SelectedWindowId: {
@@ -40,10 +40,10 @@ export default {
         id: 'SidebarOpen',
         value: state.userInterface.sidebarOpen,
       },
-    };
+    }
 
-    delete state.userInterface;
+    delete state.userInterface
 
-    return state;
+    return state
   },
-};
+}

@@ -1,8 +1,8 @@
-import ButtonAction from './ButtonAction';
+import type ButtonAction from './ButtonAction'
 
 export default interface Notification {
-  id: string,
-  title: string,
-  body: string,
-  actions: ButtonAction[],
+  id: string
+  title: string
+  body: string
+  actions: ButtonAction[]
 }

@@ -1,21 +1,21 @@
-import PersistenceDriver from '../persistence-driver';
-import config from "@/config.ts";
+import config from '@/config'
+import type PersistenceDriver from '../persistence-driver'
 
-const prefix: string = config.persistencePrefix;
+const prefix: string = config.persistencePrefix
 
 const driver: PersistenceDriver = {
   load: () => {
-    const storedState = localStorage[prefix];
+    const storedState = localStorage[prefix]
 
     if (!storedState) {
-      return null;
+      return null
     }
 
-    return JSON.parse(storedState);
+    return JSON.parse(storedState)
   },
   store: (state) => {
-    localStorage[prefix] = JSON.stringify(state);
+    localStorage[prefix] = JSON.stringify(state)
   },
-};
+}
 
-export default driver;
+export default driver

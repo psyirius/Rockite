@@ -1,17 +1,17 @@
-import * as yup from 'yup';
-import { useContext } from 'react';
-import { Formik, Form } from 'formik';
-import PopupButtons from '../Popup/PopupButtons';
-import { PopupContext } from '$providers/PopupProvider';
-import FormTextInput from '../Form/FormTextInput';
-import PopupBody from '../Popup/PopupBody';
+import { PopupContext } from '$providers/PopupProvider'
+import { Form, Formik } from 'formik'
+import { useContext } from 'react'
+import * as yup from 'yup'
+import FormTextInput from '../Form/FormTextInput'
+import PopupBody from '../Popup/PopupBody'
+import PopupButtons from '../Popup/PopupButtons'
 
 export interface PopupPromptProps {
-  label: string,
-  submitLabel: string,
-  defaultValue?: string,
-  yupValidator?: yup.Schema,
-  maxLength?: number,
+  label: string
+  submitLabel: string
+  defaultValue?: string
+  yupValidator?: yup.Schema
+  maxLength?: number
 }
 
 export default function PopupPrompt({
@@ -21,7 +21,7 @@ export default function PopupPrompt({
   yupValidator,
   maxLength,
 }: PopupPromptProps) {
-  const popup = useContext(PopupContext);
+  const popup = useContext(PopupContext)
 
   return (
     <Formik
@@ -37,12 +37,7 @@ export default function PopupPrompt({
     >
       <Form>
         <PopupBody>
-          <FormTextInput
-            placeholder={label}
-            name="field"
-            maxLength={maxLength}
-            autoFocus
-          />
+          <FormTextInput placeholder={label} name="field" maxLength={maxLength} autoFocus />
         </PopupBody>
         <PopupButtons
           actions={[
@@ -60,5 +55,5 @@ export default function PopupPrompt({
         />
       </Form>
     </Formik>
-  );
+  )
 }

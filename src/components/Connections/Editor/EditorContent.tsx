@@ -1,20 +1,21 @@
-import { useEffect, useState } from 'react';
-import 'twin.macro';
-import Tab from '$models/tab';
-import SavedPayload from '$models/saved-payload';
-import Connection, { ConnectionSocketStatus } from '$models/connection';
-import ButtonPrimary from '../../General/Styled/ButtonPrimary';
-import ButtonSecondary from '../../General/Styled/ButtonSecondary';
-import Editor from '../../General/Editor/Editor';
+import { useEffect, useState } from 'react'
+import 'twin.macro'
+import type Connection from '$models/connection'
+import { ConnectionSocketStatus } from '$models/connection'
+import type SavedPayload from '$models/saved-payload'
+import type Tab from '$models/tab'
+import Editor from '../../General/Editor/Editor'
+import ButtonPrimary from '../../General/Styled/ButtonPrimary'
+import ButtonSecondary from '../../General/Styled/ButtonSecondary'
 
 export interface EditorContentProps {
   connection: Connection
-  selectedTab: Tab,
-  selectedSavedPayload: SavedPayload | undefined,
-  onSave: (tab: Tab) => void,
-  onSaveAs: (tab: Tab) => void,
-  onSend: (content: string) => void,
-  onTabContentChanged: (tab: Tab, content: string) => void,
+  selectedTab: Tab
+  selectedSavedPayload: SavedPayload | undefined
+  onSave: (tab: Tab) => void
+  onSaveAs: (tab: Tab) => void
+  onSend: (content: string) => void
+  onTabContentChanged: (tab: Tab, content: string) => void
 }
 
 export default function EditorContent({
@@ -26,19 +27,16 @@ export default function EditorContent({
   onSend,
   onTabContentChanged,
 }: EditorContentProps) {
-  const [content, setContent] = useState<string>(selectedTab?.content);
+  const [content, setContent] = useState<string>(selectedTab?.content)
 
-  useEffect(
-    () => {
-      if (selectedTab) {
-        setContent(selectedTab.content);
-      }
-    },
-    [selectedTab, selectedSavedPayload],
-  );
+  useEffect(() => {
+    if (selectedTab) {
+      setContent(selectedTab.content)
+    }
+  }, [selectedTab, selectedSavedPayload])
 
   if (!selectedTab) {
-    return null;
+    return null
   }
 
   return (
@@ -66,21 +64,13 @@ export default function EditorContent({
           Send
         </ButtonPrimary>
         {selectedSavedPayload && selectedTab.content === selectedSavedPayload.content && (
-          <button
-            type="button"
-            tw="px-4 text-gray-400 cursor-default text-xs"
-            disabled
-          >
+          <button type="button" tw="px-4 text-gray-400 cursor-default text-xs" disabled>
             Saved
           </button>
         )}
         {selectedSavedPayload && selectedTab.content !== selectedSavedPayload.content && (
           <>
-            <ButtonSecondary
-              type="button"
-              tw="px-4 rounded text-xs"
-              onClick={() => onSave(selectedTab)}
-            >
+            <ButtonSecondary type="button" tw="px-4 rounded text-xs" onClick={() => onSave(selectedTab)}>
               Save
             </ButtonSecondary>
             <ButtonSecondary
@@ -93,15 +83,11 @@ export default function EditorContent({
           </>
         )}
         {selectedTab.content?.length > 0 && (
-          <ButtonSecondary
-            type="button"
-            tw="px-4 rounded text-xs"
-            onClick={() => onSaveAs(selectedTab)}
-          >
+          <ButtonSecondary type="button" tw="px-4 rounded text-xs" onClick={() => onSaveAs(selectedTab)}>
             Save As
           </ButtonSecondary>
         )}
       </div>
     </>
-  );
+  )
 }

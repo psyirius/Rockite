@@ -1,14 +1,12 @@
-import Builder from './builder';
-import { Mutation, MutationType } from './orm-action';
+import Builder from './builder'
+import { type Mutation, MutationType } from './orm-action'
 
-export default class MutableBuilder<
-  T extends { id: string, [key: string]: any },
-> extends Builder<T> {
-  private mutations: Mutation<T>[] = [];
+export default class MutableBuilder<T extends { id: string; [key: string]: any }> extends Builder<T> {
+  private mutations: Mutation<T>[] = []
 
   public withMutationsList(mutations: Mutation<T>[]) {
-    this.mutations = mutations;
-    return this;
+    this.mutations = mutations
+    return this
   }
 
   public update(fields: Partial<T>) {
@@ -19,13 +17,11 @@ export default class MutableBuilder<
         models: this.get(),
         fields,
       },
-    });
+    })
   }
 
   public create(models: T[] | T) {
-    const wrappedModels = Array.isArray(models)
-      ? models
-      : [models];
+    const wrappedModels = Array.isArray(models) ? models : [models]
 
     this.mutations.push({
       type: MutationType.Create,
@@ -33,7 +29,7 @@ export default class MutableBuilder<
         table: this.table,
         models: wrappedModels,
       },
-    });
+    })
   }
 
   public delete() {
@@ -43,6 +39,6 @@ export default class MutableBuilder<
         table: this.table,
         models: this.get(),
       },
-    });
+    })
   }
 }

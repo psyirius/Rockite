@@ -1,83 +1,67 @@
-import { keyBy, omit } from 'lodash';
-import persistenceStrategies from '$redux/persistence/persistence-strategies';
-import State from '$redux/state';
-import Model from './model';
-import OrmAction, { Mutation, MutationType, OrmActionType } from './orm-action';
-import Table from './table';
+import persistenceStrategies from '$redux/persistence/persistence-strategies'
+import type State from '$redux/state'
+import { keyBy, omit } from 'lodash'
+import type Model from './model'
+import type OrmAction from './orm-action'
+import { type Mutation, MutationType, OrmActionType } from './orm-action'
+import type Table from './table'
 
 const transformTable = <T extends Model>(
   table: keyof State,
   state: Table<T>,
   mutations: Mutation<Model>[],
   transformer: (model: Model) => Model,
-) => (
-    mutations.reduce<Table<Model>>(
-      (accumulatedState, mutation) => {
-        if (mutation.payload.table === table
-          && mutation.type === MutationType.Create
-        ) {
-          return {
-            ...accumulatedState,
-            ...keyBy(mutation.payload.models!.map(transformer), 'id'),
-          };
-        }
+) =>
+  mutations.reduce<Table<Model>>((accumulatedState, mutation) => {
+    if (mutation.payload.table === table && mutation.type === MutationType.Create) {
+      return {
+        ...accumulatedState,
+        ...keyBy(mutation.payload.models?.map(transformer), 'id'),
+      }
+    }
 
-        if (mutation.payload.table === table
-          && mutation.type === MutationType.Delete
-        ) {
-          return omit(
-            accumulatedState,
-            Object.values(mutation.payload.models!).map((model) => model.id),
-          );
-        }
+    if (mutation.payload.table === table && mutation.type === MutationType.Delete) {
+      return omit(
+        accumulatedState,
+        Object.values(mutation.payload.models!).map((model) => model.id),
+      )
+    }
 
-        if (mutation.payload.table === table
-          && mutation.type === MutationType.Update
-        ) {
-          const newState = {
-            ...accumulatedState,
-          };
+    if (mutation.payload.table === table && mutation.type === MutationType.Update) {
+      const newState = {
+        ...accumulatedState,
+      }
 
-          mutation.payload.models!.forEach((model: any) => {
-            newState[model.id] = transformer({
-              ...accumulatedState[model.id],
-              ...mutation.payload.fields!,
-            });
-          });
+      mutation.payload.models?.forEach((model: any) => {
+        newState[model.id] = transformer({
+          ...accumulatedState[model.id],
+          ...mutation.payload.fields!,
+        })
+      })
 
-          return newState;
-        }
+      return newState
+    }
 
-        return accumulatedState;
-      },
-      state,
-    )
-  );
+    return accumulatedState
+  }, state)
 
-const doNothingTransformer: (model: Model) => Model = (model) => model;
+const doNothingTransformer: (model: Model) => Model = (model) => model
 
 export default function createReducer<T extends Model>(table: keyof State) {
   return (state: Table<T>, action: OrmAction) => {
     if (action.type === OrmActionType.Mutations) {
-      return transformTable(
-        table,
-        state,
-        action.payload,
-        doNothingTransformer,
-      );
+      return transformTable(table, state, action.payload, doNothingTransformer)
     }
 
-    if (action.type === OrmActionType.BroadcastedMutations
-      && persistenceStrategies[table]?.shouldBroadcast
-    ) {
+    if (action.type === OrmActionType.BroadcastedMutations && persistenceStrategies[table]?.shouldBroadcast) {
       return transformTable(
         table,
         state,
         (action.payload as any).payload,
         persistenceStrategies[table]?.broadcast || doNothingTransformer,
-      );
+      )
     }
 
-    return state || null;
-  };
+    return state || null
+  }
 }

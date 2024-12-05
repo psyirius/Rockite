@@ -1,12 +1,13 @@
-import OrmAction, { OrmActionType } from '$services/orm/orm-action';
-import State from '../state';
+import type OrmAction from '$services/orm/orm-action'
+import { OrmActionType } from '$services/orm/orm-action'
+import type State from '../state'
 
 export enum ActionType {
-  Replace,
+  Replace = 0,
 }
 
 export interface Action {
-  type: ActionType | OrmActionType,
+  type: ActionType | OrmActionType
   payload: { [key: string]: any }
 }
 
@@ -14,14 +15,12 @@ export function replace(state: State) {
   return {
     type: ActionType.Replace,
     payload: state,
-  };
+  }
 }
 
-export function broadcastedOrmAction(
-  action: OrmAction,
-) {
+export function broadcastedOrmAction(action: OrmAction) {
   return {
     type: OrmActionType.BroadcastedMutations,
     payload: action,
-  };
+  }
 }

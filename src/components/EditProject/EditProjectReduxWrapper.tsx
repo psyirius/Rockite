@@ -1,14 +1,14 @@
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { projectUpdate } from '$redux/actions/projects.ts';
-import EditProject from './EditProject';
-import State from '$redux/state';
-import { currentProject } from '$redux/selectors/projects.ts';
+import { projectUpdate } from '$redux/actions/projects'
+import { currentProject } from '$redux/selectors/projects'
+import type State from '$redux/state'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import EditProject from './EditProject'
 
 function mapStateToProps(state: State) {
   return {
     project: currentProject(state),
-  };
+  }
 }
 
 function mapDispatchToProps(dispatch: any) {
@@ -17,7 +17,7 @@ function mapDispatchToProps(dispatch: any) {
       onProjectChange: projectUpdate,
     },
     dispatch,
-  );
+  )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditProject);
+export default connect(mapStateToProps, mapDispatchToProps)(EditProject)

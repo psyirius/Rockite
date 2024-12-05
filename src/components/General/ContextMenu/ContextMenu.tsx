@@ -1,27 +1,22 @@
-import 'twin.macro';
-import ContextMenuAction from '$providers/context-menu-action';
+import 'twin.macro'
+import type ContextMenuAction from '$providers/context-menu-action'
 
 export type ContextMenuProps = {
-  position: [number, number],
-  actions: ContextMenuAction[],
-  align: 'left' | 'right',
-  close: () => void,
-};
+  position: [number, number]
+  actions: ContextMenuAction[]
+  align: 'left' | 'right'
+  close: () => void
+}
 
-export default function ContextMenu({
-  position,
-  actions,
-  align,
-  close,
-}: ContextMenuProps) {
+export default function ContextMenu({ position, actions, align, close }: ContextMenuProps) {
   return (
     <div
       role="presentation"
       tw="absolute inset-0"
       onClick={() => close()}
       onContextMenu={(event) => {
-        event.preventDefault();
-        close();
+        event.preventDefault()
+        close()
       }}
     >
       <div
@@ -33,23 +28,15 @@ export default function ContextMenu({
       >
         {actions.map((action) => {
           if (action === '-') {
-            return (
-              <div
-                key="-"
-                tw="border-b my-1 border-gray-300 dark:border-gray-700"
-              />
-            );
+            return <div key="-" tw="border-b my-1 border-gray-300 dark:border-gray-700" />
           }
 
           if (typeof action === 'string') {
             return (
-              <div
-                key={action}
-                tw="px-4 py-2 uppercase text-gray-500 text-xs font-semibold"
-              >
+              <div key={action} tw="px-4 py-2 uppercase text-gray-500 text-xs font-semibold">
                 {action}
               </div>
-            );
+            )
           }
 
           return (
@@ -58,16 +45,16 @@ export default function ContextMenu({
               type="button"
               tw="px-4 py-1 hover:bg-gray-200 hover:dark:bg-gray-800 text-left text-sm text-gray-700 dark:text-gray-200"
               onClick={(event) => {
-                event.stopPropagation();
-                close();
-                setTimeout(() => action?.onClick?.(event));
+                event.stopPropagation()
+                close()
+                setTimeout(() => action?.onClick?.(event))
               }}
             >
               {action.label}
             </button>
-          );
+          )
         })}
       </div>
     </div>
-  );
+  )
 }

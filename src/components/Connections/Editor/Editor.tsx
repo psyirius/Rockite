@@ -1,37 +1,32 @@
-import 'twin.macro';
-import { useContext } from 'react';
-import { MdAdd } from 'react-icons/md';
-import TabModel from '$models/tab';
-import Tab from './EditorTab';
-import SavedPayload from '$models/saved-payload';
-import SavedPayloadValidator from '$models/saved-payload/validator';
-import Connection from '$models/connection';
-import Project from '$models/project';
-import EditorContent from './EditorContent';
-import PopupPrompt from '../../General/PopupPresets/PopupPrompt';
-import { PopupContext } from '$providers/PopupProvider';
-import ButtonSecondary from '../../General/Styled/ButtonSecondary';
-import {
-  tabClose,
-  tabCreate,
-  tabSwitch,
-  tabUpdateContent,
-} from '$redux/actions/tabs.ts';
-import { savedPayloadCreateFromTab, savedPayloadUpdate } from '$redux/actions/saved-payloads.ts';
-import { socketSend } from '$redux/actions/connection-sockets.ts';
+import 'twin.macro'
+import type Connection from '$models/connection'
+import type Project from '$models/project'
+import type SavedPayload from '$models/saved-payload'
+import SavedPayloadValidator from '$models/saved-payload/validator'
+import type TabModel from '$models/tab'
+import { PopupContext } from '$providers/PopupProvider'
+import type { socketSend } from '$redux/actions/connection-sockets'
+import type { savedPayloadCreateFromTab, savedPayloadUpdate } from '$redux/actions/saved-payloads'
+import type { tabClose, tabCreate, tabSwitch, tabUpdateContent } from '$redux/actions/tabs'
+import { useContext } from 'react'
+import { MdAdd } from 'react-icons/md'
+import PopupPrompt from '../../General/PopupPresets/PopupPrompt'
+import ButtonSecondary from '../../General/Styled/ButtonSecondary'
+import EditorContent from './EditorContent'
+import Tab from './EditorTab'
 
 export interface EditorProps {
-  connection: Connection,
-  project: Project,
-  tabs: TabModel[],
-  savedPayloads: { [key: string]: SavedPayload },
-  onCloseTab: typeof tabClose,
-  onSwitchTab: typeof tabSwitch,
-  onCreateTab: typeof tabCreate,
-  onTabContentChange: typeof tabUpdateContent,
-  onCreateSavedPayload: typeof savedPayloadCreateFromTab,
-  onSavedPayloadChange: typeof savedPayloadUpdate,
-  onWebSocketSend: typeof socketSend,
+  connection: Connection
+  project: Project
+  tabs: TabModel[]
+  savedPayloads: { [key: string]: SavedPayload }
+  onCloseTab: typeof tabClose
+  onSwitchTab: typeof tabSwitch
+  onCreateTab: typeof tabCreate
+  onTabContentChange: typeof tabUpdateContent
+  onCreateSavedPayload: typeof savedPayloadCreateFromTab
+  onSavedPayloadChange: typeof savedPayloadUpdate
+  onWebSocketSend: typeof socketSend
 }
 
 export default function Editor({
@@ -47,12 +42,13 @@ export default function Editor({
   onSavedPayloadChange,
   onWebSocketSend,
 }: EditorProps) {
-  const popup = useContext(PopupContext);
+  const popup = useContext(PopupContext)
 
-  const selectedTab = tabs.find((tab) => tab.selected)!;
+  const selectedTab = tabs.find((tab) => tab.selected)!
 
-  const selectedSavedPayload = Object.values(savedPayloads)
-    .find((savedPayload) => selectedTab.savedPayloadId === savedPayload.id);
+  const selectedSavedPayload = Object.values(savedPayloads).find(
+    (savedPayload) => selectedTab.savedPayloadId === savedPayload.id,
+  )
 
   return (
     <div data-tour="connection-editor">
@@ -83,28 +79,19 @@ export default function Editor({
         onSend={(content) => onWebSocketSend(connection, content)}
         onSave={(tab) => onSavedPayloadChange(selectedSavedPayload!, { content: tab.content })}
         onSaveAs={async (tab) => {
-          const name = await popup.push<string>(
-            'Save Payload',
-            PopupPrompt,
-            {
-              label: 'Payload Name',
-              submitLabel: 'Save',
-              yupValidator: SavedPayloadValidator.name,
-              maxLength: SavedPayloadValidator.nameLength,
-            },
-          );
+          const name = await popup.push<string>('Save Payload', PopupPrompt, {
+            label: 'Payload Name',
+            submitLabel: 'Save',
+            yupValidator: SavedPayloadValidator.name,
+            maxLength: SavedPayloadValidator.nameLength,
+          })
 
           if (name?.length) {
-            onCreateSavedPayload(
-              project,
-              connection,
-              tab,
-              name,
-            );
+            onCreateSavedPayload(project, connection, tab, name)
           }
         }}
         onTabContentChanged={(tab, content) => onTabContentChange(tab, content)}
       />
     </div>
-  );
+  )
 }

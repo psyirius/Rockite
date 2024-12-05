@@ -1,16 +1,10 @@
-import { ReactNode } from 'react';
-import 'twin.macro';
+import type { ReactNode } from 'react'
+import 'twin.macro'
 
 export interface PopupBodyProps {
-  children: ReactNode,
+  children: ReactNode
 }
 
-export default function PopupBody({
-  children,
-}: PopupBodyProps) {
-  return (
-    <div tw="p-4">
-      {children}
-    </div>
-  );
+export default function PopupBody({ children }: PopupBodyProps) {
+  return <div tw="p-4">{children}</div>
 }

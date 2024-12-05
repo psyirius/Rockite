@@ -1,21 +1,17 @@
-import 'twin.macro';
-import ConnectionsConnected from '$components/Connections/ConnectionsConnected';
-import SidebarConnected from '$components/Sidebar/SidebarConnected';
-import HeaderConnected from '$components/Header/HeaderConnected';
-import EmptyMessage from '$components/General/Utilities/EmptyMessage';
-import { Toaster } from "sonner";
+import 'twin.macro'
+import ConnectionsConnected from '$components/Connections/ConnectionsConnected'
+import EmptyMessage from '$components/General/Utilities/EmptyMessage'
+import HeaderConnected from '$components/Header/HeaderConnected'
+import SidebarConnected from '$components/Sidebar/SidebarConnected'
+import { Toaster } from 'sonner'
 
 export interface LayoutProps {
-  sidebarOpen: boolean,
-  projectOpen: boolean,
-  projectsExist: boolean,
+  sidebarOpen: boolean
+  projectOpen: boolean
+  projectsExist: boolean
 }
 
-export default function Layout({
-  sidebarOpen,
-  projectOpen,
-  projectsExist,
-}: LayoutProps) {
+export default function Layout({ sidebarOpen, projectOpen, projectsExist }: LayoutProps) {
   return (
     <>
       <div tw="flex flex-col h-full">
@@ -31,17 +27,15 @@ export default function Layout({
                   <SidebarConnected />
                 </div>
               )}
-              <ConnectionsConnected
-                paddingLeft={!sidebarOpen}
-              />
+              <ConnectionsConnected paddingLeft={!sidebarOpen} />
             </>
           )}
-          {(!projectOpen && !projectsExist) && (
+          {!projectOpen && !projectsExist && (
             <EmptyMessage heading="No Projects Exist">
               Click the projects button in the top left to create one.
             </EmptyMessage>
           )}
-          {(!projectOpen && projectsExist) && (
+          {!projectOpen && projectsExist && (
             <EmptyMessage heading="No Project Open">
               Click the projects button in the top left to open one.
             </EmptyMessage>
@@ -50,5 +44,5 @@ export default function Layout({
       </div>
       <Toaster />
     </>
-  );
+  )
 }

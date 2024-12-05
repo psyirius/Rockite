@@ -1,5 +1,5 @@
-import LabelClickAction from '$types/UserInterface/LabelClickAction';
+import type LabelClickAction from '$types/UserInterface/LabelClickAction'
 
-type ContextMenuAction = LabelClickAction | '-' | string;
+type ContextMenuAction = LabelClickAction | '-' | string
 
-export default ContextMenuAction;
+export default ContextMenuAction

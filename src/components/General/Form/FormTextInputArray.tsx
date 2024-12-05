@@ -1,25 +1,19 @@
-import { Fragment, useState } from 'react';
-import { MdClose } from 'react-icons/md';
-import tw from 'twin.macro';
-import { v4 as uuid } from 'uuid';
-import { useField } from 'formik';
-import ButtonSecondary from '../Styled/ButtonSecondary';
+import { useField } from 'formik'
+import { Fragment, useState } from 'react'
+import { MdClose } from 'react-icons/md'
+import tw from 'twin.macro'
+import { v4 as uuid } from 'uuid'
+import ButtonSecondary from '../Styled/ButtonSecondary'
 
 export interface FormTextInputArrayProps {
-  name: string,
-  maxLength?: number,
-  addItemCta: string,
+  name: string
+  maxLength?: number
+  addItemCta: string
 }
 
-export default function FormTextInputArray({
-  name,
-  maxLength,
-  addItemCta,
-}: FormTextInputArrayProps) {
-  const [field, meta, helpers] = useField<{ id: string, value: string}[]>({ name });
-  const [focusedItem, setFocusedItem] = (
-    useState<{ id: string, value: string} | undefined>(undefined)
-  );
+export default function FormTextInputArray({ name, maxLength, addItemCta }: FormTextInputArrayProps) {
+  const [field, meta, helpers] = useField<{ id: string; value: string }[]>({ name })
+  const [focusedItem, setFocusedItem] = useState<{ id: string; value: string } | undefined>(undefined)
 
   return (
     <>
@@ -32,10 +26,7 @@ export default function FormTextInputArray({
       >
         {field.value.map((item) => (
           <Fragment key={item.id}>
-            <div
-              className="group"
-              tw="flex"
-            >
+            <div className="group" tw="flex">
               <input
                 type="text"
                 tw="w-full py-1 px-4 bg-transparent"
@@ -45,24 +36,22 @@ export default function FormTextInputArray({
                 onBlur={() => setFocusedItem(undefined)}
                 onChange={(event) => {
                   helpers.setValue(
-                    field.value.map((existingItem) => (
+                    field.value.map((existingItem) =>
                       item === existingItem
                         ? {
-                          id: existingItem.id,
-                          value: event.target.value,
-                        }
-                        : existingItem
-                    )),
-                  );
-                  helpers.setTouched(true);
+                            id: existingItem.id,
+                            value: event.target.value,
+                          }
+                        : existingItem,
+                    ),
+                  )
+                  helpers.setTouched(true)
                 }}
               />
               <ButtonSecondary
                 type="button"
                 tw="mr-3 p-1 invisible group-hover:visible"
-                onClick={() => helpers.setValue(
-                  field.value.filter((existingItem) => existingItem.id !== item.id),
-                )}
+                onClick={() => helpers.setValue(field.value.filter((existingItem) => existingItem.id !== item.id))}
               >
                 <MdClose />
               </ButtonSecondary>
@@ -77,31 +66,17 @@ export default function FormTextInputArray({
         ))}
         <ButtonSecondary
           type="button"
-          css={[
-            tw`w-full text-xs h-8 text-center`,
-            !!field.value.length && 'mt-2',
-          ]}
-          onClick={() => (
-            helpers.setValue([
-              ...field.value,
-              { id: uuid(), value: '' },
-            ])
-          )}
+          css={[tw`w-full text-xs h-8 text-center`, !!field.value.length && 'mt-2']}
+          onClick={() => helpers.setValue([...field.value, { id: uuid(), value: '' }])}
         >
           {addItemCta}
         </ButtonSecondary>
       </div>
       {meta.error && (
-        <div
-          tw="pt-2 text-red-800 text-sm font-semibold"
-        >
-          {
-            typeof meta.error === 'string'
-              ? meta.error
-              : (meta.error as any)?.find((error: any) => !!error).value
-          }
+        <div tw="pt-2 text-red-800 text-sm font-semibold">
+          {typeof meta.error === 'string' ? meta.error : (meta.error as any)?.find((error: any) => !!error).value}
         </div>
       )}
     </>
-  );
+  )
 }

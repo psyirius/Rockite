@@ -1,3 +1,3 @@
-const Validator = { };
+const Validator = {}
 
-export default Validator;
+export default Validator

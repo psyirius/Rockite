@@ -1,18 +1,12 @@
-import { Formik } from 'formik';
+import { Formik } from 'formik'
 
 export interface FormikDecoratorProps {
-  initialValues: { [key: string]: any },
-};
+  initialValues: { [key: string]: any }
+}
 
-export default function FormikDecorator(
-  component: any,
-  { args }: any,
-) {
+export default function FormikDecorator(component: any, { args }: any) {
   return (
-    <Formik
-      initialValues={args.initialValues}
-      onSubmit={() => { }}
-    >
+    <Formik initialValues={args.initialValues} onSubmit={() => {}}>
       {component()}
     </Formik>
   )

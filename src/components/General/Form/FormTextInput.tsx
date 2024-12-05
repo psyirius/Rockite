@@ -1,19 +1,14 @@
-import 'twin.macro';
-import { ErrorMessage, Field } from 'formik';
+import 'twin.macro'
+import { ErrorMessage, Field } from 'formik'
 
 export interface FormTextInputProps {
-  name: string,
-  placeholder?: string,
-  maxLength?: number,
+  name: string
+  placeholder?: string
+  maxLength?: number
   autoFocus?: boolean
 }
 
-export default function FormTextInput({
-  name,
-  placeholder,
-  maxLength,
-  autoFocus,
-}: FormTextInputProps) {
+export default function FormTextInput({ name, placeholder, maxLength, autoFocus }: FormTextInputProps) {
   return (
     <>
       <Field
@@ -23,11 +18,7 @@ export default function FormTextInput({
         maxLength={maxLength}
         autoFocus={autoFocus}
       />
-      <ErrorMessage
-        name={name}
-        component="div"
-        tw="pt-2 text-red-800 text-sm font-semibold"
-      />
+      <ErrorMessage name={name} component="div" tw="pt-2 text-red-800 text-sm font-semibold" />
     </>
-  );
+  )
 }

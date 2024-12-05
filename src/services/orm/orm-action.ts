@@ -1,19 +1,19 @@
-import State from '$redux/state';
-import Model from './model';
+import type State from '$redux/state'
+import type Model from './model'
 
 export enum MutationType {
-  Create,
-  Update,
-  Delete,
+  Create = 0,
+  Update = 1,
+  Delete = 2,
 }
 
 export interface Mutation<T extends Model> {
-  type: MutationType,
+  type: MutationType
   payload: {
-    table: keyof State,
-    models?: T[],
-    fields?: Partial<T>,
-  },
+    table: keyof State
+    models?: T[]
+    fields?: Partial<T>
+  }
 }
 
 export enum OrmActionType {
@@ -22,6 +22,6 @@ export enum OrmActionType {
 }
 
 export default interface OrmAction {
-  type: OrmActionType.Mutations,
-  payload: Mutation<Model>[],
+  type: OrmActionType.Mutations
+  payload: Mutation<Model>[]
 }

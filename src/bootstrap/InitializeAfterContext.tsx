@@ -1,20 +1,14 @@
-import { ReactNode } from 'react';
-import useInitializeChromeRatingPrompt from './hooks/useInitializeChromeRatingPrompt';
-import useInitializeTourPrompt from './hooks/useInitializeTourPrompt';
+import type { ReactNode } from 'react'
+import useInitializeChromeRatingPrompt from './hooks/useInitializeChromeRatingPrompt'
+import useInitializeTourPrompt from './hooks/useInitializeTourPrompt'
 
 export interface InitializeAfterContextProps {
-  children: ReactNode,
+  children: ReactNode
 }
 
-export default function InitializeAfterContext({
-  children,
-}: InitializeAfterContextProps) {
-  useInitializeChromeRatingPrompt();
-  useInitializeTourPrompt();
+export default function InitializeAfterContext({ children }: InitializeAfterContextProps) {
+  useInitializeChromeRatingPrompt()
+  useInitializeTourPrompt()
 
-  return (
-    <>
-      {children}
-    </>
-  );
+  return <>{children}</>
 }

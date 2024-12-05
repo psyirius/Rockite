@@ -1,15 +1,13 @@
-import { useEffect, useState } from 'react';
-import { theme } from 'twin.macro';
-import ButtonPrimary from '../Styled/ButtonPrimary';
-import ButtonSecondary from '../Styled/ButtonSecondary';
+import { useEffect, useState } from 'react'
+import { theme } from 'twin.macro'
+import ButtonPrimary from '../Styled/ButtonPrimary'
+import ButtonSecondary from '../Styled/ButtonSecondary'
 
 export interface TourProps {
-  onClose: () => void,
+  onClose: () => void
 }
 
-export default function Tour({
-  onClose,
-}: TourProps) {
+export default function Tour({ onClose }: TourProps) {
   const steps = [
     {
       target: 'connection-url',
@@ -31,44 +29,33 @@ export default function Tour({
       copy: 'Any payloads that are sent frequently can be saved here.',
       position: 'right',
     },
-  ];
+  ]
 
-  const [step, setStep] = useState<number>(0);
-  const [boundingBox, setBoundingBox] = useState<DOMRect | null>(null);
-  const [lastCheckAt, setLastCheckAt] = useState<number>(Date.now());
+  const [step, setStep] = useState<number>(0)
+  const [boundingBox, setBoundingBox] = useState<DOMRect | null>(null)
+  const [lastCheckAt, setLastCheckAt] = useState<number>(Date.now())
 
-  const padding1 = theme`padding.1`;
-  const padding2 = theme`padding.2`;
-  const padding4 = theme`padding.4`;
+  const padding1 = theme`padding.1`
+  const padding2 = theme`padding.2`
+  const padding4 = theme`padding.4`
 
-  useEffect(
-    () => {
-      const interval = window.setInterval(
-        () => setLastCheckAt(Date.now()),
-        1000,
-      );
+  useEffect(() => {
+    const interval = window.setInterval(() => setLastCheckAt(Date.now()), 1000)
 
-      return () => window.clearInterval(interval);
-    },
-    [],
-  );
+    return () => window.clearInterval(interval)
+  }, [])
 
-  useEffect(
-    () => {
-      const element = document.querySelector(`[data-tour='${steps[step].target}']`);
+  useEffect(() => {
+    const element = document.querySelector(`[data-tour='${steps[step].target}']`)
 
-      if (!element) {
-        onClose();
-      }
+    if (!element) {
+      onClose()
+    }
 
-      setBoundingBox(
-        element!.getBoundingClientRect()!,
-      );
+    setBoundingBox(element?.getBoundingClientRect()!)
 
-      element!.scrollIntoView({ behavior: 'smooth' });
-    },
-    [step, lastCheckAt],
-  );
+    element?.scrollIntoView({ behavior: 'smooth' })
+  }, [step, lastCheckAt])
 
   return (
     <>
@@ -84,12 +71,14 @@ export default function Tour({
       <div
         tw="absolute flex content-center"
         style={{
-          left: steps[step].position === 'bottom'
-            ? `calc(${boundingBox?.left}px - ${padding1})`
-            : `calc(${boundingBox?.right}px + ${padding4})`,
-          top: steps[step].position === 'bottom'
-            ? `calc(${boundingBox?.bottom}px + ${padding4})`
-            : `calc(${boundingBox?.top}px - ${padding1})`,
+          left:
+            steps[step].position === 'bottom'
+              ? `calc(${boundingBox?.left}px - ${padding1})`
+              : `calc(${boundingBox?.right}px + ${padding4})`,
+          top:
+            steps[step].position === 'bottom'
+              ? `calc(${boundingBox?.bottom}px + ${padding4})`
+              : `calc(${boundingBox?.top}px - ${padding1})`,
           width: `calc(${boundingBox?.width}px + ${padding2})`,
         }}
       >
@@ -99,33 +88,26 @@ export default function Tour({
           </p>
           <p tw="mt-2 select-text text-gray-800 dark:text-gray-200">{steps[step].copy}</p>
           <div tw="flex justify-end mt-2">
-            {(steps.length !== step + 1) && (
-              <ButtonSecondary
-                onClick={() => onClose()}
-                tw="py-1 px-4 rounded mr-2"
-              >
+            {steps.length !== step + 1 && (
+              <ButtonSecondary onClick={() => onClose()} tw="py-1 px-4 rounded mr-2">
                 Exit
               </ButtonSecondary>
             )}
             <ButtonPrimary
               onClick={() => {
                 if (steps.length === step + 1) {
-                  onClose();
+                  onClose()
                 } else {
-                  setStep(step + 1);
+                  setStep(step + 1)
                 }
               }}
               tw="py-1 px-4 rounded"
             >
-              {
-                steps.length === step + 1
-                  ? 'Finish'
-                  : 'Next'
-              }
+              {steps.length === step + 1 ? 'Finish' : 'Next'}
             </ButtonPrimary>
           </div>
         </div>
       </div>
     </>
-  );
+  )
 }

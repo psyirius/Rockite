@@ -1,9 +1,6 @@
-import State from '../state';
-import Tab from '$models/tab';
-import { dataSource } from '$models/tab/query';
+import type Tab from '$models/tab'
+import { dataSource } from '$models/tab/query'
+import type State from '../state'
 
-export const tabsForConnection = (state: State, connectionId: string): Tab[] => (
-  dataSource().withState(state)
-    .where('connectionId', connectionId)
-    .get()
-);
+export const tabsForConnection = (state: State, connectionId: string): Tab[] =>
+  dataSource().withState(state).where('connectionId', connectionId).get()

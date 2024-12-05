@@ -1,4 +1,4 @@
 export default interface Action {
-  type: number,
-  payload?: any,
+  type: number
+  payload?: any
 }

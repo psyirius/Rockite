@@ -1,3 +1,3 @@
 export default interface Model {
-  id: string,
+  id: string
 }

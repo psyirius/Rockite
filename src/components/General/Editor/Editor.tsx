@@ -1,19 +1,19 @@
-import { ReactEventHandler } from 'react';
-import { theme } from 'twin.macro';
-import SimpleCodeEditor from 'react-simple-code-editor';
-import { highlight, languages } from 'prismjs';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-json';
+import { highlight, languages } from 'prismjs'
+import type { ReactEventHandler } from 'react'
+import SimpleCodeEditor from 'react-simple-code-editor'
+import { theme } from 'twin.macro'
+import 'prismjs/components/prism-clike'
+import 'prismjs/components/prism-json'
 
 export interface EditorProps {
-  name?: string,
-  value: string,
-  onChange: (value: string) => void,
-  onBlur?: (event: ReactEventHandler) => void,
-  onFocus?: (event: ReactEventHandler) => void,
-  minLines: number,
-  maxLines: number,
-  placeholder?: string,
+  name?: string
+  value: string
+  onChange: (value: string) => void
+  onBlur?: (event: ReactEventHandler) => void
+  onFocus?: (event: ReactEventHandler) => void
+  minLines: number
+  maxLines: number
+  placeholder?: string
 }
 
 export default function Editor({
@@ -50,5 +50,5 @@ export default function Editor({
         }}
       />
     </div>
-  );
+  )
 }

@@ -1,17 +1,17 @@
-import fs from "node:fs";
-import { execSync } from "node:child_process";
+import { execSync } from 'node:child_process'
+import fs from 'node:fs'
 
-const workingDir = process.cwd();
-const buildDir = `${ workingDir }/build`;
+const workingDir = process.cwd()
+const buildDir = `${workingDir}/build`
 
-const removeFiles = ['robots.txt', 'manifest.json'];
+const removeFiles = ['robots.txt', 'manifest.json']
 
-removeFiles.forEach(
-  file => fs.unlinkSync(`${ buildDir }/${ file }`)
-);
+for (const file of removeFiles) {
+  fs.unlinkSync(`${buildDir}/${file}`)
+}
 
-execSync('cp -r public-chrome/. build');
+execSync('cp -r public-chrome/. build')
 
-execSync('rm chrome-build.zip || true');
+execSync('rm chrome-build.zip || true')
 
-execSync('zip -vr chrome-build.zip build/* -x "*.DS_Store"');
+execSync('zip -vr chrome-build.zip build/* -x "*.DS_Store"')

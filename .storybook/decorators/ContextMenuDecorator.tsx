@@ -1,11 +1,5 @@
-import { ContextMenuProvider } from '$providers/ContextMenuProvider.tsx';
+import { ContextMenuProvider } from '$providers/ContextMenuProvider'
 
-export default function ContextMenuDecorator(
-  component: any,
-) {
-  return (
-    <ContextMenuProvider>
-      {component()}
-    </ContextMenuProvider>
-  )
+export default function ContextMenuDecorator(component: any) {
+  return <ContextMenuProvider>{component()}</ContextMenuProvider>
 }

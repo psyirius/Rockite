@@ -1,25 +1,22 @@
-import { createRef, useContext } from 'react';
-import 'twin.macro';
-import config from '@/config';
-import isPlatform from '$helpers/isPlatform';
-import { DropdownMenuContext } from '$providers/DropdownMenuProvider';
-import LabelClickAction from '$types/UserInterface/LabelClickAction';
-import ButtonSecondary from '../General/Styled/ButtonSecondary';
+import { createRef, useContext } from 'react'
+import 'twin.macro'
+import isPlatform from '$helpers/isPlatform'
+import { DropdownMenuContext } from '$providers/DropdownMenuProvider'
+import type LabelClickAction from '$types/UserInterface/LabelClickAction'
+import config from '@/config'
+import ButtonSecondary from '../General/Styled/ButtonSecondary'
 
 export default function HeaderRightHandLinks() {
-  const dropdown = useContext(DropdownMenuContext);
-  const buttonElement = createRef<HTMLButtonElement>();
+  const dropdown = useContext(DropdownMenuContext)
+  const buttonElement = createRef<HTMLButtonElement>()
 
-  const linkActions: LabelClickAction[] = [];
+  const linkActions: LabelClickAction[] = []
 
   if (!isPlatform('web')) {
     linkActions.push({
       label: 'Web',
-      onClick: () => window.open(
-        config.websiteLink,
-        '_blank',
-      ),
-    });
+      onClick: () => window.open(config.websiteLink, '_blank'),
+    })
   }
 
   // Make sure to uncomment this block after getting the Chrome extension published
@@ -35,20 +32,14 @@ export default function HeaderRightHandLinks() {
 
   linkActions.push({
     label: 'Bugs and feature requests',
-    onClick: () => window.open(
-      config.issueTrackerLink,
-      '_blank',
-    ),
-  });
+    onClick: () => window.open(config.issueTrackerLink, '_blank'),
+  })
 
   return (
     <ButtonSecondary
       tw="flex items-center text-xs text-gray-700 dark:text-gray-400 py-1.5 px-2 rounded"
       ref={buttonElement}
-      onClick={() => dropdown.openForElement(
-        buttonElement.current!,
-        linkActions,
-      )}
+      onClick={() => dropdown.openForElement(buttonElement.current!, linkActions)}
     >
       <img
         tw="mr-2 w-4 h-4"
@@ -62,5 +53,5 @@ export default function HeaderRightHandLinks() {
       />
       <span>{config.appName}</span>
     </ButtonSecondary>
-  );
+  )
 }

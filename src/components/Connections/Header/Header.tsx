@@ -1,34 +1,35 @@
-import {useContext, useEffect, useState} from 'react';
-import tw from 'twin.macro';
-import { MdClose } from 'react-icons/md';
-import { GoDash } from 'react-icons/go';
-import { RiSettings3Line } from 'react-icons/ri';
-import Connection, { ConnectionSocketStatus } from '$models/connection';
-import HeaderName from './HeaderName';
-import ButtonSecondary from '../../General/Styled/ButtonSecondary';
-import ButtonPrimary from '../../General/Styled/ButtonPrimary';
-import { PopupContext } from '$providers/PopupProvider';
-import EditConnection from '../../EditConnection/EditConnection';
-import { socketConnect, socketDisconnect } from '$redux/actions/connection-sockets.ts';
-import {
+import type Connection from '$models/connection'
+import { ConnectionSocketStatus } from '$models/connection'
+import { PopupContext } from '$providers/PopupProvider'
+import type { socketConnect, socketDisconnect } from '$redux/actions/connection-sockets'
+import type {
   connectionDisconnectSocketAndRemove,
   connectionMinimize,
   connectionUpdateAutoReconnect,
   connectionUpdateName,
   connectionUpdateProtocols,
   connectionUpdateSocketUrl,
-} from '$redux/actions/connections.ts';
+} from '$redux/actions/connections'
+import { useContext, useEffect, useState } from 'react'
+import { GoDash } from 'react-icons/go'
+import { MdClose } from 'react-icons/md'
+import { RiSettings3Line } from 'react-icons/ri'
+import tw from 'twin.macro'
+import EditConnection from '../../EditConnection/EditConnection'
+import ButtonPrimary from '../../General/Styled/ButtonPrimary'
+import ButtonSecondary from '../../General/Styled/ButtonSecondary'
+import HeaderName from './HeaderName'
 
 export interface HeaderProps {
-  onWebSocketUrlChange: typeof connectionUpdateSocketUrl,
-  onWebSocketNameChange: typeof connectionUpdateName,
-  onWebSocketProtocolsChange: typeof connectionUpdateProtocols,
-  onWebSocketAutoReconnectChange: typeof connectionUpdateAutoReconnect,
-  onWebSocketConnect: typeof socketConnect,
-  onWebSocketDisconnect: typeof socketDisconnect,
-  onClose: typeof connectionDisconnectSocketAndRemove,
-  onMinimize: typeof connectionMinimize,
-  connection: Connection,
+  onWebSocketUrlChange: typeof connectionUpdateSocketUrl
+  onWebSocketNameChange: typeof connectionUpdateName
+  onWebSocketProtocolsChange: typeof connectionUpdateProtocols
+  onWebSocketAutoReconnectChange: typeof connectionUpdateAutoReconnect
+  onWebSocketConnect: typeof socketConnect
+  onWebSocketDisconnect: typeof socketDisconnect
+  onClose: typeof connectionDisconnectSocketAndRemove
+  onMinimize: typeof connectionMinimize
+  connection: Connection
 }
 
 export default function Header({
@@ -42,36 +43,30 @@ export default function Header({
   onMinimize,
   connection,
 }: HeaderProps) {
-  const popup = useContext(PopupContext);
-  const [connectionUrl, setConnectionUrl] = useState(connection.socketUrl);
-  const [socketUrlInputFocused, setSocketUrlInputFocused] = useState<boolean>(false);
-  const [connectionOptionsPopupOpen, setConnectionOptionsPopupOpen] = useState<boolean>(false);
+  const popup = useContext(PopupContext)
+  const [connectionUrl, setConnectionUrl] = useState(connection.socketUrl)
+  const [socketUrlInputFocused, setSocketUrlInputFocused] = useState<boolean>(false)
+  const [connectionOptionsPopupOpen, setConnectionOptionsPopupOpen] = useState<boolean>(false)
 
   useEffect(() => {
-    onWebSocketUrlChange(
-      connection,
-      connectionUrl,
-    );
-  }, [connectionUrl]);
+    onWebSocketUrlChange(connection, connectionUrl)
+  }, [connectionUrl])
 
   const connectOrDisconnectClick = () => {
     if (connection.socketStatus === ConnectionSocketStatus.Disconnected) {
-      onWebSocketConnect(connection);
+      onWebSocketConnect(connection)
     }
 
     if (connection.socketStatus === ConnectionSocketStatus.Connected) {
-      onWebSocketDisconnect(connection);
+      onWebSocketDisconnect(connection)
     }
-  };
+  }
 
   return (
     <div tw="w-full bg-gray-200 dark:bg-gray-900">
       <div tw="flex flex-row p-2 items-center">
         <div tw="flex-none pl-2 pr-4">
-          <HeaderName
-            name={connection.name}
-            onNameChange={(name) => onWebSocketNameChange(connection, name)}
-          />
+          <HeaderName name={connection.name} onNameChange={(name) => onWebSocketNameChange(connection, name)} />
         </div>
         <div tw="flex-grow">
           <div
@@ -103,24 +98,22 @@ export default function Header({
               </label>
               <ButtonSecondary
                 onClick={async () => {
-                  setConnectionOptionsPopupOpen(true);
-                  await popup.push(
-                    `${connection.name} Connection Options`,
-                    EditConnection,
-                    {
-                      connection,
-                      onWebSocketProtocolsChange,
-                      onWebSocketAutoReconnectChange,
-                    },
-                  );
-                  setConnectionOptionsPopupOpen(false);
+                  setConnectionOptionsPopupOpen(true)
+                  await popup.push(`${connection.name} Connection Options`, EditConnection, {
+                    connection,
+                    onWebSocketProtocolsChange,
+                    onWebSocketAutoReconnectChange,
+                  })
+                  setConnectionOptionsPopupOpen(false)
                 }}
                 title="Connection Options"
                 css={[
                   tw`m-1 h-6 flex-none p-1 rounded`,
                   connectionOptionsPopupOpen && tw`bg-gray-700`,
-                  connection.socketStatus !== ConnectionSocketStatus.Disconnected && tw`text-gray-300 dark:text-gray-600`,
-                  connection.socketStatus === ConnectionSocketStatus.Disconnected && tw`text-gray-600 dark:text-gray-300`,
+                  connection.socketStatus !== ConnectionSocketStatus.Disconnected &&
+                    tw`text-gray-300 dark:text-gray-600`,
+                  connection.socketStatus === ConnectionSocketStatus.Disconnected &&
+                    tw`text-gray-600 dark:text-gray-300`,
                 ]}
                 type="button"
               >
@@ -131,40 +124,29 @@ export default function Header({
               type="button"
               onClick={() => connectOrDisconnectClick()}
               disabled={
-                [
-                  ConnectionSocketStatus.PendingReconnection,
-                  ConnectionSocketStatus.Pending,
-                ].includes(connection.socketStatus)
-                || !connection.socketUrl.length
+                [ConnectionSocketStatus.PendingReconnection, ConnectionSocketStatus.Pending].includes(
+                  connection.socketStatus,
+                ) || !connection.socketUrl.length
               }
               css={[tw`px-4 mr-2 my-1 rounded`]}
             >
               {connection.socketStatus === ConnectionSocketStatus.Disconnected && 'Connect'}
               {connection.socketStatus === ConnectionSocketStatus.Pending && 'Connecting'}
               {connection.socketStatus === ConnectionSocketStatus.Connected && 'Disconnect'}
-              {connection.socketStatus === ConnectionSocketStatus.PendingReconnection && `Reconnecting in ${connection.socketSecondsUntilReconnect}`}
+              {connection.socketStatus === ConnectionSocketStatus.PendingReconnection &&
+                `Reconnecting in ${connection.socketSecondsUntilReconnect}`}
             </ButtonPrimary>
           </div>
         </div>
         <div tw="flex-none h-8 ml-2">
-          <ButtonSecondary
-            title="Minimize"
-            tw="px-2 h-8 rounded"
-            onClick={() => onMinimize(connection)}
-            type="button"
-          >
+          <ButtonSecondary title="Minimize" tw="px-2 h-8 rounded" onClick={() => onMinimize(connection)} type="button">
             <GoDash />
           </ButtonSecondary>
-          <ButtonSecondary
-            title="Close"
-            tw="px-2 h-8 rounded"
-            onClick={() => onClose(connection)}
-            type="button"
-          >
+          <ButtonSecondary title="Close" tw="px-2 h-8 rounded" onClick={() => onClose(connection)} type="button">
             <MdClose />
           </ButtonSecondary>
         </div>
       </div>
     </div>
-  );
+  )
 }

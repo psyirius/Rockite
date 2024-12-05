@@ -1,21 +1,21 @@
-import { useContext, useState } from 'react';
-import 'twin.macro';
-import SavedPayload from '$models/saved-payload';
-import TextLimit from '../General/Utilities/TextLimit';
-import List from '../General/List/List';
-import ListItem from '../General/List/ListItem';
-import Connection from '$models/connection';
-import { PopupContext } from '$providers/PopupProvider';
-import PopupConfirmation from '../General/PopupPresets/PopupConfirmation';
-import CreateEditPayloadConnected from '../CreateEditPayload/CreateEditPayloadConnected';
-import EmptyMessage from '../General/Utilities/EmptyMessage';
+import { useContext, useState } from 'react'
+import 'twin.macro'
+import type Connection from '$models/connection'
+import type SavedPayload from '$models/saved-payload'
+import { PopupContext } from '$providers/PopupProvider'
+import CreateEditPayloadConnected from '../CreateEditPayload/CreateEditPayloadConnected'
+import List from '../General/List/List'
+import ListItem from '../General/List/ListItem'
+import PopupConfirmation from '../General/PopupPresets/PopupConfirmation'
+import EmptyMessage from '../General/Utilities/EmptyMessage'
+import TextLimit from '../General/Utilities/TextLimit'
 
 export interface SavedPayloadListProps {
-  savedPayloads: SavedPayload[],
-  connections: Connection[],
-  onDelete: (savedPayload: SavedPayload) => void,
-  onOpen: (savedPayload: SavedPayload, connection: Connection) => void,
-  onOpenInNewConnection: (savedPayload: SavedPayload) => void,
+  savedPayloads: SavedPayload[]
+  connections: Connection[]
+  onDelete: (savedPayload: SavedPayload) => void
+  onOpen: (savedPayload: SavedPayload, connection: Connection) => void
+  onOpenInNewConnection: (savedPayload: SavedPayload) => void
 }
 
 export default function SavedPayloadList({
@@ -25,15 +25,11 @@ export default function SavedPayloadList({
   onOpen,
   onOpenInNewConnection,
 }: SavedPayloadListProps) {
-  const popup = useContext(PopupContext);
-  const [selectedPayload, setSelectedPayload] = useState<SavedPayload | undefined>();
+  const popup = useContext(PopupContext)
+  const [selectedPayload, setSelectedPayload] = useState<SavedPayload | undefined>()
 
   if (savedPayloads.length === 0) {
-    return (
-      <EmptyMessage heading="No Results">
-        No saved payloads matched your query.
-      </EmptyMessage>
-    );
+    return <EmptyMessage heading="No Results">No saved payloads matched your query.</EmptyMessage>
   }
 
   return (
@@ -41,21 +37,17 @@ export default function SavedPayloadList({
       {savedPayloads.map((savedPayload) => (
         <ListItem
           key={savedPayload.id}
-          title={(
+          title={
             <span tw="font-mono break-all">
-              <TextLimit characters={50}>
-                {savedPayload.name}
-              </TextLimit>
+              <TextLimit characters={50}>{savedPayload.name}</TextLimit>
             </span>
-          )}
+          }
           isSelected={selectedPayload?.id === savedPayload.id}
-          subtitle={(
+          subtitle={
             <span tw="font-mono break-all">
-              <TextLimit characters={80}>
-                {savedPayload.content}
-              </TextLimit>
+              <TextLimit characters={80}>{savedPayload.content}</TextLimit>
             </span>
-          )}
+          }
           primaryClickActions={[
             ...connections.map((connection) => ({
               label: `Open in ${connection.name}`,
@@ -71,40 +63,34 @@ export default function SavedPayloadList({
             {
               label: 'Edit',
               onClick: async () => {
-                setSelectedPayload(savedPayload);
+                setSelectedPayload(savedPayload)
 
-                await popup.push(
-                  'Edit Payload ',
-                  CreateEditPayloadConnected,
-                  {
-                    savedPayload,
-                  },
-                );
+                await popup.push('Edit Payload ', CreateEditPayloadConnected, {
+                  savedPayload,
+                })
 
-                setSelectedPayload(undefined);
+                setSelectedPayload(undefined)
               },
             },
             {
               label: 'Delete',
               onClick: async () => {
-                setSelectedPayload(savedPayload);
+                setSelectedPayload(savedPayload)
 
-                if (await popup.push<string>(
-                  'Delete Payload',
-                  PopupConfirmation,
-                  {
+                if (
+                  await popup.push<string>('Delete Payload', PopupConfirmation, {
                     message: 'Are you sure you would like to delete this payload?',
-                  },
-                )) {
-                  onDelete(savedPayload);
+                  })
+                ) {
+                  onDelete(savedPayload)
                 }
 
-                setSelectedPayload(undefined);
+                setSelectedPayload(undefined)
               },
             },
           ]}
         />
       ))}
     </List>
-  );
+  )
 }

@@ -1,6 +1,6 @@
-import Connection from '.';
-import { createDataSource, createMutableDataSource } from '$services/orm/data-source';
+import { createDataSource, createMutableDataSource } from '$services/orm/data-source'
+import type Connection from '.'
 
-export const mutableDataSource = createMutableDataSource<Connection>('connections');
+export const mutableDataSource = createMutableDataSource<Connection>('connections')
 
-export const dataSource = createDataSource<Connection>('connections');
+export const dataSource = createDataSource<Connection>('connections')

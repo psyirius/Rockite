@@ -1,21 +1,18 @@
-import React, {
-  ReactElement,
-  useContext,
-  useState,
-} from 'react';
-import { FaEllipsisH } from 'react-icons/fa';
-import tw from 'twin.macro';
-import { ContextMenuContext } from '$providers/ContextMenuProvider';
-import { DropdownMenuContext } from '$providers/DropdownMenuProvider';
-import ContextMenuAction from '$providers/context-menu-action';
+import { ContextMenuContext } from '$providers/ContextMenuProvider'
+import { DropdownMenuContext } from '$providers/DropdownMenuProvider'
+import type ContextMenuAction from '$providers/context-menu-action'
+import type React from 'react'
+import { type ReactElement, useContext, useState } from 'react'
+import { FaEllipsisH } from 'react-icons/fa'
+import tw from 'twin.macro'
 
 export interface ListItemProps {
-  title: ReactElement | string,
-  subtitle?: ReactElement | string,
-  isSelected?: boolean,
-  onClick?: (event: React.MouseEvent) => void,
-  primaryClickActions?: ContextMenuAction[],
-  secondaryClickActions?: ContextMenuAction[],
+  title: ReactElement | string
+  subtitle?: ReactElement | string
+  isSelected?: boolean
+  onClick?: (event: React.MouseEvent) => void
+  primaryClickActions?: ContextMenuAction[]
+  secondaryClickActions?: ContextMenuAction[]
 }
 
 export default function ListItem({
@@ -26,11 +23,11 @@ export default function ListItem({
   primaryClickActions = [],
   secondaryClickActions = [],
 }: ListItemProps) {
-  const contextMenu = useContext(ContextMenuContext);
-  const dropdownMenu = useContext(DropdownMenuContext);
+  const contextMenu = useContext(ContextMenuContext)
+  const dropdownMenu = useContext(DropdownMenuContext)
 
-  const [isSelected, setIsSelected] = useState<boolean>(false);
-  const [isDropdownSelected, setIsDropdownSelected] = useState<boolean>(false);
+  const [isSelected, setIsSelected] = useState<boolean>(false)
+  const [isDropdownSelected, setIsDropdownSelected] = useState<boolean>(false)
 
   return (
     <li
@@ -44,40 +41,28 @@ export default function ListItem({
         type="button"
         onClick={async (event) => {
           if (primaryClickActions?.length) {
-            setIsSelected(true);
-            contextMenu.openForMouseEvent(
-                event,
-                primaryClickActions
-            );
-            setIsSelected(false);
+            setIsSelected(true)
+            contextMenu.openForMouseEvent(event, primaryClickActions)
+            setIsSelected(false)
           }
 
-          onClick?.(event);
+          onClick?.(event)
         }}
         onContextMenu={async (event) => {
           if (secondaryClickActions?.length) {
-            setIsSelected(true);
-            contextMenu.openForMouseEvent(
-                event,
-                secondaryClickActions
-            );
-            setIsSelected(false);
+            setIsSelected(true)
+            contextMenu.openForMouseEvent(event, secondaryClickActions)
+            setIsSelected(false)
           }
         }}
         tw="w-full flex flex-row items-center py-2 px-4"
       >
         <div tw="flex flex-col flex-grow text-left">
-          <div
-            tw="text-gray-800 dark:text-gray-200"
-            data-testid="title"
-          >
+          <div tw="text-gray-800 dark:text-gray-200" data-testid="title">
             {title}
           </div>
           {subtitle && (
-            <div
-              tw="pt-2 text-gray-500 dark:text-gray-400 text-xs"
-              data-testid="subtitle"
-            >
+            <div tw="pt-2 text-gray-500 dark:text-gray-400 text-xs" data-testid="subtitle">
               {subtitle}
             </div>
           )}
@@ -91,19 +76,16 @@ export default function ListItem({
               isDropdownSelected && tw`bg-gray-300 dark:bg-gray-900 visible`,
             ]}
             onClick={async (event) => {
-              event.stopPropagation();
-              setIsSelected(true);
-              setIsDropdownSelected(true);
-              dropdownMenu.openForElement(
-                  event.currentTarget as HTMLElement,
-                  secondaryClickActions!
-              );
-              setIsSelected(false);
-              setIsDropdownSelected(false);
+              event.stopPropagation()
+              setIsSelected(true)
+              setIsDropdownSelected(true)
+              dropdownMenu.openForElement(event.currentTarget as HTMLElement, secondaryClickActions!)
+              setIsSelected(false)
+              setIsDropdownSelected(false)
             }}
             onContextMenu={(event) => {
-              event.stopPropagation();
-              event.preventDefault();
+              event.stopPropagation()
+              event.preventDefault()
             }}
           >
             <FaEllipsisH />
@@ -111,5 +93,5 @@ export default function ListItem({
         )}
       </button>
     </li>
-  );
+  )
 }

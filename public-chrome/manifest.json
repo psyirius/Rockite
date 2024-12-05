@@ -3,9 +3,7 @@
   "name": "Rockite WebSocket Client",
   "short_name": "Rockite",
   "version": "0.4",
-  "permissions": [
-    "unlimitedStorage"
-  ],
+  "permissions": ["unlimitedStorage"],
   "minimum_chrome_version": "50",
   "background": {
     "scripts": ["background.js"],
@@ -18,7 +16,7 @@
     },
     "default_title": "Rockite"
   },
-  "commands" : {
+  "commands": {
     "_execute_browser_action": {
       "suggested_key": {
         "windows": "Alt+S",

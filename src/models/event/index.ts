@@ -1,17 +1,17 @@
-import Model from '$services/orm/model';
+import type Model from '$services/orm/model'
 
 export enum EventType {
-  Meta,
-  Sent,
-  Received,
+  Meta = 0,
+  Sent = 1,
+  Received = 2,
 }
 
 export enum EventFormat {
-  Unknown,
-  Json,
+  Unknown = 0,
+  Json = 1,
 }
 
-export type EventPayload = string;
+export type EventPayload = string
 
 export enum EventPayloadType {
   Text = 1,
@@ -19,10 +19,10 @@ export enum EventPayloadType {
 }
 
 export default interface Event extends Model {
-  connectionId: string,
-  type: EventType,
-  format: EventFormat,
-  timestamp: string,
-  payload: EventPayload,
-  payloadType?: EventPayloadType,
+  connectionId: string
+  type: EventType
+  format: EventFormat
+  timestamp: string
+  payload: EventPayload
+  payloadType?: EventPayloadType
 }

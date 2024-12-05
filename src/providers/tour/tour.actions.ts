@@ -1,6 +1,6 @@
 enum TourActions {
-  Open,
-  Close,
+  Open = 0,
+  Close = 1,
 }
 
-export default TourActions;
+export default TourActions

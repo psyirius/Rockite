@@ -1,18 +1,15 @@
-import { useState } from 'react';
-import tw from 'twin.macro';
-import { MdClose } from 'react-icons/md';
-import ButtonSecondary from '../General/Styled/ButtonSecondary';
+import { useState } from 'react'
+import { MdClose } from 'react-icons/md'
+import tw from 'twin.macro'
+import ButtonSecondary from '../General/Styled/ButtonSecondary'
 
 export interface SidebarSearchProps {
-  value: string,
-  onChange: (value: string) => void,
+  value: string
+  onChange: (value: string) => void
 }
 
-export default function SidebarSearch({
-  value,
-  onChange,
-}: SidebarSearchProps) {
-  const [isFocused, setIsFocused] = useState<boolean>(false);
+export default function SidebarSearch({ value, onChange }: SidebarSearchProps) {
+  const [isFocused, setIsFocused] = useState<boolean>(false)
 
   return (
     <label
@@ -29,20 +26,16 @@ export default function SidebarSearch({
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         onInput={(event) => {
-          onChange((event.target as HTMLInputElement).value);
+          onChange((event.target as HTMLInputElement).value)
         }}
         placeholder="Filter"
         maxLength={40}
       />
       {!!value?.length && (
-        <ButtonSecondary
-          type="button"
-          tw="mr-3 p-1"
-          onClick={() => onChange('')}
-        >
+        <ButtonSecondary type="button" tw="mr-3 p-1" onClick={() => onChange('')}>
           <MdClose />
         </ButtonSecondary>
       )}
     </label>
-  );
+  )
 }

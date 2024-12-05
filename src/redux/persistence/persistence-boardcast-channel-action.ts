@@ -1,13 +1,13 @@
 export enum PersistenceBroadcastChannelActionType {
-  OrmReplay,
-  WindowClosed,
-  WindowPing,
-  WindowPong,
+  OrmReplay = 0,
+  WindowClosed = 1,
+  WindowPing = 2,
+  WindowPong = 3,
 }
 
 type PersistenceBroadcastChannelAction = {
-  type: PersistenceBroadcastChannelActionType,
-  payload?: any,
-};
+  type: PersistenceBroadcastChannelActionType
+  payload?: any
+}
 
-export default PersistenceBroadcastChannelAction;
+export default PersistenceBroadcastChannelAction

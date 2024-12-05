@@ -1,3 +1,3 @@
-export const Validator = { };
+export const Validator = {}
 
-export default Validator;
+export default Validator

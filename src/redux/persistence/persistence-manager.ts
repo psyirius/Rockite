@@ -1,51 +1,47 @@
-import { mapValues } from 'lodash';
-import env from '$helpers/env';
-import { createInitialState } from '../initialState';
-import { migrate } from '../migrations';
-import { internalPropertiesAppIsReady } from '../selectors/internal-properties';
-import State from '../state';
-import PersistenceDriver from './persistence-driver';
-import persistenceStrategies from './persistence-strategies';
+import env from '$helpers/env'
+import { mapValues } from 'lodash'
+import { createInitialState } from '../initialState'
+import { migrate } from '../migrations'
+import { internalPropertiesAppIsReady } from '../selectors/internal-properties'
+import type State from '../state'
+import type PersistenceDriver from './persistence-driver'
+import persistenceStrategies from './persistence-strategies'
 
-let driver: PersistenceDriver;
+let driver: PersistenceDriver
 
 const getDriver = async (): Promise<PersistenceDriver> => {
   if (!driver) {
     if (env('PERSISTENCE_DRIVER') === 'env') {
-      driver = (await import('./drivers/env')).default;
+      driver = (await import('./drivers/env')).default
     } else if (env('PERSISTENCE_DRIVER') === 'localstorage') {
-      driver = (await import('./drivers/local-storage')).default;
+      driver = (await import('./drivers/local-storage')).default
     } else {
-      throw new Error('Unknown persistence driver.');
+      throw new Error('Unknown persistence driver.')
     }
   }
 
-  return driver;
-};
+  return driver
+}
 
 export const loadState = async () => {
-  let state = await (await getDriver()).load();
+  let state = await (await getDriver()).load()
 
   if (state === null) {
-    state = createInitialState();
+    state = createInitialState()
   }
 
-  return migrate(state);
-};
+  return migrate(state)
+}
 
 export const storeState = async (state: State) => {
   if (!internalPropertiesAppIsReady(state)) {
-    return;
+    return
   }
 
-  const transformedState = mapValues(
-    state,
-    (value, key) => (
-      (persistenceStrategies as any)[key]?.persist
-        ? (persistenceStrategies as any)[key as any].persist(value, state)
-        : value
-    ),
-  );
-
-  (await getDriver()).store(transformedState);
-};
+  const transformedState = mapValues(state, (value, key) =>
+    (persistenceStrategies as any)[key]?.persist
+      ? (persistenceStrategies as any)[key as any].persist(value, state)
+      : value,
+  )
+  ;(await getDriver()).store(transformedState)
+}

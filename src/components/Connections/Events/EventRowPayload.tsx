@@ -1,25 +1,15 @@
-import Event, { EventFormat } from '$models/event';
+import type Event from '$models/event'
+import { EventFormat } from '$models/event'
 
 export interface EventRowPayloadPropTypes {
-  event: Event,
-  shouldFormatPayload: boolean,
+  event: Event
+  shouldFormatPayload: boolean
 }
 
-export default function EventRowPayload({
-  event,
-  shouldFormatPayload,
-}: EventRowPayloadPropTypes) {
+export default function EventRowPayload({ event, shouldFormatPayload }: EventRowPayloadPropTypes) {
   if (shouldFormatPayload && event.format === EventFormat.Json) {
-    return (
-      <>
-        {JSON.stringify(
-          JSON.parse(event.payload),
-          null,
-          2,
-        )}
-      </>
-    );
+    return <>{JSON.stringify(JSON.parse(event.payload), null, 2)}</>
   }
 
-  return <>{event.payload}</>;
+  return <>{event.payload}</>
 }

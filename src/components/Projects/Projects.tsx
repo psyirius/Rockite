@@ -1,31 +1,26 @@
-import { useContext } from 'react';
-import 'twin.macro';
-import { format } from 'date-fns';
-import Project from '$models/project';
-import ProjectValidator from '$models/project/validator';
-import List from '../General/List/List';
-import ListItem from '../General/List/ListItem';
-import { PopupContext } from '$providers/PopupProvider.tsx';
-import PopupPrompt from '../General/PopupPresets/PopupPrompt';
-import PopupConfirmation from '../General/PopupPresets/PopupConfirmation';
-import ButtonPrimary from '../General/Styled/ButtonPrimary';
-import { projectCreate, projectRemoveRelatedItemsAndDelete } from '$redux/actions/projects.ts';
-import { userInterfaceProjectSwitch } from '$redux/actions/user-interface-properties.ts';
+import { useContext } from 'react'
+import 'twin.macro'
+import type Project from '$models/project'
+import ProjectValidator from '$models/project/validator'
+import { PopupContext } from '$providers/PopupProvider'
+import type { projectCreate, projectRemoveRelatedItemsAndDelete } from '$redux/actions/projects'
+import type { userInterfaceProjectSwitch } from '$redux/actions/user-interface-properties'
+import { format } from 'date-fns'
+import List from '../General/List/List'
+import ListItem from '../General/List/ListItem'
+import PopupConfirmation from '../General/PopupPresets/PopupConfirmation'
+import PopupPrompt from '../General/PopupPresets/PopupPrompt'
+import ButtonPrimary from '../General/Styled/ButtonPrimary'
 
 export interface ProjectsProps {
-  projects: Project[],
-  onCreate: typeof projectCreate,
-  onSwitch: typeof userInterfaceProjectSwitch,
-  onDelete: typeof projectRemoveRelatedItemsAndDelete,
+  projects: Project[]
+  onCreate: typeof projectCreate
+  onSwitch: typeof userInterfaceProjectSwitch
+  onDelete: typeof projectRemoveRelatedItemsAndDelete
 }
 
-export default function Projects({
-  projects,
-  onCreate,
-  onSwitch,
-  onDelete,
-}: ProjectsProps) {
-  const popup = useContext(PopupContext);
+export default function Projects({ projects, onCreate, onSwitch, onDelete }: ProjectsProps) {
+  const popup = useContext(PopupContext)
 
   return (
     <>
@@ -33,19 +28,15 @@ export default function Projects({
         <ButtonPrimary
           type="button"
           onClick={async () => {
-            const name = await popup.push<string>(
-              'Create',
-              PopupPrompt,
-              {
-                label: 'Project Name',
-                submitLabel: 'Create',
-                yupValidator: ProjectValidator.name,
-                maxLength: ProjectValidator.nameLength,
-              },
-            );
+            const name = await popup.push<string>('Create', PopupPrompt, {
+              label: 'Project Name',
+              submitLabel: 'Create',
+              yupValidator: ProjectValidator.name,
+              maxLength: ProjectValidator.nameLength,
+            })
 
             if (name?.length) {
-              onCreate(name);
+              onCreate(name)
             }
           }}
           tw="py-1 px-4 text-sm rounded"
@@ -58,38 +49,29 @@ export default function Projects({
           {projects.map((project) => (
             <ListItem
               key={project.id}
-              title={<>{project.name}</>}
-              subtitle={(
-                <>
-                  Created
-                  {' '}
-                  {project.createdAt ? format(new Date(project.createdAt), 'd MMM y') : 'Unknown'}
-                </>
-              )}
+              title={project.name}
+              subtitle={<>Created {project.createdAt ? format(new Date(project.createdAt), 'd MMM y') : 'Unknown'}</>}
               onClick={() => {
-                onSwitch(project);
-                popup.popToRoot();
+                onSwitch(project)
+                popup.popToRoot()
               }}
               secondaryClickActions={[
                 {
                   label: 'Open',
                   onClick: () => {
-                    onSwitch(project);
-                    popup.popToRoot();
+                    onSwitch(project)
+                    popup.popToRoot()
                   },
                 },
                 {
                   label: 'Delete',
                   onClick: async () => {
-                    if (await popup.push<string>(
-                      'Delete',
-                      PopupConfirmation,
-                      {
-                        message: `Are you sure you would like to delete ${project.name}? `
-                          + 'This action is permanent and cannot be undone.',
-                      },
-                    )) {
-                      onDelete(project);
+                    if (
+                      await popup.push<string>('Delete', PopupConfirmation, {
+                        message: `Are you sure you would like to delete ${project.name}? This action is permanent and cannot be undone.`,
+                      })
+                    ) {
+                      onDelete(project)
                     }
                   },
                 },
@@ -99,5 +81,5 @@ export default function Projects({
         </List>
       </div>
     </>
-  );
+  )
 }

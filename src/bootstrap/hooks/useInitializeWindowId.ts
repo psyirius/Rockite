@@ -1,20 +1,15 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { internalPropertiesInitializeWindowId } from '$redux/actions/internal-properties.ts';
+import { internalPropertiesInitializeWindowId } from '$redux/actions/internal-properties'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
 function useInitializeWindowId(storeReady: boolean) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  useEffect(
-    () => {
-      if (storeReady) {
-        dispatch(
-          internalPropertiesInitializeWindowId(),
-        );
-      }
-    },
-    [storeReady],
-  );
+  useEffect(() => {
+    if (storeReady) {
+      dispatch(internalPropertiesInitializeWindowId())
+    }
+  }, [storeReady])
 }
 
-export default useInitializeWindowId;
+export default useInitializeWindowId

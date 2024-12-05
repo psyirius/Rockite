@@ -1,7 +1,7 @@
-import 'twin.macro';
-import { action } from '@storybook/addon-actions';
-import { StoryFn, Meta } from '@storybook/react';
-import ContextMenu, { ContextMenuProps } from './ContextMenu';
+import 'twin.macro'
+import { action } from '@storybook/addon-actions'
+import type { Meta, StoryFn } from '@storybook/react'
+import ContextMenu, { type ContextMenuProps } from './ContextMenu'
 
 export default {
   title: 'Context Menu',
@@ -32,13 +32,11 @@ export default {
       </>
     ),
   ],
-} as Meta;
+} as Meta
 
-const Template: StoryFn<ContextMenuProps> = (args) => (
-  <ContextMenu {...args} />
-);
+const Template: StoryFn<ContextMenuProps> = (args) => <ContextMenu {...args} />
 
-export const Primary = Template.bind({ });
+export const Primary = Template.bind({})
 
 Primary.args = {
   actions: [
@@ -48,4 +46,4 @@ Primary.args = {
   ],
   position: [200, 200],
   close: action('Close triggered'),
-};
+}

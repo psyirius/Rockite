@@ -1,6 +1,6 @@
 enum NotificationsActions {
-  Push,
-  Close,
+  Push = 0,
+  Close = 1,
 }
 
-export default NotificationsActions;
+export default NotificationsActions

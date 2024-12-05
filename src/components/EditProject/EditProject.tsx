@@ -1,23 +1,20 @@
-import { useContext } from 'react';
-import 'twin.macro';
-import Project from '$models/project';
-import { PopupContext } from '$providers/PopupProvider';
-import List from '../General/List/List';
-import ListItem from '../General/List/ListItem';
-import EditProjectConnectionDefaults from './EditProjectConnectionDefaults';
-import EditProjectGeneral from './EditProjectGeneral';
-import { projectUpdate } from '$redux/actions/projects.ts';
+import { useContext } from 'react'
+import 'twin.macro'
+import type Project from '$models/project'
+import { PopupContext } from '$providers/PopupProvider'
+import type { projectUpdate } from '$redux/actions/projects'
+import List from '../General/List/List'
+import ListItem from '../General/List/ListItem'
+import EditProjectConnectionDefaults from './EditProjectConnectionDefaults'
+import EditProjectGeneral from './EditProjectGeneral'
 
 export interface EditProjectProps {
-  project: Project,
-  onProjectChange: typeof projectUpdate,
+  project: Project
+  onProjectChange: typeof projectUpdate
 }
 
-export default function EditProject({
-  project,
-  onProjectChange,
-}: EditProjectProps) {
-  const popup = useContext(PopupContext);
+export default function EditProject({ project, onProjectChange }: EditProjectProps) {
+  const popup = useContext(PopupContext)
 
   return (
     <>
@@ -28,28 +25,24 @@ export default function EditProject({
         <ListItem
           title="General"
           subtitle="Project name and formatting"
-          onClick={() => popup.push(
-            'General',
-            EditProjectGeneral,
-            {
+          onClick={() =>
+            popup.push('General', EditProjectGeneral, {
               project,
               onProjectChange,
-            },
-          )}
+            })
+          }
         />
         <ListItem
           title="Connection Defaults"
           subtitle="Default WebSocket URL, protocol header and auto-reconnect values"
-          onClick={() => popup.push(
-            'Connection Defaults',
-            EditProjectConnectionDefaults,
-            {
+          onClick={() =>
+            popup.push('Connection Defaults', EditProjectConnectionDefaults, {
               project,
               onProjectChange,
-            },
-          )}
+            })
+          }
         />
       </List>
     </>
-  );
+  )
 }

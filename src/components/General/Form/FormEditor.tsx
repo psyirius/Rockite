@@ -1,17 +1,15 @@
-import { useState } from 'react';
-import tw from 'twin.macro';
-import { useField, ErrorMessage } from 'formik';
-import Editor from '../Editor/Editor';
+import { ErrorMessage, useField } from 'formik'
+import { useState } from 'react'
+import tw from 'twin.macro'
+import Editor from '../Editor/Editor'
 
 export interface FormEditorProps {
-  name: string,
+  name: string
 }
 
-export default function FormEditor({
-  name,
-}: FormEditorProps) {
-  const [field, , helpers] = useField({ name });
-  const [isFocused, setIsFocused] = useState<boolean>(false);
+export default function FormEditor({ name }: FormEditorProps) {
+  const [field, , helpers] = useField({ name })
+  const [isFocused, setIsFocused] = useState<boolean>(false)
 
   return (
     <>
@@ -25,24 +23,20 @@ export default function FormEditor({
         <Editor
           name={field.name}
           onChange={(value) => {
-            helpers.setValue(value);
-            helpers.setTouched(true);
+            helpers.setValue(value)
+            helpers.setTouched(true)
           }}
           onFocus={() => setIsFocused(true)}
           onBlur={(event) => {
-            setIsFocused(false);
-            field.onBlur(event);
+            setIsFocused(false)
+            field.onBlur(event)
           }}
           value={field.value}
           minLines={10}
           maxLines={20}
         />
       </div>
-      <ErrorMessage
-        name={name}
-        component="div"
-        tw="pt-2 text-red-800 text-sm font-semibold"
-      />
+      <ErrorMessage name={name} component="div" tw="pt-2 text-red-800 text-sm font-semibold" />
     </>
-  );
+  )
 }

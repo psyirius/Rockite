@@ -1,3 +1,3 @@
 export default interface Table<T> {
-  [key: string]: T,
+  [key: string]: T
 }
