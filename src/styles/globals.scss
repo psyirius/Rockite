@@ -49,6 +49,20 @@
     --destructive-foreground: 210 40% 98%;
     --ring: 216 34% 17%;
   }
+
+  .shiki span {
+    color: var(--shiki-light) !important;
+    //background-color: var(--shiki-light-bg) !important;
+    background-color: white !important;
+  }
+
+  .dark {
+    .shiki span {
+      color: var(--shiki-dark) !important;
+      //background-color: var(--shiki-dark-bg) !important;
+      background-color: #242C3A !important;
+    }
+  }
 }
 
 @layer base {

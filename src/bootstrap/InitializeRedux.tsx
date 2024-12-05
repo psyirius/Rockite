@@ -11,8 +11,6 @@ import useInitializeWindowId from './hooks/useInitializeWindowId'
 const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
 const themeChangeHandler = (isDark: boolean) => {
-  console.log('Dark mode changed to:', isDark)
-
   // check localStorage for theme
   const theme = localStorage.getItem('theme')
 
@@ -27,7 +25,7 @@ const themeChangeHandler = (isDark: boolean) => {
       document.body.classList.add('light')
     }
   } else {
-    if (theme === 'dark') {
+    if (JSON.parse(theme) === 'dark') {
       document.body.classList.add('dark')
     } else {
       document.body.classList.add('light')

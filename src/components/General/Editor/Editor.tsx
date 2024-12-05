@@ -1,9 +1,7 @@
-import { highlight, languages } from 'prismjs'
+import { type FocusEventHandler, type KeyboardEventHandler, type MouseEventHandler, useEffect, useState } from 'react'
 import SimpleCodeEditor from 'react-simple-code-editor'
+import { createHighlighter } from 'shiki'
 import { theme } from 'twin.macro'
-import 'prismjs/components/prism-clike'
-import 'prismjs/components/prism-json'
-import type { FocusEventHandler, KeyboardEventHandler, MouseEventHandler } from 'react'
 
 type EventHandlers = {
   onBlur?: FocusEventHandler<HTMLDivElement> & FocusEventHandler<HTMLTextAreaElement>
@@ -34,6 +32,19 @@ export default function Editor({
   minLines,
   maxLines,
 }: EditorProps) {
+  const [highlighter, setHighlighter] = useState<any>(undefined)
+
+  useEffect(() => {
+    highlighter ||
+      (async () => {
+        const highlighter = await createHighlighter({
+          themes: ['one-dark-pro', 'one-light'],
+          langs: ['json'],
+        })
+        setHighlighter(highlighter)
+      })()
+  }, [])
+
   return (
     <div
       className="editor"
@@ -52,7 +63,16 @@ export default function Editor({
         onKeyUp={onKeyUp}
         onKeyDown={onKeyDown}
         placeholder={placeholder}
-        highlight={(code) => highlight(code, languages.json, 'json')}
+        highlight={(code) =>
+          highlighter?.codeToHtml(code, {
+            lang: 'json',
+            themes: {
+              light: 'one-light',
+              dark: 'one-dark-pro',
+            },
+            defaultColor: false,
+          }) || code
+        }
         tw="text-gray-800 dark:text-gray-200 font-mono text-sm leading-snug"
         style={{
           scrollBehavior: 'auto',

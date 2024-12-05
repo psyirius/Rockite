@@ -24,7 +24,7 @@ const getDriver = async (): Promise<PersistenceDriver> => {
 }
 
 export const loadState = async () => {
-  let state = await (await getDriver()).load()
+  let state = (await getDriver()).load()
 
   if (state === null) {
     state = createInitialState()

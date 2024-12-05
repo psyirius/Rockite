@@ -7,7 +7,7 @@ import type ContextMenuAction from './context-menu-action'
 
 interface Context {
   openForMouseEvent: (event: React.MouseEvent, actions: ContextMenuAction[], align?: 'left' | 'right') => void
-  open: (position: [number, number], actions: ContextMenuAction[], align?: 'left' | 'right') => void
+  open: (position: [number, number], actions: ContextMenuAction[], align?: 'left' | 'right') => Promise<void>
   close: () => void
   position: [number, number] | undefined
   align: 'left' | 'right' | undefined
@@ -16,7 +16,7 @@ interface Context {
 
 const defaultContext: Context = {
   openForMouseEvent: () => null,
-  open: () => null,
+  open: () => Promise.resolve(),
   close: () => null,
   position: undefined,
   align: 'left',
