@@ -48,7 +48,6 @@
     "styled-components": "^5.3.11",
     "twin.macro": "^3.4.1",
     "use-resize-observer": "^9.1.0",
-    "usehooks-ts": "^3.1.0",
     "uuid": "^11.0.3",
     "vaul": "^1.1.1",
     "yup": "^1.5.0",

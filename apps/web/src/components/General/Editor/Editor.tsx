@@ -1,7 +1,7 @@
-import { type FocusEventHandler, type KeyboardEventHandler, type MouseEventHandler, useEffect, useState } from 'react'
+import type { FocusEventHandler, KeyboardEventHandler, MouseEventHandler } from 'react'
 import SimpleCodeEditor from 'react-simple-code-editor'
-import { createHighlighter } from 'shiki'
 import { theme } from 'twin.macro'
+import useShiki from "$hooks/useShiki.ts";
 
 type EventHandlers = {
   onBlur?: FocusEventHandler<HTMLDivElement> & FocusEventHandler<HTMLTextAreaElement>
@@ -32,18 +32,10 @@ export default function Editor({
   minLines,
   maxLines,
 }: EditorProps) {
-  const [highlighter, setHighlighter] = useState<any>(undefined)
-
-  useEffect(() => {
-    highlighter ||
-      (async () => {
-        const highlighter = await createHighlighter({
-          themes: ['one-dark-pro', 'one-light'],
-          langs: ['json'],
-        })
-        setHighlighter(highlighter)
-      })()
-  }, [])
+  const highlighter = useShiki({
+    themes: ['one-dark-pro', 'one-light'],
+    langs: ['json'],
+  })
 
   return (
     <div
