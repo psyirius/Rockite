@@ -11,6 +11,7 @@
     "type-check": "turbo type-check",
     "clean": "turbo clean",
     "prepare": "husky",
+    "build:web": "turbo build --filter=@rockite/web",
     "postinstall": "turbo telemetry disable",
     "version-packages": "changeset version"
   },

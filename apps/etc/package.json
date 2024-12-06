@@ -1,0 +1,18 @@
+{
+  "name": "@rockite/etc",
+  "version": "0.0.0",
+  "description": "Extra stuff for other builds separated from the web package",
+  "private": true,
+  "scripts": {
+    "build:chrome": "dotenvx run -f ./.env.prod.chrome -- tsc -b && vite build && tsx ./scripts/chrome.ts",
+    "build:electron": "dotenvx run -f ./.env.prod.electron -- tsc -b && vite build && tsx ./scripts/electron.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.67"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=9"
+  },
+  "packageManager": "pnpm@9.15.0"
+}

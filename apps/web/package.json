@@ -4,38 +4,6 @@
   "description": "A modern, free and open-source WebSockets client",
   "private": true,
   "type": "module",
-  "author": {
-    "name": "Psyirius",
-    "email": "psyirius@gmail.com",
-    "url": "https://psyirius.github.io"
-  },
-  "homepage": "https://github.com/psyirius/rockite",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/psyirius/rockite.git",
-    "directory": "apps/web"
-  },
-  "bugs": {
-    "email": "psyirius@gmail.com",
-    "url": "https://github.com/psyirius/rockite/issues"
-  },
-  "contributors": [
-    {
-      "name": "Tom Lerendu",
-      "email": "tom@tomlerendu.uk",
-      "url": "https://tomlerendu.uk"
-    },
-    {
-      "name": "Psyirius",
-      "email": "psyirius@gmail.com",
-      "url": "https://psyirius.github.io"
-    }
-  ],
-  "engines": {
-    "node": ">=18.0.0",
-    "pnpm": ">=9.0.0"
-  },
-  "packageManager": "pnpm@9.15.0",
   "scripts": {
     "dev": "dotenvx run -f ./.env.dev -- vite dev --host",
     "preview": "dotenvx run -f ./.env.dev -- vite preview --host",
@@ -47,9 +15,7 @@
     "check:fix": "biome check --write",
     "type-check": "tsc -b",
     "clean": "rimraf dist",
-    "build:web": "dotenvx run -f ./.env.prod.web -- tsc -b && vite build",
-    "build:chrome": "dotenvx run --env INLINE_RUNTIME_CHUNK=false && dotenvx run -f ./.env.prod.chrome -- tsc -b && vite build && tsx ./scripts/chrome.ts",
-    "build:electron": "dotenvx run --env INLINE_RUNTIME_CHUNK=false && dotenvx run -f ./.env.prod.electron -- tsc -b && vite build && tsx ./scripts/electron.ts",
+    "build": "dotenvx run -f ./.env.prod.web -- tsc -b && vite build",
     "start:storybook": "storybook dev -p 6006 --disable-telemetry",
     "build:storybook": "storybook build --disable-telemetry",
     "scripts:nu-sample": "nu scripts/sample.nu 100",
@@ -100,7 +66,7 @@
     "@storybook/react-vite": "8.4.7",
     "@storybook/test": "^8.4.7",
     "@types/lodash": "^4.17.13",
-    "@types/node": "^20.17.9",
+    "@types/node": "^18.19.67",
     "@types/react": "^18.3.13",
     "@types/react-copy-to-clipboard": "^5.0.7",
     "@types/react-dom": "^18.3.1",
@@ -152,5 +118,37 @@
       "debugPlugins": false,
       "debug": false
     }
+  },
+  "homepage": "https://github.com/psyirius/rockite",
+  "author": {
+    "name": "Psyirius",
+    "email": "psyirius@gmail.com",
+    "url": "https://psyirius.github.io"
+  },
+  "contributors": [
+    {
+      "name": "Tom Lerendu",
+      "email": "tom@tomlerendu.uk",
+      "url": "https://tomlerendu.uk"
+    },
+    {
+      "name": "Psyirius",
+      "email": "psyirius@gmail.com",
+      "url": "https://psyirius.github.io"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psyirius/rockite.git",
+    "directory": "apps/web"
+  },
+  "bugs": {
+    "email": "psyirius@gmail.com",
+    "url": "https://github.com/psyirius/rockite/issues"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=9"
   }
 }

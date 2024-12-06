@@ -1,5 +1,5 @@
 import { execSync } from 'node:child_process'
-import fs from 'node:fs'
+import * as fs from 'node:fs'
 
 const workingDir = process.cwd()
 const buildDir = `${workingDir}/build`
