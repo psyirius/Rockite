@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "dotenvx run -f ./.env.dev -- vite dev --host",
     "preview": "dotenvx run -f ./.env.dev -- vite preview --host",
-    "build": "dotenvx run -f ./.env.prod.web -- pnpm check-and-build",
-    "check-and-build": "tsc -b && vite build",
+    "build": "dotenvx run -f ./.env.prod.web -- pnpm run --parallel \"/type-check|build:app/\"",
+    "build:app": "vite build",
     "lint": "biome lint",
     "lint:fix": "biome lint --write",
     "format:dry": "biome format",
