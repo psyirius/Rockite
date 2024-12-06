@@ -1,7 +1,6 @@
 {
   "extends": "@rockite/typescript-config/tsconfig.web.json",
   "compilerOptions": {
-    /* Path alias */
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],

@@ -7,6 +7,8 @@
   "scripts": {
     "dev": "dotenvx run -f ./.env.dev -- vite dev --host",
     "preview": "dotenvx run -f ./.env.dev -- vite preview --host",
+    "build": "dotenvx run -f ./.env.prod.web -- pnpm check-and-build",
+    "check-and-build": "tsc -b && vite build",
     "lint": "biome lint",
     "lint:fix": "biome lint --write",
     "format:dry": "biome format",
@@ -15,7 +17,6 @@
     "check:fix": "biome check --write",
     "type-check": "tsc -b",
     "clean": "rimraf dist",
-    "build": "dotenvx run -f ./.env.prod.web -- tsc -b && vite build",
     "start:storybook": "storybook dev -p 6006 --disable-telemetry",
     "build:storybook": "storybook build --disable-telemetry",
     "scripts:nu-sample": "nu scripts/sample.nu 100",
