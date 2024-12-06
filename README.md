@@ -1,7 +1,7 @@
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="/images/rockite-dark.svg">
-    <img alt="Rockite - Modern WebSockets Client" src="/images/rockite-light.svg" width="256px">
+    <source media="(prefers-color-scheme: dark)" srcset="/assets/images/rockite-dark.svg">
+    <img alt="Rockite - Modern WebSockets Client" src="/assets/images/rockite-light.svg" width="256px">
   </picture>
 </div>
 
@@ -21,8 +21,8 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 
 ## Screenshots
 
-![Rockite - First Look](/images/screenshot-0.png)
-![Rockite - Dual Pane](/images/screenshot-1.png)
+![Rockite - First Look](/assets/images/screenshot-0.png)
+![Rockite - Dual Pane](/assets/images/screenshot-1.png)
 
 ## Features
 
