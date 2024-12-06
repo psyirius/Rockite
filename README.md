@@ -1,7 +1,7 @@
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/psyirius/rockite/master/images/rockite-dark.svg">
-    <img alt="Rockite - Modern WebSockets Client" src="https://raw.githubusercontent.com/psyirius/rockite/master/images/rockite-light.svg" width="256px">
+    <source media="(prefers-color-scheme: dark)" srcset="/images/rockite-dark.svg">
+    <img alt="Rockite - Modern WebSockets Client" src="/images/rockite-light.svg" width="256px">
   </picture>
 </div>
 
