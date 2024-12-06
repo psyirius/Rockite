@@ -1,0 +1,4 @@
+{
+  "extends": "@rockite/typescript-config/tsconfig.node.json",
+  "include": ["tailwind.config.ts"]
+}

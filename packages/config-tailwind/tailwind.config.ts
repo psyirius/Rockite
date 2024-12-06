@@ -1,15 +1,11 @@
 import type { Config } from 'tailwindcss'
-import forms from '@tailwindcss/forms';
+import forms from '@tailwindcss/forms'
 import animate from 'tailwindcss-animate'
-import typography from '@tailwindcss/typography';
-import containerQueries from '@tailwindcss/container-queries';
+import typography from '@tailwindcss/typography'
+import aspectRatio from '@tailwindcss/aspect-ratio'
+import containerQueries from '@tailwindcss/container-queries'
 
 export default {
-  content: [
-    './index.html',
-    './src/**/*.{js,jsx,ts,tsx}',
-  ],
-  darkMode: 'class',
   theme: {
     screens: {
       sm: '640px',
@@ -153,6 +149,12 @@ export default {
       full: '100%',
     },
     extend: {
+      fontFamily: {
+        'dm-sans': ['"DM Sans"', 'sans-serif'],
+        'lexend': ['Lexend', 'sans-serif'],
+        'manrope': ['Manrope', 'sans-serif'],
+        'figtree': ['Figtree', 'sans-serif'],
+      },
       ringWidth: {
         '3000': '3000px',
       },
@@ -196,18 +198,13 @@ export default {
         md: `calc(var(--radius) - 2px)`,
         sm: "calc(var(--radius) - 4px)",
       },
-      fontFamily: {
-        'dm-sans': ['"DM Sans"', 'sans-serif'],
-        'lexend': ['Lexend', 'sans-serif'],
-        'manrope': ['Manrope', 'sans-serif'],
-        'figtree': ['Figtree', 'sans-serif'],
-      }
     },
   },
   plugins: [
     forms({ strategy: 'class' }),
     typography({ className: 'prose' }),
     containerQueries,
+    aspectRatio,
     animate,
   ],
-} satisfies Config
+} satisfies Omit<Config, "content">

@@ -1,0 +1,23 @@
+{
+  "name": "@rockite/tailwind-config",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": "./tailwind.config.ts",
+    "./scss/base.scss": "./scss/base.scss",
+    "./scss/fonts.scss": "./scss/fonts.scss"
+  },
+  "devDependencies": {
+    "@rockite/typescript-config": "workspace:*",
+    "tailwindcss": "^3.4.16",
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "tailwindcss-animate": "^1.0.7",
+    "@fontsource/dm-sans": "^5.1.0",
+    "@fontsource/figtree": "^5.1.1",
+    "@fontsource/lexend": "^5.1.1",
+    "@fontsource/manrope": "^5.1.0"
+  }
+}

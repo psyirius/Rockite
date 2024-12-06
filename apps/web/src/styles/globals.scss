@@ -1,8 +1,5 @@
-@use 'base';
-@use '@fontsource/dm-sans';
-@use '@fontsource/manrope';
-@use '@fontsource/figtree';
-@use '@fontsource/lexend';
+@use '@rockite/tailwind-config/scss/base.scss';
+@use '@rockite/tailwind-config/scss/fonts.scss';
 
 @layer base {
   :root {

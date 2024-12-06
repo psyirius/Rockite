@@ -1,0 +1,26 @@
+{
+  "extends": "@rockite/typescript-config/tsconfig.web.json",
+  "compilerOptions": {
+    /* Path alias */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "$lib/*": ["./src/lib/*"],
+      "$hooks/*": ["./src/hooks/*"],
+      "$redux/*": ["./src/redux/*"],
+      "$types/*": ["./src/types/*"],
+      "$models/*": ["./src/models/*"],
+      "$helpers/*": ["./src/helpers/*"],
+      "$services/*": ["./src/services/*"],
+      "$bootstrap/*": ["./src/bootstrap/*"],
+      "$providers/*": ["./src/providers/*"],
+      "$components/*": ["./src/components/*"],
+      ":storybook/*": ["./.storybook/*"]
+    }
+  },
+  "include": [
+    "src",
+    "types",
+    ".storybook/*"
+  ]
+}
