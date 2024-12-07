@@ -54,8 +54,8 @@ export default function EditorContent({
                 onSend(content)
               }
             }}
-            minLines={3}
-            maxLines={6}
+            minLines={2}
+            maxLines={8}
             placeholder="Payload"
           />
         </div>

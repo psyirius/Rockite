@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss'
 import forms from '@tailwindcss/forms'
 import animate from 'tailwindcss-animate'
+import scrollbar from 'tailwind-scrollbar'
 import typography from '@tailwindcss/typography'
 import aspectRatio from '@tailwindcss/aspect-ratio'
 import containerQueries from '@tailwindcss/container-queries'
@@ -151,6 +152,7 @@ export default {
     extend: {
       fontFamily: {
         'dm-sans': ['"DM Sans"', 'sans-serif'],
+        'dm-mono': ['"DM Mono"', 'monospace'],
         'lexend': ['Lexend', 'sans-serif'],
         'manrope': ['Manrope', 'sans-serif'],
         'figtree': ['Figtree', 'sans-serif'],
@@ -205,6 +207,7 @@ export default {
     typography({ className: 'prose' }),
     containerQueries,
     aspectRatio,
+    scrollbar,
     animate,
   ],
 } satisfies Omit<Config, "content">

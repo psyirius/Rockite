@@ -15,7 +15,9 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/container-queries": "^0.1.1",
     "tailwindcss-animate": "^1.0.7",
+    "tailwind-scrollbar": "^3.1.0",
     "@fontsource/dm-sans": "^5.1.0",
+    "@fontsource/dm-mono": "^5.1.0",
     "@fontsource/figtree": "^5.1.1",
     "@fontsource/lexend": "^5.1.1",
     "@fontsource/manrope": "^5.1.0"

@@ -1,6 +1,7 @@
+import type { ButtonHTMLAttributes } from 'react'
 import tw, { styled } from 'twin.macro'
 
-export interface ButtonSecondaryProps {
+export interface ButtonSecondaryProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean
 }
 

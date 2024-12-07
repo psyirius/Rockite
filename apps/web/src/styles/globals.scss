@@ -47,35 +47,38 @@
     --ring: 216 34% 17%;
   }
 
-  .shiki, {
-    background-color: white !important;
-  }
-
-  .shiki span {
-    color: var(--shiki-light) !important;
-    //background-color: var(--shiki-light-bg) !important;
-    background-color: white !important;
-  }
-
-  .dark {
-    .shiki, {
-      background-color: #242C3A !important;
-    }
-
-    .shiki span {
-      color: var(--shiki-dark) !important;
-      //background-color: var(--shiki-dark-bg) !important;
-      background-color: #242C3A !important;
-    }
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
     @apply dark:border-gray-50;
   }
+
   body {
     @apply font-lexend antialiased bg-background text-foreground;
+  }
+
+  /* Syntax Highlighter: styling */
+  .shiki {
+    $bg-color-light: #F6F8FA;
+    $bg-color-dark: #161B22;
+
+    .light & {
+      background-color: $bg-color-light !important;
+    }
+
+    .dark & {
+      background-color: $bg-color-dark !important;
+    }
+
+    span {
+      .light & {
+        background-color: $bg-color-light !important;
+        color: var(--shiki-light) !important;
+      }
+
+      .dark & {
+        background-color: $bg-color-dark !important;
+        color: var(--shiki-dark) !important;
+      }
+    }
   }
 }
