@@ -115,7 +115,7 @@ export default function Header({
                 title="Connection Options"
                 className={cn(
                   'm-1 h-6 flex-none p-1 rounded',
-                  connectionOptionsPopupOpen && 'bg-gray-700',
+                  connectionOptionsPopupOpen && 'bg-gray-400 dark:bg-gray-700',
                   connection.socketStatus !== ConnectionSocketStatus.Disconnected && 'text-gray-300 dark:text-gray-600',
                   connection.socketStatus === ConnectionSocketStatus.Disconnected && 'text-gray-600 dark:text-gray-300',
                 )}

@@ -19,14 +19,14 @@ export default function FormTextInputArray({ name, maxLength, addItemCta }: Form
     <>
       <div
         className={cn(
-          'w-full overflow-hidden bg-gray-100 dark:bg-gray-800 rounded-lg border-2 text-gray-800 dark:text-gray-300',
+          'w-full overflow-hidden bg-gray-100 dark:bg-gray-850 rounded-lg border-2 text-gray-800 dark:text-gray-300',
           focusedItem !== undefined && 'border-gray-400 dark:border-gray-600',
           focusedItem === undefined && 'border-gray-200 dark:border-gray-700',
         )}
       >
         {field.value.map((item) => (
           <Fragment key={item.id}>
-            <div className=" group flex items-center">
+            <div className="group flex items-center">
               <input
                 type="text"
                 className="w-full py-1 px-4 bg-transparent"
@@ -56,22 +56,26 @@ export default function FormTextInputArray({ name, maxLength, addItemCta }: Form
                 <MdClose size={14} />
               </ButtonSecondary>
             </div>
+
+            {/* Underline */}
             <div
               className={cn(
-                'border-b border-gray-200 dark:border-gray-700 mx-4',
+                'border-b border-gray-200 dark:border-gray-700 mx-3',
                 focusedItem?.id === item.id && 'border-gray-400 dark:border-gray-600',
               )}
             />
           </Fragment>
         ))}
+
         <ButtonSecondary
           type="button"
-          className={cn('w-full text-xs h-8 text-center', !!field.value.length && 'mt-2')}
+          className={'w-full text-xs h-8 text-center'}
           onClick={() => helpers.setValue([...field.value, { id: uuid(), value: '' }])}
         >
           {addItemCta}
         </ButtonSecondary>
       </div>
+
       {meta.error && (
         <div className="pt-2 text-red-800 text-sm font-semibold">
           {typeof meta.error === 'string' ? meta.error : (meta.error as any)?.find((error: any) => !!error).value}

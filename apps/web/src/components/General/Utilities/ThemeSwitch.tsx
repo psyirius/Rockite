@@ -15,8 +15,10 @@ function ThemeSwitch() {
   }, [theme])
 
   const handleThemeChange = (enabled: boolean) => {
-    setMode(enabled ? 'light' : 'dark')
-    setActiveTheme(enabled ? 'light' : 'dark')
+    const theme = enabled ? 'light' : 'dark'
+
+    setMode(theme)
+    setActiveTheme(theme)
   }
 
   return (
