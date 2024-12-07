@@ -1,4 +1,4 @@
-import { socketConnect, socketDisconnect } from '$redux/actions/connection-sockets.ts'
+import { socketConnect, socketDisconnect } from '$redux/actions/connection-sockets'
 import {
   connectionDisconnectSocketAndRemove,
   connectionMinimize,
@@ -6,7 +6,7 @@ import {
   connectionUpdateName,
   connectionUpdateProtocols,
   connectionUpdateSocketUrl,
-} from '$redux/actions/connections.ts'
+} from '$redux/actions/connections'
 import type State from '$redux/state'
 import { connect } from 'react-redux'
 import { type Dispatch, bindActionCreators } from 'redux'

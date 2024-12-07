@@ -1,7 +1,7 @@
 import useArrayInsertCallback from '$hooks/useArrayInsertCallback'
+import { cn } from '$lib/utils'
 import type ConnectionModel from '$models/connection'
 import { useEffect, useRef, useState } from 'react'
-import tw from 'twin.macro'
 import EmptyMessage from '../General/Utilities/EmptyMessage'
 import Connection from './Connection'
 import { ConnectionWrapperComponent } from './Connections.styles'
@@ -54,7 +54,7 @@ export default function Connections({ paddingLeft, connectionsMinimized, connect
   }
 
   return (
-    <div ref={container} tw="w-full flex flex-row overflow-x-auto" css={[paddingLeft && tw`pl-2`]}>
+    <div ref={container} className={cn('w-full flex flex-row overflow-x-auto', paddingLeft && 'pl-2')}>
       {connectionsMaximized.map((connection, index) => (
         <ConnectionWrapperComponent
           key={connection.id}

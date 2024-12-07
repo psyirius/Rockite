@@ -1,7 +1,7 @@
+import useShiki from '$hooks/useShiki'
 import type { FocusEventHandler, KeyboardEventHandler, MouseEventHandler } from 'react'
 import SimpleCodeEditor from 'react-simple-code-editor'
 import { theme } from 'twin.macro'
-import useShiki from "$hooks/useShiki.ts";
 
 type EventHandlers = {
   onBlur?: FocusEventHandler<HTMLDivElement> & FocusEventHandler<HTMLTextAreaElement>
@@ -39,8 +39,7 @@ export default function Editor({
 
   return (
     <div
-      className="editor"
-      tw="overflow-y-auto"
+      className="editor overflow-y-auto"
       style={{
         minHeight: `${Number(theme`lineHeight.snug`) * minLines}rem`,
         maxHeight: `${Number(theme`lineHeight.snug`) * maxLines}rem`,
@@ -65,7 +64,7 @@ export default function Editor({
             defaultColor: false,
           }) || code
         }
-        tw="text-gray-800 dark:text-gray-200 font-mono text-sm leading-snug"
+        className="text-gray-800 dark:text-gray-200 font-mono text-sm leading-snug"
         style={{
           scrollBehavior: 'auto',
           minHeight: `${Number(theme`lineHeight.snug`) * minLines}rem`,

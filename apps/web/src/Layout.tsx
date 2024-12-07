@@ -1,4 +1,3 @@
-import 'twin.macro'
 import ConnectionsConnected from '$components/Connections/ConnectionsConnected'
 import EmptyMessage from '$components/General/Utilities/EmptyMessage'
 import HeaderConnected from '$components/Header/HeaderConnected'
@@ -14,16 +13,16 @@ export interface LayoutProps {
 export default function Layout({ sidebarOpen, projectOpen, projectsExist }: LayoutProps) {
   return (
     <>
-      <div tw="flex flex-col h-full">
-        <div tw="flex-grow-0">
+      <div className={'flex flex-col h-full'}>
+        <div className="flex-grow-0">
           <HeaderConnected />
         </div>
 
-        <div tw="flex flex-grow pb-2">
+        <div className="flex flex-grow pb-2">
           {projectOpen && (
             <>
               {sidebarOpen && (
-                <div tw="pr-2 flex flex-grow min-w-xs max-w-lg w-1/3 lg:w-1/4">
+                <div className="pr-2 flex flex-grow min-w-xs max-w-lg w-1/3 lg:w-1/4">
                   <SidebarConnected />
                 </div>
               )}

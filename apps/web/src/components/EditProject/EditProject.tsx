@@ -1,8 +1,7 @@
-import { useContext } from 'react'
-import 'twin.macro'
 import type Project from '$models/project'
 import { PopupContext } from '$providers/PopupProvider'
 import type { projectUpdate } from '$redux/actions/projects'
+import { useContext } from 'react'
 import List from '../General/List/List'
 import ListItem from '../General/List/ListItem'
 import EditProjectConnectionDefaults from './EditProjectConnectionDefaults'
@@ -18,7 +17,7 @@ export default function EditProject({ project, onProjectChange }: EditProjectPro
 
   return (
     <>
-      <h1 tw="text-2xl p-4 text-gray-600 dark:text-gray-400 border-b border-gray-300 dark:border-gray-700">
+      <h1 className="text-2xl p-4 text-gray-600 dark:text-gray-400 border-b border-gray-300 dark:border-gray-700">
         {project.name}
       </h1>
       <List>

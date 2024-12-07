@@ -1,7 +1,7 @@
+import { cn } from '$lib/utils'
 import { useField } from 'formik'
 import { Fragment, useState } from 'react'
 import { MdClose } from 'react-icons/md'
-import tw from 'twin.macro'
 import { v4 as uuid } from 'uuid'
 import ButtonSecondary from '../Styled/ButtonSecondary'
 
@@ -18,18 +18,18 @@ export default function FormTextInputArray({ name, maxLength, addItemCta }: Form
   return (
     <>
       <div
-        css={[
-          tw`w-full overflow-hidden bg-gray-100 dark:bg-gray-800 rounded-lg border-2 text-gray-800 dark:text-gray-300`,
-          focusedItem !== undefined && tw`border-gray-400 dark:border-gray-600`,
-          focusedItem === undefined && tw`border-gray-200 dark:border-gray-700`,
-        ]}
+        className={cn(
+          'w-full overflow-hidden bg-gray-100 dark:bg-gray-800 rounded-lg border-2 text-gray-800 dark:text-gray-300',
+          focusedItem !== undefined && 'border-gray-400 dark:border-gray-600',
+          focusedItem === undefined && 'border-gray-200 dark:border-gray-700',
+        )}
       >
         {field.value.map((item) => (
           <Fragment key={item.id}>
-            <div className="group" tw="flex items-center">
+            <div className=" group flex items-center">
               <input
                 type="text"
-                tw="w-full py-1 px-4 bg-transparent"
+                className="w-full py-1 px-4 bg-transparent"
                 maxLength={maxLength}
                 value={item.value}
                 onFocus={() => setFocusedItem(item)}
@@ -50,30 +50,30 @@ export default function FormTextInputArray({ name, maxLength, addItemCta }: Form
               />
               <ButtonSecondary
                 type="button"
-                tw="mr-3 h-fit p-1 invisible group-hover:visible rounded"
+                className="mr-3 h-fit p-1 invisible group-hover:visible rounded"
                 onClick={() => helpers.setValue(field.value.filter((existingItem) => existingItem.id !== item.id))}
               >
                 <MdClose size={14} />
               </ButtonSecondary>
             </div>
             <div
-              css={[
-                tw`border-b border-gray-200 dark:border-gray-700 mx-4`,
-                focusedItem?.id === item.id && tw`border-gray-400 dark:border-gray-600`,
-              ]}
+              className={cn(
+                'border-b border-gray-200 dark:border-gray-700 mx-4',
+                focusedItem?.id === item.id && 'border-gray-400 dark:border-gray-600',
+              )}
             />
           </Fragment>
         ))}
         <ButtonSecondary
           type="button"
-          css={[tw`w-full text-xs h-8 text-center`, !!field.value.length && 'mt-2']}
+          className={cn('w-full text-xs h-8 text-center', !!field.value.length && 'mt-2')}
           onClick={() => helpers.setValue([...field.value, { id: uuid(), value: '' }])}
         >
           {addItemCta}
         </ButtonSecondary>
       </div>
       {meta.error && (
-        <div tw="pt-2 text-red-800 text-sm font-semibold">
+        <div className="pt-2 text-red-800 text-sm font-semibold">
           {typeof meta.error === 'string' ? meta.error : (meta.error as any)?.find((error: any) => !!error).value}
         </div>
       )}

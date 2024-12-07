@@ -1,6 +1,5 @@
-import { Fragment } from 'react'
-import 'twin.macro'
 import type Notification from '$types/UserInterface/Notification'
+import { Fragment } from 'react'
 import Spacer from '../Utilities/Spacer'
 import NotificationListItem from './NotificationListItem'
 
@@ -11,7 +10,7 @@ export interface NotificationListProps {
 
 export default function NotificationList({ notifications, onClose }: NotificationListProps) {
   return (
-    <div tw="p-4">
+    <div className="p-4">
       {notifications.map((notification, index) => (
         <Fragment key={notification.id}>
           <NotificationListItem notification={notification} onClose={() => onClose(notification)} />

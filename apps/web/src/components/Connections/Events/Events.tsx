@@ -1,4 +1,3 @@
-import 'twin.macro'
 import type Connection from '$models/connection'
 import type Event from '$models/event'
 import type { eventsRemoveForConnection } from '$redux/actions/events'
@@ -23,7 +22,7 @@ export default function Events({ connection, formatEventPayloads, events, onClea
   return (
     <>
       <Heading
-        tw="flex-grow-0"
+        className="flex-grow-0"
         buttons={[
           {
             icon: <AiOutlineDelete />,
@@ -34,9 +33,9 @@ export default function Events({ connection, formatEventPayloads, events, onClea
       >
         Output
       </Heading>
-      <div tw="flex-grow relative flex" ref={containerRef}>
+      <div className="flex-grow relative flex" ref={containerRef}>
         {!!events.length && (
-          <div tw="absolute inset-0 overflow-auto py-2 select-text">
+          <div className="absolute inset-0 overflow-auto py-2 select-text">
             {events.map((event) => (
               <EventRow
                 key={event.id}

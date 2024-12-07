@@ -60,7 +60,7 @@ export default function Tour({ onClose }: TourProps) {
   return (
     <>
       <div
-        tw="absolute rounded-lg pointer-events-none ring-3000 ring-gray-700 dark:ring-gray-600 ring-opacity-50 dark:ring-opacity-75 shadow-lg"
+        className="absolute rounded-lg pointer-events-none ring-3000 ring-gray-700 dark:ring-gray-600 ring-opacity-50 dark:ring-opacity-75 shadow-lg"
         style={{
           left: `calc(${boundingBox?.left}px - ${padding1})`,
           top: `calc(${boundingBox?.top}px - ${padding1})`,
@@ -69,7 +69,7 @@ export default function Tour({ onClose }: TourProps) {
         }}
       />
       <div
-        tw="absolute flex content-center"
+        className="absolute flex content-center"
         style={{
           left:
             steps[step].position === 'bottom'
@@ -82,14 +82,14 @@ export default function Tour({ onClose }: TourProps) {
           width: `calc(${boundingBox?.width}px + ${padding2})`,
         }}
       >
-        <div tw="bg-white dark:bg-gray-850 p-4 rounded-lg shadow-lg max-w-md">
-          <p tw="text-xs text-gray-600 dark:text-gray-400 uppercase font-semibold">
+        <div className="bg-white dark:bg-gray-850 p-4 rounded-lg shadow-lg max-w-md">
+          <p className="text-xs text-gray-600 dark:text-gray-400 uppercase font-semibold">
             {`Step ${step + 1} of ${steps.length}`}
           </p>
-          <p tw="mt-2 select-text text-gray-800 dark:text-gray-200">{steps[step].copy}</p>
-          <div tw="flex justify-end mt-2">
+          <p className="mt-2 select-text text-gray-800 dark:text-gray-200">{steps[step].copy}</p>
+          <div className="flex justify-end mt-2">
             {steps.length !== step + 1 && (
-              <ButtonSecondary onClick={() => onClose()} tw="py-1 px-4 rounded mr-2">
+              <ButtonSecondary onClick={() => onClose()} className="py-1 px-4 rounded mr-2">
                 Exit
               </ButtonSecondary>
             )}
@@ -101,7 +101,7 @@ export default function Tour({ onClose }: TourProps) {
                   setStep(step + 1)
                 }
               }}
-              tw="py-1 px-4 rounded"
+              className="py-1 px-4 rounded"
             >
               {steps.length === step + 1 ? 'Finish' : 'Next'}
             </ButtonPrimary>

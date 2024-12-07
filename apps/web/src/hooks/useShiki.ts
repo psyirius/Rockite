@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {createHighlighter, type Highlighter} from 'shiki'
+import { type Highlighter, createHighlighter } from 'shiki'
 
 type HighlighterOptions = Parameters<typeof createHighlighter>[0]
 

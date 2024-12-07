@@ -1,7 +1,6 @@
-import { useContext } from 'react'
-import 'twin.macro'
 import ConnectionValidators from '$models/connection/validator'
 import { PopupContext } from '$providers/PopupProvider'
+import { useContext } from 'react'
 import PopupPrompt from '../../General/PopupPresets/PopupPrompt'
 
 export interface HeaderNameProps {
@@ -15,7 +14,7 @@ export default function HeaderName({ name, onNameChange }: HeaderNameProps) {
   return (
     <button
       type="button"
-      tw="bg-blue-700 dark:bg-blue-800 hover:bg-blue-600 hover:dark:bg-blue-700 px-2 py-1 font-semibold text-xs text-white rounded"
+      className="bg-blue-700 dark:bg-blue-800 hover:bg-blue-600 hover:dark:bg-blue-700 px-2 py-1 font-semibold text-xs text-white rounded"
       onClick={async () => {
         const newName = await popup.push<string>('Rename Connection', PopupPrompt, {
           label: 'Connection Name',

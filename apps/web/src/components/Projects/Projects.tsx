@@ -1,11 +1,10 @@
-import { useContext } from 'react'
-import 'twin.macro'
 import type Project from '$models/project'
 import ProjectValidator from '$models/project/validator'
 import { PopupContext } from '$providers/PopupProvider'
 import type { projectCreate, projectRemoveRelatedItemsAndDelete } from '$redux/actions/projects'
 import type { userInterfaceProjectSwitch } from '$redux/actions/user-interface-properties'
 import { format } from 'date-fns'
+import { useContext } from 'react'
 import List from '../General/List/List'
 import ListItem from '../General/List/ListItem'
 import PopupConfirmation from '../General/PopupPresets/PopupConfirmation'
@@ -24,7 +23,7 @@ export default function Projects({ projects, onCreate, onSwitch, onDelete }: Pro
 
   return (
     <>
-      <div tw="flex justify-end py-2 px-4">
+      <div className="flex justify-end py-2 px-4">
         <ButtonPrimary
           type="button"
           onClick={async () => {
@@ -39,12 +38,12 @@ export default function Projects({ projects, onCreate, onSwitch, onDelete }: Pro
               onCreate(name)
             }
           }}
-          tw="py-1 px-4 text-sm rounded"
+          className="py-1 px-4 text-sm rounded"
         >
           Create Project
         </ButtonPrimary>
       </div>
-      <div tw="flex flex-col border-t border-gray-300 dark:border-gray-700">
+      <div className="flex flex-col border-t border-gray-300 dark:border-gray-700">
         <List>
           {projects.map((project) => (
             <ListItem

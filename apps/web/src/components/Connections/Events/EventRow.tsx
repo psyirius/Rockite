@@ -1,3 +1,4 @@
+import { cn } from '$lib/utils'
 import type Event from '$models/event'
 import { EventPayloadType, EventType } from '$models/event'
 import { format } from 'date-fns'
@@ -7,7 +8,6 @@ import CopyToClipboard from 'react-copy-to-clipboard'
 import { FaArrowDown, FaArrowUp, FaRegCopy, FaRegEdit } from 'react-icons/fa'
 import { MdDone } from 'react-icons/md'
 import { RiInformationLine } from 'react-icons/ri'
-import tw from 'twin.macro'
 import EventRowPayload from './EventRowPayload'
 
 export interface EventRowProps {
@@ -23,31 +23,33 @@ export default function EventRow({ event, shouldFormatPayload, onOpenInNewTab, l
   return (
     <div
       key={event.id}
-      className="group"
-      css={[
-        tw`max-w-full flex flex-row justify-between py-1 px-4 hover:bg-gray-100 hover:dark:bg-gray-800`,
-        layout === 'narrow' && tw`flex-wrap`,
-      ]}
+      className={cn(
+        'group',
+        'max-w-full flex flex-row justify-between py-1 px-4 hover:bg-gray-100 hover:dark:bg-gray-800',
+        layout === 'narrow' && 'flex-wrap',
+      )}
     >
-      <div tw="order-1 flex flex-shrink-0">
+      <div className="order-1 flex flex-shrink-0">
         {/* Timestamp */}
-        <div tw="text-gray-400 dark:text-gray-600 font-mono">{format(new Date(event.timestamp), 'HH:mm ss.SS')}</div>
+        <div className="text-gray-400 dark:text-gray-600 font-mono">
+          {format(new Date(event.timestamp), 'HH:mm ss.SS')}
+        </div>
 
         {/* Icon */}
         {event.type === EventType.Sent && (
-          <div tw="text-green-500 dark:text-green-200 ml-2 p-1 text-xs">
+          <div className="text-green-500 dark:text-green-200 ml-2 p-1 text-xs">
             <FaArrowUp title="Sent payload" />
           </div>
         )}
 
         {event.type === EventType.Received && (
-          <div tw="text-red-500 dark:text-red-200 ml-2 p-1 text-xs">
+          <div className="text-red-500 dark:text-red-200 ml-2 p-1 text-xs">
             <FaArrowDown title="Received payload" />
           </div>
         )}
 
         {event.type === EventType.Meta && (
-          <div tw="text-gray-500 dark:text-gray-700 ml-2 p-1 text-xs">
+          <div className="text-gray-500 dark:text-gray-700 ml-2 p-1 text-xs">
             <RiInformationLine title="Information" />
           </div>
         )}
@@ -55,48 +57,48 @@ export default function EventRow({ event, shouldFormatPayload, onOpenInNewTab, l
 
       {/* Payload */}
       <div
-        css={[
-          tw`flex-grow min-w-0 font-mono`,
-          layout === 'narrow' && tw`order-4 w-full`,
-          layout === 'wide' && tw`order-3 ml-4`,
-          event.type === EventType.Sent && tw`text-green-900 dark:text-green-200`,
-          event.type === EventType.Received && tw`text-red-900 dark:text-red-200`,
-          event.type === EventType.Meta && tw`text-gray-900 dark:text-gray-200`,
-        ]}
+        className={cn(
+          'flex-grow min-w-0 font-mono',
+          layout === 'narrow' && 'order-4 w-full',
+          layout === 'wide' && 'order-3 ml-4',
+          event.type === EventType.Sent && 'text-green-900 dark:text-green-200',
+          event.type === EventType.Received && 'text-red-900 dark:text-red-200',
+          event.type === EventType.Meta && 'text-gray-900 dark:text-gray-200',
+        )}
       >
-        <pre tw="whitespace-pre-wrap break-words">
+        <pre className="whitespace-pre-wrap break-words">
           <EventRowPayload event={event} shouldFormatPayload={shouldFormatPayload} />
         </pre>
       </div>
 
       <div
-        css={[
-          // tw`invisible group-hover:visible`,
-          event.type === EventType.Sent && tw`text-green-500 dark:text-green-200`,
-          event.type === EventType.Received && tw`text-red-500 dark:text-red-200`,
-          layout === 'narrow' && tw`order-3`,
-          layout === 'wide' && tw`order-4`,
-        ]}
+        className={cn(
+          // 'invisible group-hover:visible',
+          event.type === EventType.Sent && 'text-green-500 dark:text-green-200',
+          event.type === EventType.Received && 'text-red-500 dark:text-red-200',
+          layout === 'narrow' && 'order-3',
+          layout === 'wide' && 'order-4',
+        )}
       >
         {event.payloadType === EventPayloadType.Text && (
-          <div tw="bg-gray-100 dark:bg-gray-800 rounded p-1 text-xs" title="Text">
+          <div className="bg-gray-100 dark:bg-gray-800 rounded p-1 text-xs" title="Text">
             <LuText size={14} />
           </div>
         )}
 
         {event.payloadType === EventPayloadType.Binary && (
-          <div tw="bg-gray-100 dark:bg-gray-800 rounded p-1 text-xs" title="Binary">
+          <div className="bg-gray-100 dark:bg-gray-800 rounded p-1 text-xs" title="Binary">
             <LuBinary size={14} />
           </div>
         )}
       </div>
 
       <div
-        css={[
-          tw`invisible group-hover:visible text-gray-400`,
-          layout === 'narrow' && tw`order-3`,
-          layout === 'wide' && tw`order-4`,
-        ]}
+        className={cn(
+          'invisible group-hover:visible text-gray-400',
+          layout === 'narrow' && 'order-3',
+          layout === 'wide' && 'order-4',
+        )}
       >
         <CopyToClipboard
           text={event.payload}
@@ -107,14 +109,14 @@ export default function EventRow({ event, shouldFormatPayload, onOpenInNewTab, l
             }
           }}
         >
-          <button type="button" css={[tw`ml-2 hover:text-gray-600`, copiedToClipboard && tw`cursor-default`]}>
+          <button type="button" className={cn('ml-2 hover:text-gray-600', copiedToClipboard && 'cursor-default')}>
             {!copiedToClipboard && <FaRegCopy title="Copy to Clipboard" />}
             {copiedToClipboard && <MdDone title="Copied to Clipboard" />}
           </button>
         </CopyToClipboard>
 
         {event.type !== EventType.Meta && (
-          <button type="button" tw="ml-2 hover:text-gray-600" onClick={() => onOpenInNewTab()}>
+          <button type="button" className="ml-2 hover:text-gray-600" onClick={() => onOpenInNewTab()}>
             <FaRegEdit title="Open in Editor" />
           </button>
         )}

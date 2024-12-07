@@ -1,6 +1,6 @@
 import type { ReactElement, ReactNode } from 'react'
-import 'twin.macro'
 import ButtonSecondary from '../Styled/ButtonSecondary'
+import {cn} from "$lib/utils.ts";
 
 export interface HeadingProps {
   buttons?: {
@@ -9,13 +9,14 @@ export interface HeadingProps {
     onClick: any
   }[]
   children: ReactNode
+  className?: string
 }
 
-export default function Heading({ buttons, children }: HeadingProps) {
+export default function Heading({ buttons, children, className }: HeadingProps) {
   return (
-    <div tw="w-full flex bg-gray-200 dark:bg-gray-900 pl-4 pr-2">
+    <div className={cn("w-full flex bg-gray-200 dark:bg-gray-900 pl-4 pr-2", className)}>
       <div
-        tw="flex items-center flex-grow uppercase text-xs text-gray-800 dark:text-gray-100 font-semibold py-1 select-text"
+        className="flex items-center flex-grow uppercase text-xs text-gray-800 dark:text-gray-100 font-semibold py-1 select-text"
         data-testid="title"
       >
         {children}
@@ -24,7 +25,7 @@ export default function Heading({ buttons, children }: HeadingProps) {
         <ButtonSecondary
           type="button"
           key={button.icon + button.alt}
-          tw="p-2 cursor-pointer border-gray-300 text-xs"
+          className="p-2 cursor-pointer border-gray-300 text-xs"
           title={button.alt}
           onClick={button.onClick}
         >

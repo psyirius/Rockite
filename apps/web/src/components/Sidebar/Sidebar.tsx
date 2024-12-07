@@ -1,5 +1,3 @@
-import { useContext, useState } from 'react'
-import 'twin.macro'
 import useArrayFilter from '$hooks/useArrayFilter'
 import type Connection from '$models/connection'
 import type Project from '$models/project'
@@ -9,6 +7,7 @@ import type { connectionCreateFromSavedPayload } from '$redux/actions/connection
 import type { savedPayloadRemove } from '$redux/actions/saved-payloads'
 import type { tabCreateFromSavedPayload } from '$redux/actions/tabs'
 import { motion } from 'motion/react'
+import { useContext, useState } from 'react'
 import { FiEdit3 } from 'react-icons/fi'
 import { GoPlus } from 'react-icons/go'
 import CreateEditPayloadConnected from '../CreateEditPayload/CreateEditPayloadConnected'
@@ -50,26 +49,26 @@ export default function Sidebar({
       initial={{ x: -500 }}
       animate={{ x: 0 }}
       transition={{ duration: 0.15, ease: 'circOut' }}
-      tw="flex flex-col w-full bg-white dark:bg-gray-850 rounded-r-lg border border-gray-250 dark:border-gray-700 border-l-0 overflow-hidden"
+      className="flex flex-col w-full bg-white dark:bg-gray-850 rounded-r-lg border border-gray-250 dark:border-gray-700 border-l-0 overflow-hidden"
     >
-      <div tw="bg-gray-200 dark:bg-gray-900 border-b dark:border-gray-800 py-2 pl-4 pr-2">
-        <div tw="flex items-center justify-between pb-1">
-          <span tw="font-semibold select-text text-gray-900 dark:text-gray-100">{project.name}</span>
+      <div className="bg-gray-200 dark:bg-gray-900 border-b dark:border-gray-800 py-2 pl-4 pr-2">
+        <div className="flex items-center justify-between pb-1">
+          <span className="font-semibold select-text text-gray-900 dark:text-gray-100">{project.name}</span>
           <ButtonSecondary
             type="button"
-            tw="p-2 rounded"
+            className="p-2 rounded"
             title="Edit Project"
             onClick={() => popup.push('Edit Project', EditProjectReduxWrapper, { project })}
           >
-            <FiEdit3 tw="self-center" />
+            <FiEdit3 className="self-center" />
           </ButtonSecondary>
         </div>
-        <div tw="mr-2">
+        <div className="mr-2">
           <SidebarSearch onChange={(newQuery) => setQuery(newQuery)} value={query} />
         </div>
       </div>
-      <div tw="flex-1 relative">
-        <div tw="absolute inset-0 overflow-y-auto flex flex-col" data-tour="saved-payloads">
+      <div className="flex-1 relative">
+        <div className="absolute inset-0 overflow-y-auto flex flex-col" data-tour="saved-payloads">
           <Heading
             buttons={[
               {

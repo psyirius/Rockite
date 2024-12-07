@@ -1,10 +1,10 @@
+import { cn } from '$lib/utils'
 import type SavedPayload from '$models/saved-payload'
 import type TabModel from '$models/tab'
 import { ContextMenuContext } from '$providers/ContextMenuProvider'
 import type React from 'react'
 import { useContext } from 'react'
 import { MdClose } from 'react-icons/md'
-import tw from 'twin.macro'
 import TextLimit from '../../General/Utilities/TextLimit'
 
 export interface EditorTabProps {
@@ -46,12 +46,12 @@ export default function EditorTab({ tab, savedPayload, showClose, onClose, onSwi
             : []),
         ])
       }}
-      css={[
-        tw`flex flex-grow justify-between items-center border-r dark:border-gray-700 py-1 px-4 whitespace-nowrap uppercase font-semibold text-sm text-gray-700 dark:text-gray-200`,
-        showClose && tw`pr-3`,
-        tab.selected && tw`bg-white dark:bg-gray-850 cursor-default`,
-        !tab.selected && tw`bg-gray-200 dark:bg-gray-900 hover:bg-gray-100 hover:dark:bg-gray-800`,
-      ]}
+      className={cn(
+        'flex flex-grow justify-between items-center border-r dark:border-gray-700 py-1 px-4 whitespace-nowrap uppercase font-semibold text-sm text-gray-700 dark:text-gray-200',
+        showClose && 'pr-3',
+        tab.selected && 'bg-white dark:bg-gray-850 cursor-default',
+        !tab.selected && 'bg-gray-200 dark:bg-gray-900 hover:bg-gray-100 hover:dark:bg-gray-800',
+      )}
     >
       {savedPayload ? <TextLimit characters={20}>{savedPayload.name}</TextLimit> : `Untitled ${tab.number}`}
       {showClose && (
@@ -61,7 +61,7 @@ export default function EditorTab({ tab, savedPayload, showClose, onClose, onSwi
             event.stopPropagation()
             onClose()
           }}
-          tw="text-xs text-gray-700 dark:text-gray-400 p-1 ml-2 hover:bg-gray-500 hover:dark:bg-gray-700 hover:text-white cursor-pointer rounded"
+          className="text-xs text-gray-700 dark:text-gray-400 p-1 ml-2 hover:bg-gray-500 hover:dark:bg-gray-700 hover:text-white cursor-pointer rounded"
         >
           <MdClose />
         </div>

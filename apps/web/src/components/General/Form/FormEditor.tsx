@@ -1,6 +1,6 @@
+import { cn } from '$lib/utils'
 import { ErrorMessage, useField } from 'formik'
 import { useState } from 'react'
-import tw from 'twin.macro'
 import Editor from '../Editor/Editor'
 
 export interface FormEditorProps {
@@ -14,11 +14,11 @@ export default function FormEditor({ name }: FormEditorProps) {
   return (
     <>
       <div
-        css={[
-          tw`overflow-hidden bg-gray-100 dark:bg-gray-800 rounded-lg border-2 py-2 px-4`,
-          isFocused && tw`border-gray-400 dark:border-gray-600`,
-          !isFocused && tw`border-gray-200 dark:border-gray-700`,
-        ]}
+        className={cn(
+          'overflow-hidden bg-gray-100 dark:bg-gray-800 rounded-lg border-2 py-2 px-4',
+          isFocused && 'border-gray-400 dark:border-gray-600',
+          !isFocused && 'border-gray-200 dark:border-gray-700',
+        )}
       >
         <Editor
           name={field.name}
@@ -36,7 +36,7 @@ export default function FormEditor({ name }: FormEditorProps) {
           maxLines={20}
         />
       </div>
-      <ErrorMessage name={name} component="div" tw="pt-2 text-red-800 text-sm font-semibold" />
+      <ErrorMessage name={name} component="div" className="pt-2 text-red-800 text-sm font-semibold" />
     </>
   )
 }

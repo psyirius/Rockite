@@ -1,7 +1,7 @@
 import type Connection from '$models/connection'
 import ConnectionValidator from '$models/connection/validator'
 import { PopupContext } from '$providers/PopupProvider'
-import type { connectionUpdateAutoReconnect, connectionUpdateProtocols } from '$redux/actions/connections.ts'
+import type { connectionUpdateAutoReconnect, connectionUpdateProtocols } from '$redux/actions/connections'
 import { Form, Formik } from 'formik'
 import { useContext } from 'react'
 import * as yup from 'yup'

@@ -1,4 +1,3 @@
-import 'twin.macro'
 import { action } from '@storybook/addon-actions'
 import type { Meta, StoryFn } from '@storybook/react'
 import ContextMenu, { type ContextMenuProps } from './ContextMenu'
@@ -8,12 +7,12 @@ export default {
   component: ContextMenu,
   argTypes: {
     actions: {
-      contorl: {
+      control: {
         type: 'object',
       },
     },
     position: {
-      contorl: {
+      control: {
         type: 'object',
       },
     },
@@ -22,7 +21,7 @@ export default {
     (component, { args }) => (
       <>
         <div
-          tw="absolute w-4 h-4 bg-red-500 rounded-full"
+          className="absolute w-4 h-4 bg-red-500 rounded-full"
           style={{
             left: `calc(${args.position[0]}px - 0.5rem)`,
             top: `calc(${args.position[1]}px - 0.5rem)`,

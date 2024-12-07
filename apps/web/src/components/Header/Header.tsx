@@ -1,4 +1,5 @@
 import ThemeSwitch from '$components/General/Utilities/ThemeSwitch'
+import { cn } from '$lib/utils'
 import type Connection from '$models/connection'
 import type Project from '$models/project'
 import type Window from '$models/window'
@@ -8,7 +9,6 @@ import type { userInterfaceSidebarToggle } from '$redux/actions/user-interface-p
 import type { windowsReassignConnectionsAndDelete, windowsRemoveClosedForProject } from '$redux/actions/windows'
 import { useContext } from 'react'
 import { FaTh } from 'react-icons/fa'
-import tw from 'twin.macro'
 import SidebarIcon from '../General/Icons/SidebarIcon'
 import ButtonSecondary from '../General/Styled/ButtonSecondary'
 import ProjectsConnected from '../Projects/ProjectsConnected'
@@ -49,13 +49,13 @@ export default function Header({
   const popup = useContext(PopupContext)
 
   return (
-    <header tw="w-full px-2 py-1 flex flex-row justify-between items-center">
-      <div tw="flex flex-row items-center flex-shrink-0 w-40">
+    <header className="w-full px-2 py-1 flex flex-row justify-between items-center">
+      <div className="flex flex-row items-center flex-shrink-0 w-40">
         <ButtonSecondary
           type="button"
           onClick={() => popup.push('Projects', ProjectsConnected)}
           title="Switch Project"
-          tw="mr-2 flex items-center px-2 h-8 rounded-lg"
+          className="mr-2 flex items-center px-2 h-8 rounded-lg"
         >
           <FaTh />
         </ButtonSecondary>
@@ -63,11 +63,11 @@ export default function Header({
           <button
             type="button"
             title="Toggle Sidebar"
-            css={[
-              tw`mr-4 flex items-center px-2 h-8 rounded-lg`,
-              sidebarOpen && tw`bg-blue-700 dark:bg-blue-800 hover:bg-blue-600 hover:dark:bg-blue-700 text-white`,
-              !sidebarOpen && tw`hover:bg-gray-300 hover:dark:bg-gray-800 text-blue-800 dark:text-blue-200`,
-            ]}
+            className={cn(
+              'mr-4 flex items-center px-2 h-8 rounded-lg',
+              sidebarOpen && 'bg-blue-700 dark:bg-blue-800 hover:bg-blue-600 hover:dark:bg-blue-700 text-white',
+              !sidebarOpen && 'hover:bg-gray-300 hover:dark:bg-gray-800 text-blue-800 dark:text-blue-200',
+            )}
             onClick={() => onSidebarToggle()}
           >
             <SidebarIcon />
@@ -75,7 +75,7 @@ export default function Header({
         )}
       </div>
       {project && (
-        <div tw="px-4" data-tour="connection-list">
+        <div className="px-4" data-tour="connection-list">
           <HeaderConnectionList
             windowConnections={windowConnections}
             projectConnections={projectConnections}
@@ -89,11 +89,11 @@ export default function Header({
           />
         </div>
       )}
-      <div tw="pr-1 flex items-end gap-x-2 items-center">
-        <div tw="flex items-center">
+      <div className="pr-1 flex items-end gap-x-2 items-center">
+        <div className="flex items-center">
           <ThemeSwitch />
         </div>
-        <div tw="flex items-center">
+        <div className="flex items-center">
           <HeaderRightHandDropdown />
         </div>
       </div>

@@ -1,9 +1,9 @@
-import tw from 'twin.macro'
+import { cn } from '$lib/utils'
 
 export interface SpacerProps {
   size?: 'half' | 'default'
 }
 
 export default function Spacer({ size = 'default' }: SpacerProps) {
-  return <div css={[tw`w-full`, size === 'half' && tw`py-1`, (size === 'default' || !size) && tw`py-2`]} />
+  return <div className={cn('w-full', size === 'half' && 'py-1', (size === 'default' || !size) && 'py-2')} />
 }

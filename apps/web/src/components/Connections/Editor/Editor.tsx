@@ -1,4 +1,3 @@
-import 'twin.macro'
 import type Connection from '$models/connection'
 import type Project from '$models/project'
 import type SavedPayload from '$models/saved-payload'
@@ -52,7 +51,7 @@ export default function Editor({
 
   return (
     <div data-tour="connection-editor">
-      <div tw="flex flex-wrap w-full overflow-x-auto overflow-y-hidden">
+      <div className="flex flex-wrap w-full overflow-x-auto overflow-y-hidden">
         {tabs.map((tab) => (
           <Tab
             key={tab.id}
@@ -66,7 +65,7 @@ export default function Editor({
         <ButtonSecondary
           type="button"
           title="New Tab"
-          tw="px-2 py-2 cursor-pointer flex items-center"
+          className="px-2 py-2 cursor-pointer flex items-center"
           onClick={() => onCreateTab(connection)}
         >
           <MdAdd />

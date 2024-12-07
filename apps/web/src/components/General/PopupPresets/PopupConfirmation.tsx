@@ -1,6 +1,5 @@
-import { useContext } from 'react'
-import 'twin.macro'
 import { PopupContext } from '$providers/PopupProvider'
+import { useContext } from 'react'
 import PopupBody from '../Popup/PopupBody'
 import PopupButtons from '../Popup/PopupButtons'
 
@@ -14,7 +13,7 @@ export default function PopupConfirmation({ message }: PopupConfirmationProps) {
   return (
     <>
       <PopupBody>
-        <p tw="text-gray-800 dark:text-gray-200">{message}</p>
+        <p className="text-gray-800 dark:text-gray-200">{message}</p>
       </PopupBody>
       <PopupButtons
         actions={[

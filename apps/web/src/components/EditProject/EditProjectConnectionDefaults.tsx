@@ -1,10 +1,9 @@
-import { Form, Formik } from 'formik'
-import { useContext } from 'react'
-import 'twin.macro'
 import type Project from '$models/project'
 import ProjectValidator from '$models/project/validator'
 import { PopupContext } from '$providers/PopupProvider'
 import type { projectUpdate } from '$redux/actions/projects'
+import { Form, Formik } from 'formik'
+import { useContext } from 'react'
 import * as yup from 'yup'
 import FormCheckbox from '../General/Form/FormCheckbox'
 import FormField from '../General/Form/FormField'
@@ -43,7 +42,7 @@ export default function EditProject({ project, onProjectChange }: EditProjectPro
     >
       <Form>
         <PopupBody>
-          <p tw="text-gray-900 dark:text-gray-100">
+          <p className="text-gray-900 dark:text-gray-100">
             When a new connection is created, it is automatically populated with the defaults listed below.
           </p>
           <Spacer />

@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-import 'twin.macro'
 import Spacer from '../Utilities/Spacer'
 
 export interface FormFieldProps {
@@ -13,13 +12,13 @@ export default function FormField({ title, description, children }: FormFieldPro
     <div>
       {title && (
         <>
-          <span tw="uppercase font-semibold text-sm text-gray-700 dark:text-gray-200">{title}</span>
+          <span className="uppercase font-semibold text-sm text-gray-700 dark:text-gray-200">{title}</span>
           <Spacer size="half" />
         </>
       )}
       {description && (
         <>
-          <p tw="text-sm text-gray-700 dark:text-gray-500">{description}</p>
+          <p className="text-sm text-gray-700 dark:text-gray-500">{description}</p>
           <Spacer />
         </>
       )}

@@ -1,6 +1,6 @@
+import { cn } from '$lib/utils'
 import { useState } from 'react'
 import { MdClose } from 'react-icons/md'
-import tw from 'twin.macro'
 import ButtonSecondary from '../General/Styled/ButtonSecondary'
 
 export interface SidebarSearchProps {
@@ -13,14 +13,14 @@ export default function SidebarSearch({ value, onChange }: SidebarSearchProps) {
 
   return (
     <label
-      css={[
-        tw`flex items-center bg-white dark:bg-gray-850 rounded-lg border-2 dark:border-gray-700`,
-        isFocused && tw`border-gray-400 dark:border-gray-600`,
-      ]}
+      className={cn(
+        'flex items-center bg-white dark:bg-gray-850 rounded-lg border-2 dark:border-gray-700',
+        isFocused && 'border-gray-400 dark:border-gray-600',
+      )}
     >
-      <span tw="sr-only">Filter</span>
+      <span className="sr-only">Filter</span>
       <input
-        tw="w-full bg-transparent py-1 px-4"
+        className="w-full bg-transparent py-1 px-4"
         type="text"
         value={value || ''}
         onFocus={() => setIsFocused(true)}
@@ -32,7 +32,7 @@ export default function SidebarSearch({ value, onChange }: SidebarSearchProps) {
         maxLength={40}
       />
       {!!value?.length && (
-        <ButtonSecondary type="button" tw="mr-3 p-1" onClick={() => onChange('')}>
+        <ButtonSecondary type="button" className="mr-3 p-1" onClick={() => onChange('')}>
           <MdClose />
         </ButtonSecondary>
       )}

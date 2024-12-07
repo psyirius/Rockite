@@ -1,7 +1,6 @@
-import { type Dispatch, type ReactNode, createContext, useReducer } from 'react'
-import 'twin.macro'
 import NotificationList from '$components/General/NotificationList/NotificationList'
 import type Notification from '$types/UserInterface/Notification'
+import { type Dispatch, type ReactNode, createContext, useReducer } from 'react'
 import { Portal } from 'react-portal'
 import NotificationsActions from './notifications.actions'
 import notificationsReducer from './notifications.reducer'
@@ -24,7 +23,7 @@ export default function NotificationsProvider({ children }: NotificationsProvide
         {children}
         {state.length > 0 && (
           <Portal>
-            <div tw="absolute right-0 bottom-0">
+            <div className="absolute right-0 bottom-0">
               <NotificationList
                 notifications={state}
                 onClose={(notification) =>

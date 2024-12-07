@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { persist, createJSONStorage } from 'zustand/middleware'
+import { createJSONStorage, persist } from 'zustand/middleware'
 
 export type ThemeMode = 'system' | 'light' | 'dark'
 export type Theme = Exclude<ThemeMode, 'system'>
@@ -36,9 +36,10 @@ export const useThemeMode = create(
         document.body.classList.remove('light')
         document.body.classList.remove('dark')
 
-        let _theme: Theme;
+        let _theme: Theme
 
-        if (theme === 'system') { // follow system theme
+        if (theme === 'system') {
+          // follow system theme
           _theme = system
         } else {
           _theme = theme
@@ -63,11 +64,11 @@ export const useThemeMode = create(
         }
       }
 
-      const getSystemTheme = () => darkModeMediaQuery.matches ? 'dark' : 'light'
+      const getSystemTheme = () => (darkModeMediaQuery.matches ? 'dark' : 'light')
 
       darkModeMediaQuery.addEventListener('change', (e) => onThemeChange(e.matches ? 'dark' : 'light'))
 
-      return ({
+      return {
         mode: 'system',
         theme: getSystemTheme(),
         setMode: (mode) => {
@@ -90,8 +91,8 @@ export const useThemeMode = create(
           changeTheme(state.mode, state.theme)
 
           set(state)
-        }
-      })
+        },
+      }
     },
     {
       name: 'theme-mode',

@@ -1,8 +1,7 @@
-import { useContext, useState } from 'react'
-import 'twin.macro'
 import type Connection from '$models/connection'
 import type SavedPayload from '$models/saved-payload'
 import { PopupContext } from '$providers/PopupProvider'
+import { useContext, useState } from 'react'
 import CreateEditPayloadConnected from '../CreateEditPayload/CreateEditPayloadConnected'
 import List from '../General/List/List'
 import ListItem from '../General/List/ListItem'
@@ -38,13 +37,13 @@ export default function SavedPayloadList({
         <ListItem
           key={savedPayload.id}
           title={
-            <span tw="font-mono break-all">
+            <span className="font-mono break-all">
               <TextLimit characters={50}>{savedPayload.name}</TextLimit>
             </span>
           }
           isSelected={selectedPayload?.id === savedPayload.id}
           subtitle={
-            <span tw="font-mono break-all">
+            <span className="font-mono break-all">
               <TextLimit characters={80}>{savedPayload.content}</TextLimit>
             </span>
           }

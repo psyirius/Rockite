@@ -1,4 +1,3 @@
-import 'twin.macro'
 import type ConnectionModel from '$models/connection'
 import { ConnectionComponent } from './Connection.styles'
 import EditorConnected from './Editor/EditorConnected'
@@ -12,11 +11,11 @@ export interface ConnectionProps {
 
 export default function Connection({ connection, highlighted }: ConnectionProps) {
   return (
-    <div tw="h-full w-full pr-2">
+    <div className="h-full w-full pr-2">
       <ConnectionComponent highlighted={highlighted}>
         <HeaderConnected connection={connection} />
         <EditorConnected connection={connection} />
-        <div tw="flex flex-col flex-grow">
+        <div className="flex flex-col flex-grow">
           <EventsConnected connection={connection} />
         </div>
       </ConnectionComponent>

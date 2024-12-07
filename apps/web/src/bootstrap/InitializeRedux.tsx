@@ -1,4 +1,3 @@
-import 'twin.macro'
 import { internalPropertiesAppIsReady } from '$redux/selectors/internal-properties'
 import type State from '$redux/state'
 import config from '@/config'
@@ -20,24 +19,24 @@ export default function InitializeRedux({ children }: InitializeReduxProps) {
   useInitializeWindowId(storeReady)
 
   return reduxReady ? (
-    <div tw="h-full">{children}</div>
+    <div className="h-full">{children}</div>
   ) : (
     <AnimatePresence>
       {!reduxReady && (
-        <div tw="h-full p-10" key="splash-overlay">
+        <div className="h-full p-10" key="splash-overlay">
           <motion.div
-            tw="flex flex-col h-full items-center justify-center"
+            className="flex flex-col h-full items-center justify-center"
             key="logo"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
           >
             <img
-              tw="w-16 h-16 animate-bounce"
+              className="w-16 h-16 animate-bounce"
               srcSet={'/images/logo128.png 2x, /images/logo64.png 1x'}
               src="/images/logo64.png"
               alt={`${config.appName} logo`}
             />
-            <p tw="my-4 font-semibold uppercase text-xs text-gray-600">{config.appName}</p>
+            <p className="my-4 font-semibold uppercase text-xs text-gray-600">{config.appName}</p>
           </motion.div>
         </div>
       )}

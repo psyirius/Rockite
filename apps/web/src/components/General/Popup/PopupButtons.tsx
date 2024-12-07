@@ -1,4 +1,3 @@
-import 'twin.macro'
 import type ButtonAction from '$types/UserInterface/ButtonAction'
 import ButtonPrimary from '../Styled/ButtonPrimary'
 import ButtonSecondary from '../Styled/ButtonSecondary'
@@ -9,14 +8,14 @@ export interface PopupButtonsProps {
 
 export default function PopupButtons({ actions }: PopupButtonsProps) {
   return (
-    <div tw="flex justify-end px-4 py-2 bg-gray-100 dark:bg-gray-850 border-t dark:border-none">
+    <div className="flex justify-end px-4 py-2 bg-gray-100 dark:bg-gray-850 border-t dark:border-none">
       {actions.map((action) =>
         action.theme === 'primary' ? (
           <ButtonPrimary
             key={action.label}
             type={action.type || 'button'}
             onClick={() => action.onClick?.()}
-            tw="ml-2 py-1 px-4 rounded"
+            className="ml-2 py-1 px-4 rounded"
           >
             {action.label}
           </ButtonPrimary>
@@ -25,7 +24,7 @@ export default function PopupButtons({ actions }: PopupButtonsProps) {
             key={action.label}
             type={action.type || 'button'}
             onClick={() => action.onClick?.()}
-            tw="ml-2 py-1 px-4 rounded"
+            className="ml-2 py-1 px-4 rounded"
           >
             {action.label}
           </ButtonSecondary>

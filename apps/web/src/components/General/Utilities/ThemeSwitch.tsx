@@ -1,11 +1,11 @@
-import {useEffect, useState} from 'react'
-import { Switch } from '@headlessui/react'
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
 import { useThemeMode } from '$hooks/useThemeMode'
 import { cn } from '$lib/utils'
+import { Switch } from '@headlessui/react'
+import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
+import { useEffect, useState } from 'react'
 
 function ThemeSwitch() {
-  const theme = useThemeMode(e => e.theme)
+  const theme = useThemeMode((e) => e.theme)
   const { setMode } = useThemeMode()
 
   const [activeTheme, setActiveTheme] = useState(theme)
