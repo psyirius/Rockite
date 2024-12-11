@@ -1,8 +1,9 @@
+import type { Migration } from '$types/migration'
 import { v4 as uuid } from 'uuid'
 
 export default {
   id: '2020-12-08-2201-add-user-interface-and-windows',
-  migrator: (state: any) => {
+  execute: (state: any) => {
     let selectedWindowId: any = null
     state.windows = {}
 
@@ -46,4 +47,4 @@ export default {
 
     return state
   },
-}
+} satisfies Migration

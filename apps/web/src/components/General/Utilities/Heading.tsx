@@ -1,4 +1,4 @@
-import { cn } from '$lib/utils.ts'
+import { cn } from '$lib/utils'
 import type { ReactElement, ReactNode } from 'react'
 import ButtonSecondary from '../Styled/ButtonSecondary'
 

@@ -1,6 +1,8 @@
+import type { Migration } from '$types/migration'
+
 export default {
   id: '2020-10-21-2355-add-order-to-connections',
-  migrator: (state: any) => {
+  execute: (state: any) => {
     const orderCounts: any = {}
 
     Object.values(state.connections).forEach((connection: any) => {
@@ -14,4 +16,4 @@ export default {
 
     return state
   },
-}
+} satisfies Migration

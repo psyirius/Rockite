@@ -1,9 +1,10 @@
 import { ConnectionSocketStatus } from '$models/connection'
+import type { Migration } from '$types/migration'
 import { v4 as uuid } from 'uuid'
 
 export default {
   id: '2020-01-30-2135-create-connections',
-  migrator: (state: any) => {
+  execute: (state: any) => {
     state.connections = {}
 
     Object.values(state.projects).forEach((project: any) => {
@@ -45,4 +46,4 @@ export default {
 
     return state
   },
-}
+} satisfies Migration

@@ -1,10 +1,12 @@
+import type { Migration } from '$types/migration'
+
 export default {
   id: '2020-02-16-1201-add-created-at-to-projects',
-  migrator: (state: any) => {
+  execute: (state: any) => {
     Object.values(state.projects).forEach((project: any) => {
       project.createdAt = new Date().toISOString()
     })
 
     return state
   },
-}
+} satisfies Migration

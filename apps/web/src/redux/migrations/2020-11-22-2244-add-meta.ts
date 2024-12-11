@@ -1,6 +1,8 @@
+import type { Migration } from '$types/migration'
+
 export default {
   id: '2020-11-22-2244-add-meta',
-  migrator: (state: any) => ({
+  execute: (state: any) => ({
     ...state,
     internalProperties: {
       InitializedRunCount: {
@@ -29,4 +31,4 @@ export default {
       },
     },
   }),
-}
+} satisfies Migration

@@ -1,6 +1,8 @@
+import type { Migration } from '@/types/migration'
+
 export default {
   id: '2020-01-04-0110-move-projects-to-object',
-  migrator: (state: any) => {
+  execute: (state: any) => {
     const projects: any = {}
 
     state.projects.forEach((project: any) => {
@@ -12,4 +14,4 @@ export default {
       projects,
     }
   },
-}
+} satisfies Migration
