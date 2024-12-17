@@ -1,9 +1,18 @@
 import isPlatform from '$helpers/isPlatform'
 import { DropdownMenuContext } from '$providers/DropdownMenuProvider'
 import type LabelClickAction from '$types/UserInterface/LabelClickAction'
-import config from '@/config'
-import { createRef, useContext } from 'react'
 import ButtonSecondary from '../General/Styled/ButtonSecondary'
+import { createRef, useContext } from 'react'
+import config from '@/config'
+import logo16 from '@/assets/images/logo16.png'
+import logo32 from '@/assets/images/logo32.png'
+import logo64 from '@/assets/images/logo64.png'
+
+const logoSrcSet = [
+  `${logo64} 4x`,
+  `${logo32} 2x`,
+  `${logo16} 1x`,
+]
 
 export default function HeaderRightHandDropdown() {
   const dropdown = useContext(DropdownMenuContext)
@@ -18,16 +27,15 @@ export default function HeaderRightHandDropdown() {
     })
   }
 
-  // Make sure to uncomment this block after getting the Chrome extension published
-  // if (!isPlatform('chrome')) {
-  //   linkActions.push({
-  //     label: 'Chrome Extension',
-  //     onClick: () => window.open(
-  //       config.chromeWebStoreLink,
-  //       '_blank',
-  //     ),
-  //   });
-  // }
+  if (!isPlatform('chrome')) {
+    linkActions.push({
+      label: 'Chrome Extension',
+      onClick: () => window.open(
+        config.chromeWebStoreLink,
+        '_blank',
+      ),
+    });
+  }
 
   linkActions.push({
     label: 'Bugs and feature requests',
@@ -42,8 +50,8 @@ export default function HeaderRightHandDropdown() {
     >
       <img
         className="mr-2 w-4 h-4"
-        srcSet={['/images/logo64.png 4x', '/images/logo32.png 2x', '/images/logo16.png 1x'].join(', ')}
-        src="/images/logo16.png"
+        srcSet={logoSrcSet.join(', ')}
+        src={logo16}
         alt={`${config.appName} logo`}
       />
       <span>{config.appName}</span>

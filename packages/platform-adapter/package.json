@@ -1,0 +1,15 @@
+{
+  "name": "@rockite/platform-adapter",
+  "version": "0.1.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "build": "unbuild",
+    "prepack": "unbuild"
+  },
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "devDependencies": {
+    "unbuild": "^3.0.1"
+  }
+}

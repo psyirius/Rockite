@@ -2,7 +2,8 @@
   "extends": "@rockite/typescript-config/tsconfig.node.json",
   "include": [
     "vite.config.ts",
-    "vite.config.lib.ts",
+    "webext.vite.config.ts",
+    "desktop.vite.config.ts",
     "tailwind.config.ts",
     "postcss.config.js",
     "scripts"

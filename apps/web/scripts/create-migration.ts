@@ -1,7 +1,20 @@
-import fs from 'node:fs'
+import {
+  intro,
+  outro,
+  confirm,
+  spinner,
+  isCancel,
+  cancel,
+  text,
+  note,
+} from '@clack/prompts'
+import color from 'picocolors'
+
 import path from 'node:path'
+import fs from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
-import { program } from 'commander'
+import { setTimeout as sleep } from 'node:timers/promises';
+
 import moment from 'moment'
 import slugify from 'slugify'
 
@@ -39,7 +52,7 @@ const generateNameSeries = (name: string) => {
   ].join('-')
 }
 
-const generateMigration = (name: string, dry = false) => {
+const generateMigration = (name: string): [string, string] => {
   const id = generateNameSeries(name)
   const filename = [id, 'ts'].join('.')
 
@@ -47,24 +60,69 @@ const generateMigration = (name: string, dry = false) => {
 
   const outputPath = path.join(MIGRATIONS_ROOT, filename)
 
-  if (dry) {
-    fs.writeFileSync(outputPath, source)
-  }
-
-  return outputPath
+  return [outputPath, source]
 }
 
-program
-  .version('1.0.0')
-  .argument('<name>', 'name of the migration')
-  .option('-d, --dry', 'dry run')
-  .action((name, options) => {
-    const outputPath = generateMigration(name)
+async function main() {
+  console.log();
+  intro(color.inverse(' create-migration '));
 
-    console.log(
-      options.dry ? 'Would have generated migration at:' : 'Generated migration at:',
-      path.relative(process.cwd(), outputPath),
-    )
-  })
+  const name = await text({
+    message: 'Enter the name of the migration',
+    placeholder: 'Name of the migration',
+    validate(value) {
+      if (value.length === 0) {
+        return 'Migration name is required!';
+      }
+    },
+  });
 
-program.parse()
+  if (isCancel(name)) {
+    cancel('Operation cancelled');
+    return process.exit(0);
+  }
+
+  const [defaultOutPath, migrationSource] = generateMigration(name)
+
+  note(migrationSource, 'Generated migration');
+
+  const defaultOutPathRelative = path.relative(process.cwd(), defaultOutPath)
+
+  const outputPath = await text({
+    message: 'Confirm the output path',
+    initialValue: defaultOutPathRelative,
+  });
+
+  if (isCancel(outputPath)) {
+    cancel('Operation cancelled');
+    return process.exit(0);
+  }
+
+  const writeToDisk = await confirm({
+    message: 'Do you want to write the migration to disk?',
+  });
+
+  if (isCancel(writeToDisk)) {
+    cancel('Operation cancelled');
+    return process.exit(0);
+  }
+
+  if (writeToDisk) {
+    const s = spinner();
+    const m = 'Writing migration to disk';
+
+    s.start(m);
+
+    await fs.writeFile(outputPath, migrationSource, { encoding: 'utf-8' });
+
+    s.stop(m);
+
+    outro("You're all set!");
+  } else {
+    outro('Skipping writing to disk');
+  }
+
+  await sleep(1000);
+}
+
+main().catch(console.error);
