@@ -28,12 +28,12 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 
 - No Account Required (Data stored locally)
 - Projects
-- Connections
-- Payloads
-- Connection History
+  - Connections
+    - History
+  - Payloads
 - Light & Dark Mode
-- Incoming Text & Binary Messages
-- Outgoing Text Messages (Binary coming soon)
+- Receive Text & Binary Messages
+- Send Text Messages (Binary is WIP 🚧)
 - Custom WebSocket Protocols
 - Auto Reconnect
 
@@ -41,13 +41,14 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 
 - Collections
 - Import/Export
-- Binary data support
-- Custom HTTP headers
 - Connection Timeout
-- Optional Cloud Sync
-- Hex and Syntax Highlighted Editor & Viewer
+- Custom HTTP headers (in supported builds)
+- Binary data support & Hex Editor
 - Low-level logging in Desktop builds
+- Optional BYOC (Bring Your Own Cloud) Sync
 - Other Real-time protocols support like MQTT, Socket.io, etc.
+- Runners (like Postman)
+- Scripting support
 
 ## Limitations
 
@@ -55,7 +56,7 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 
 ## Chrome Extension
 
-- Download the Chrome Extension crx file from the [Releases](https://github.com/psyirius/Rockite/releases) page.
+- Download the Chrome Extension `crx` file from the [Releases](https://github.com/psyirius/Rockite/releases) page.
 - Extract the crx file to a folder.
 - Open Chrome and navigate to `chrome://extensions/`.
 - Enable Developer Mode.
@@ -64,34 +65,18 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 
 ## Firefox Extension
 
-Coming soon.
+WIP 🚧
 
-## Desktop App
+## Desktop Client
 
-Coming soon.
+WIP 🚧
 
 ## Development
 
 1. Clone the project repo
-2. `pnpm copy-env`
-3. `pnpm dev`
-
-## Production
-
-### `pnpm build:chrome`
-
-Builds the app for production (Chrome Extension) to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-### `pnpm build:web`
-
-Builds the app for production (web) to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-### `pnpm build:electron`
-
-BETA. Builds the app for production (Electron) to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Run `pnpm install`
+3. Run `pnpm copy-env` with `.dev.env` file
+4. Run `pnpm dev` to start the development server
 
 ## License
 
