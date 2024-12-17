@@ -5,13 +5,15 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    "./index.js": "./out/app-core.js",
+    "./index.css": "./out/app-core.css"
   },
   "scripts": {
     "dev": "dotenvx run -f ./.env.dev -- vite dev --host",
     "preview": "dotenvx run -f ./.env.dev -- vite preview --host",
     "build": "dotenvx run -f ./.env.prod.web -- pnpm run --parallel \"/type-check|build:app/\"",
-    "build:app": "vite build",
+    "build:webext": "dotenvx run -f ./.env.prod.chrome -- pnpm run --parallel \"/type-check|build:lib/\"",
+    "build:app": "vite build --config vite.config.ts",
     "build:lib": "vite build --config vite.config.lib.ts",
     "lint": "biome lint",
     "lint:fix": "biome lint --write",
@@ -20,7 +22,7 @@
     "check": "biome check",
     "check:fix": "biome check --write",
     "type-check": "tsc -b",
-    "clean": "rimraf dist",
+    "clean": "rimraf dist out",
     "start:storybook": "storybook dev -p 6006 --disable-telemetry",
     "build:storybook": "storybook build --disable-telemetry",
     "scripts:nu-sample": "nu scripts/sample.nu 100",

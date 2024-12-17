@@ -23,9 +23,10 @@ export default defineConfig(({ mode }) => {
       sourcemap: true,
       lib: {
         entry: projectPath('src/index.ts'),
-        name: 'rockite',
+        // name: 'rockite',
         formats: ['es'],
-        fileName: (format, entryName) => `${entryName}.${format}.js`,
+        fileName: 'app-core',
+        cssFileName: 'app-core',
       },
       rollupOptions: {
         external: Object.keys(peerDependencies),
