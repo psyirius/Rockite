@@ -3,7 +3,7 @@ import { PluggableList } from 'unified';
 import { processHtml, htmlEncode } from './utils';
 import shortcuts from './shortcuts';
 import * as styles from './styles';
-import './style/index.less';
+import './style/index.scss';
 
 export * from './SelectionText';
 

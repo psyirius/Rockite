@@ -1,7 +1,7 @@
-@w-textarea:~ "w-tc-editor";
+$w-textarea: "w-tc-editor";
 
 @media (prefers-color-scheme: dark) {
-  .@{w-textarea} {
+  .#{$w-textarea} {
     --color-fg-default: #c9d1d9;
     --color-canvas-subtle: #161b22;
     --color-prettylights-syntax-comment: #8b949e;
@@ -16,7 +16,7 @@
 }
 
 @media (prefers-color-scheme: light) {
-  .@{w-textarea} {
+  .#{$w-textarea} {
     --color-fg-default: #24292f;
     --color-canvas-subtle: #f6f8fa;
     --color-prettylights-syntax-comment: #6e7781;
@@ -30,9 +30,9 @@
   }
 }
 
-.@{w-textarea}[data-color-mode*='dark'],
-[data-color-mode*='dark'] .@{w-textarea},
-[data-color-mode*='dark'] .@{w-textarea}-var,
+.#{$w-textarea}[data-color-mode*='dark'],
+[data-color-mode*='dark'] .#{$w-textarea},
+[data-color-mode*='dark'] .#{$w-textarea}-var,
 body[data-color-mode*='dark'] {
   --color-fg-default: #c9d1d9;
   --color-canvas-subtle: #161b22;
@@ -46,9 +46,9 @@ body[data-color-mode*='dark'] {
   --color-prettylights-syntax-markup-bold: #c9d1d9;
 }
 
-.@{w-textarea}[data-color-mode*='light'],
-[data-color-mode*='light'] .@{w-textarea},
-[data-color-mode*='light'] .@{w-textarea}-var,
+.#{$w-textarea}[data-color-mode*='light'],
+[data-color-mode*='light'] .#{$w-textarea},
+[data-color-mode*='light'] .#{$w-textarea}-var,
 body[data-color-mode*='light'] {
   --color-fg-default: #24292f;
   --color-canvas-subtle: #f6f8fa;
@@ -62,12 +62,11 @@ body[data-color-mode*='light'] {
   --color-prettylights-syntax-markup-bold: #24292f;
 }
 
-.@{w-textarea} {
+.#{$w-textarea} {
   font-family: inherit;
   font-size: 12px;
   color: var(--color-fg-default);
   background-color: var(--color-canvas-subtle);
-  color: var(--color-fg-default);
   &-text,
   &-preview {
     min-height: 16px;

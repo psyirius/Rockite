@@ -1,5 +1,5 @@
 import { defineConfig } from 'tsup'
-import { lessLoader } from 'esbuild-plugin-less'
+import { sassPlugin } from 'esbuild-sass-plugin'
 
 export default defineConfig({
   clean: true,
@@ -7,7 +7,7 @@ export default defineConfig({
   entry: [
     'src/**/*.ts',
     'src/**/*.tsx',
-    'src/**/*.less',
+    'src/**/*.scss',
   ],
   outDir: 'dist',
   format: ['cjs', 'esm'],
@@ -15,5 +15,5 @@ export default defineConfig({
   minify: false,
   sourcemap: true,
   external: ['react', 'react-dom'],
-  esbuildPlugins: [lessLoader()],
+  esbuildPlugins: [sassPlugin()],
 })
