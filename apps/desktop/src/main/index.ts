@@ -1,18 +1,18 @@
 import { app, shell, BrowserWindow, ipcMain } from 'electron'
-import { join } from 'node:path'
+import path from 'node:path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 900,
-    height: 670,
+    width: 800,
+    height: 600,
     show: false,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
-      preload: join(import.meta.dirname, '../preload/index.js'),
+      preload: path.join(import.meta.dirname, '../preload/index.js'),
       sandbox: false
     }
   })
@@ -31,7 +31,9 @@ function createWindow(): void {
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
     mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
   } else {
-    mainWindow.loadFile(join(import.meta.dirname, '../renderer/index.html'))
+    mainWindow.loadFile(
+      path.join(import.meta.dirname, '../renderer/index.html')
+    )
   }
 }
 
@@ -40,7 +42,7 @@ function createWindow(): void {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   // Set app user model id for windows
-  electronApp.setAppUserModelId('com.electron')
+  electronApp.setAppUserModelId('io.psyirius.rockite')
 
   // Default open or close DevTools by F12 in development
   // and ignore CommandOrControl + R in production.
@@ -70,5 +72,3 @@ app.on('window-all-closed', () => {
   }
 })
 
-// In this file you can include the rest of your app"s specific main process
-// code. You can also put them in separate files and require them here.
