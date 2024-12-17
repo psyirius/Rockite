@@ -1,14 +1,14 @@
 {
   "name": "@rockite/webext",
-  "description": "manifest.json description",
+  "description": "A WebSocket client for testing and debugging connections.",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev:chrome": "wxt -b chrome",
-    "dev:firefox": "wxt -b firefox",
+    "dev:firefox": "wxt -b firefox --mv2",
     "build:chrome": "wxt build -b chrome",
-    "build:firefox": "wxt build -b firefox",
+    "build:firefox": "wxt build -b firefox --mv3",
     "zip:chrome": "wxt zip -b chrome",
     "zip:firefox": "wxt zip -b firefox",
     "compile": "tsc --noEmit",
@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "@rockite/web": "workspace:*"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.287",
