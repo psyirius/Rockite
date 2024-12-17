@@ -9,6 +9,7 @@ export default defineConfig(({ mode }) => {
   const isProduction = mode === 'production'
 
   return {
+    root: projectPath('src'),
     publicDir: projectPath('public'),
     envDir: projectPath('.'),
     envPrefix: 'ROCKITE_',
@@ -21,9 +22,9 @@ export default defineConfig(({ mode }) => {
       outDir: projectPath('dist'),
       sourcemap: true,
       rollupOptions: {
-        // input: {
-        //   index: projectPath('src/index.html'),
-        // },
+        input: {
+          index: projectPath('src/index.html'),
+        },
         output: {
           assetFileNames: 'assets/[name]-[hash][extname]',
           chunkFileNames: 'assets/chunks/[name]-[hash].js',
