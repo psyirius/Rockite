@@ -5,16 +5,20 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./index.js": "./out/app-core.js",
-    "./index.css": "./out/app-core.css"
+    "./webext/index.js": "./out/webext/app-core.js",
+    "./webext/index.css": "./out/webext/app-core.css",
+    "./desktop/index.js": "./out/desktop/app-core.js",
+    "./desktop/index.css": "./out/desktop/app-core.css"
   },
   "scripts": {
     "dev": "dotenvx run -f ./.env.dev -- vite dev --host",
     "preview": "dotenvx run -f ./.env.dev -- vite preview --host",
     "build": "dotenvx run -f ./.env.prod.web -- pnpm run --parallel \"/type-check|build:app/\"",
-    "build:webext": "dotenvx run -f ./.env.prod.chrome -- pnpm run --parallel \"/type-check|build:lib/\"",
+    "build:webext": "dotenvx run -f ./.env.prod.chrome -- pnpm run --parallel \"/type-check|build:lib-webext/\"",
+    "build:desktop": "dotenvx run -f ./.env.prod.electron -- pnpm run --parallel \"/type-check|build:lib-desktop/\"",
     "build:app": "vite build --config vite.config.ts",
-    "build:lib": "vite build --config vite.config.lib.ts",
+    "build:lib-webext": "vite build --config webext.vite.config.ts",
+    "build:lib-desktop": "vite build --config desktop.vite.config.ts",
     "lint": "biome lint",
     "lint:fix": "biome lint --write",
     "format:dry": "biome format",

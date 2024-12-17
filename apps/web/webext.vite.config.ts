@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => {
     envPrefix: 'ROCKITE_',
     build: {
       emptyOutDir: true,
-      outDir: projectPath('out'),
+      outDir: projectPath('out/webext'),
       minify: isProduction && 'terser',
       cssMinify: isProduction && 'lightningcss',
       reportCompressedSize: false,

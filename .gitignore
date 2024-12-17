@@ -23,8 +23,7 @@ coverage
 .idea
 
 # Build Outputs
-out/
-build
+out
 dist
 
 # Debug

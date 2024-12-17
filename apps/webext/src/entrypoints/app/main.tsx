@@ -1,3 +1,3 @@
-// run @rockite/web#build before using this
-import '@rockite/web/index.css';
-import '@rockite/web/index.js';
+// run @rockite/web#build:webext before using this
+import '@rockite/web/webext/index.css';
+import '@rockite/web/webext/index.js';
