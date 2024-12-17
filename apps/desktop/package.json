@@ -1,8 +1,12 @@
 {
-  "name": "@rockite/desktop",
+  "name": "rockite-desktop",
   "version": "0.5.0",
   "description": "A Desktop Client for Rockite",
   "main": "./out/main/index.js",
+  "author": {
+    "name": "psyirius",
+    "email": "psyirius@gmail.com"
+  },
   "scripts": {
     "dev": "electron-vite dev",
     "start": "electron-vite preview",

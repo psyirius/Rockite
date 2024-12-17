@@ -6,6 +6,13 @@ import type { ReactNode } from 'react'
 import { useSelector } from 'react-redux'
 import useInitializeRunCount from './hooks/useInitializeRunCount'
 import useInitializeWindowId from './hooks/useInitializeWindowId'
+import logo64 from '@/assets/images/logo64.png'
+import logo128 from '@/assets/images/logo128.png'
+
+const logoSrcSet = [
+  `${logo128} 2x`,
+  `${logo64} 1x`,
+]
 
 export interface InitializeReduxProps {
   children: ReactNode
@@ -32,8 +39,8 @@ export default function InitializeRedux({ children }: InitializeReduxProps) {
           >
             <img
               className="w-16 h-16 animate-bounce"
-              srcSet={'/images/logo128.png 2x, /images/logo64.png 1x'}
-              src="/images/logo64.png"
+              srcSet={logoSrcSet.join(', ')}
+              src={logo64}
               alt={`${config.appName} logo`}
             />
             <p className="my-4 font-semibold uppercase text-xs text-gray-600">{config.appName}</p>
