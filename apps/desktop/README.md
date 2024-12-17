@@ -1,6 +1,6 @@
 # desktop
 
-A Desktop application for the Rockite
+A Desktop Client for Rockite
 
 ## Project Setup
 
