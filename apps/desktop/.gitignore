@@ -3,3 +3,6 @@ dist
 out
 .DS_Store
 *.log*
+
+/tools/*.png
+/tools/*.ico

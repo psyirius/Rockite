@@ -36,6 +36,9 @@ importers:
       '@electron-toolkit/tsconfig':
         specifier: ^1.0.1
         version: 1.0.1(@types/node@20.17.10)
+      '@rockite/web':
+        specifier: workspace:*
+        version: link:../web
       '@types/node':
         specifier: ^20.17.10
         version: 20.17.10
@@ -63,6 +66,9 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
@@ -8316,7 +8322,7 @@ snapshots:
   '@types/plist@3.0.5':
     dependencies:
       '@types/node': 20.17.10
-      xmlbuilder: 11.0.1
+      xmlbuilder: 15.1.1
     optional: true
 
   '@types/prismjs@1.26.5': {}

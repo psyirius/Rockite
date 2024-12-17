@@ -14,7 +14,8 @@
     "build:win": "npm run build && electron-builder --win",
     "build:mac": "electron-vite build && electron-builder --mac",
     "build:linux": "electron-vite build && electron-builder --linux",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "clean": "rimraf out dist"
   },
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
@@ -22,6 +23,7 @@
     "electron-updater": "^6.3.9"
   },
   "devDependencies": {
+    "rimraf": "^6.0.1",
     "@rockite/web": "workspace:*",
     "@electron-toolkit/tsconfig": "^1.0.1",
     "@types/node": "^20.17.10",
