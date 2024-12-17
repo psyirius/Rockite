@@ -1,5 +1,17 @@
 import { defineConfig } from 'wxt';
 
+const compileCSP = (csp: Record<string, string | string[]>) => {
+  return Object.entries(csp)
+    .map(([k, v]) => {
+      const values = (
+        Array.isArray(v) ? v : [v]
+      ).join(' ');
+
+      return `${k} ${values};`;
+    })
+    .join(' ');
+}
+
 // See https://wxt.dev/api/config.html
 export default defineConfig({
   srcDir: 'src',
@@ -19,5 +31,18 @@ export default defineConfig({
         "38": "images/logo38.png"
       }
     },
+    content_security_policy: {
+      extension_pages: compileCSP({
+        'default-src': "'self'",
+        'script-src': ["'self'", "'wasm-unsafe-eval'"], // wasm-unsafe-eval is required for WebAssembly
+        'style-src': ["'self'", "'unsafe-inline'"], // unsafe-inline is required for inline styles
+        'font-src': ["'self'", "data:"], // data: is required for inline fonts
+        'connect-src': [
+          "'self'",
+          "ws:",
+          "wss:",
+        ],
+      }),
+    }
   },
 });

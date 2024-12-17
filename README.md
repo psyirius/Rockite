@@ -52,7 +52,7 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 
 ## Limitations
 
-- No access to localhost servers in web version (available in Desktop and Chrome Extension)
+- No access to localhost `ws://` servers in web version (available in Desktop and Chrome Extension)
 
 ## Chrome Extension
 

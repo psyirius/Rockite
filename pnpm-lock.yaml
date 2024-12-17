@@ -76,12 +76,6 @@ importers:
         specifier: ^5.4.11
         version: 5.4.11(@types/node@20.17.10)(less@4.2.1)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(terser@5.37.0)
 
-  apps/etc:
-    devDependencies:
-      '@types/node':
-        specifier: ^18.19.67
-        version: 18.19.67
-
   apps/web:
     dependencies:
       '@headlessui/react':
@@ -289,6 +283,9 @@ importers:
       '@types/uuid':
         specifier: ^10.0.0
         version: 10.0.0
+      '@vitejs/plugin-basic-ssl':
+        specifier: ^1.2.0
+        version: 1.2.0(vite@6.0.3(@types/node@18.19.67)(jiti@2.4.1)(less@4.2.1)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(terser@5.37.0)(tsx@4.19.2)(yaml@2.6.1))
       '@vitejs/plugin-react':
         specifier: ^4.3.4
         version: 4.3.4(vite@6.0.3(@types/node@18.19.67)(jiti@2.4.1)(less@4.2.1)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(terser@5.37.0)(tsx@4.19.2)(yaml@2.6.1))
@@ -367,6 +364,9 @@ importers:
       vite-plugin-dts:
         specifier: ^4.3.0
         version: 4.3.0(@types/node@18.19.67)(rollup@4.28.1)(typescript@5.7.2)(vite@6.0.3(@types/node@18.19.67)(jiti@2.4.1)(less@4.2.1)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(terser@5.37.0)(tsx@4.19.2)(yaml@2.6.1))
+      vite-plugin-wasm:
+        specifier: ^3.3.0
+        version: 3.3.0(vite@6.0.3(@types/node@18.19.67)(jiti@2.4.1)(less@4.2.1)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(terser@5.37.0)(tsx@4.19.2)(yaml@2.6.1))
       vite-tsconfig-paths:
         specifier: ^5.1.4
         version: 5.1.4(typescript@5.7.2)(vite@6.0.3(@types/node@18.19.67)(jiti@2.4.1)(less@4.2.1)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(terser@5.37.0)(tsx@4.19.2)(yaml@2.6.1))
@@ -2413,6 +2413,12 @@ packages:
 
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+
+  '@vitejs/plugin-basic-ssl@1.2.0':
+    resolution: {integrity: sha512-mkQnxTkcldAzIsomk1UuLfAu9n+kpQ3JbHcpCp7d2Oo6ITtji8pHS3QToOWjhPFvNQSnhlkAjmGbhv2QvwO/7Q==}
+    engines: {node: '>=14.21.3'}
+    peerDependencies:
+      vite: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0
 
   '@vitejs/plugin-react-swc@3.7.2':
     resolution: {integrity: sha512-y0byko2b2tSVVf5Gpng1eEhX1OvPC7x8yns1Fx8jDzlJp4LS6CMkCPfLw47cjyoMrshQDoQw4qcgjsU9VvlCew==}
@@ -6638,6 +6644,11 @@ packages:
       vite:
         optional: true
 
+  vite-plugin-wasm@3.3.0:
+    resolution: {integrity: sha512-tVhz6w+W9MVsOCHzxo6SSMSswCeIw4HTrXEi6qL3IRzATl83jl09JVO1djBqPSwfjgnpVHNLYcaMbaDX5WB/pg==}
+    peerDependencies:
+      vite: ^2 || ^3 || ^4 || ^5
+
   vite-tsconfig-paths@5.1.4:
     resolution: {integrity: sha512-cYj0LRuLV2c2sMqhqhGpaO3LretdtMn/BVX4cPLanIZuwwrkVl+lK84E/miEXkCHWXuq65rhNN4rXsBcOB3S4w==}
     peerDependencies:
@@ -8841,6 +8852,10 @@ snapshots:
       rehype-prism-plus: 2.0.0
 
   '@ungap/structured-clone@1.2.0': {}
+
+  '@vitejs/plugin-basic-ssl@1.2.0(vite@6.0.3(@types/node@18.19.67)(jiti@2.4.1)(less@4.2.1)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(terser@5.37.0)(tsx@4.19.2)(yaml@2.6.1))':
+    dependencies:
+      vite: 6.0.3(@types/node@18.19.67)(jiti@2.4.1)(less@4.2.1)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(terser@5.37.0)(tsx@4.19.2)(yaml@2.6.1)
 
   '@vitejs/plugin-react-swc@3.7.2(@swc/helpers@0.5.15)(vite@6.0.3(@types/node@18.19.67)(jiti@2.4.1)(less@4.2.1)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(terser@5.37.0)(tsx@4.19.2)(yaml@2.6.1))':
     dependencies:
@@ -13408,6 +13423,10 @@ snapshots:
       - '@types/node'
       - rollup
       - supports-color
+
+  vite-plugin-wasm@3.3.0(vite@6.0.3(@types/node@18.19.67)(jiti@2.4.1)(less@4.2.1)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(terser@5.37.0)(tsx@4.19.2)(yaml@2.6.1)):
+    dependencies:
+      vite: 6.0.3(@types/node@18.19.67)(jiti@2.4.1)(less@4.2.1)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(terser@5.37.0)(tsx@4.19.2)(yaml@2.6.1)
 
   vite-tsconfig-paths@5.1.4(typescript@5.7.2)(vite@6.0.3(@types/node@18.19.67)(jiti@2.4.1)(less@4.2.1)(lightningcss@1.28.2)(sass-embedded@1.83.0)(sass@1.83.0)(terser@5.37.0)(tsx@4.19.2)(yaml@2.6.1)):
     dependencies:
