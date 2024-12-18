@@ -20,26 +20,23 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v4
 
-      - name: Cache turbo build setup
-        uses: actions/cache@v4
+#      - name: Cache turbo build setup
+#        uses: actions/cache@v4
+#        with:
+#          path: .turbo
+#          key: ${{ runner.os }}-turbo-${{ github.sha }}
+#          restore-keys: |
+#            ${{ runner.os }}-turbo-
+
+      - uses: pnpm/action-setup@v4
         with:
-          path: .turbo
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
+          run_install: false
 
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
-
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 9
-          run_install: |
-            - recursive: true
-              args: [--frozen-lockfile, --strict-peer-dependencies]
 
       - name: build-linux
         if: matrix.os == 'ubuntu-latest'
