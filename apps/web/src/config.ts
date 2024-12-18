@@ -8,10 +8,10 @@ const config = {
     releases: 'https://github.com/psyirius/rockite/releases',
     desktop: 'https://github.com/psyirius/rockite/releases',
     webext: {
+      chrome: 'https://chrome.google.com/webstore/detail/ajlfbfcpbnkjhmbpbdagjfnlmgcikmgg',
       // TODO: Update this link once the extension is published
-      // chrome: 'https://chrome.google.com/webstore/detail/aabbaabbccddccddeeffeeffgggghhhi',
-      chrome: 'https://github.com/psyirius/Rockite/releases',
       // edge: 'https://github.com/psyirius/Rockite/releases',
+      // TODO: Update this link once the extension is published
       // firefox: 'https://github.com/psyirius/Rockite/releases',
     }
   },
