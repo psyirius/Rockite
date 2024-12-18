@@ -62,14 +62,17 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 - Enable Developer Mode.
 - Click on `Load Unpacked` and select the extracted folder.
 - The extension should now be installed.
+- Will move to Chrome Web Store soon.
 
 ## Firefox Extension
 
-WIP 🚧
+Coming Soon
 
 ## Desktop Client
 
-WIP 🚧
+Windows: Check the [Releases](https://github.com/psyirius/Rockite/releases)
+Linux: Coming Soon
+macOS: Coming Soon
 
 ## Development
 
