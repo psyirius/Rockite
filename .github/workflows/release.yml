@@ -9,12 +9,12 @@ permissions:
   contents: write
 
 jobs:
-  release:
+  desktop-release:
     strategy:
       matrix:
         os:
-#          - windows-latest
-#          - ubuntu-latest
+          - windows-latest
+          - ubuntu-latest
           - macos-latest
 
     runs-on: ${{ matrix.os }}
@@ -75,8 +75,19 @@ jobs:
           path: ${{ github.workspace }}/apps/desktop/dist/**/*
           compression-level: '9'
 
-#      - name: Create Release
-#        uses: softprops/action-gh-release@v2
-#        if: startsWith(github.ref, 'refs/tags/')
-#        with:
-#          files: ${{ github.workspace }}/dist/**/*
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          draft: true
+          files: |
+            ${{ github.workspace }}/apps/desktop/dist/*.exe
+            ${{ github.workspace }}/apps/desktop/dist/*.zip
+            ${{ github.workspace }}/apps/desktop/dist/*.dmg
+            ${{ github.workspace }}/apps/desktop/dist/*.AppImage
+            ${{ github.workspace }}/apps/desktop/dist/*.snap
+            ${{ github.workspace }}/apps/desktop/dist/*.deb
+            ${{ github.workspace }}/apps/desktop/dist/*.rpm
+            ${{ github.workspace }}/apps/desktop/dist/*.tar.gz
+            ${{ github.workspace }}/apps/desktop/dist/*.yml
+            ${{ github.workspace }}/apps/desktop/dist/*.blockmap
