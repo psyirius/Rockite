@@ -3,19 +3,38 @@
   "tasks": {
     "build-core-app": {
       "dependsOn": [
-        "@rockite/web#build:desktop"
+        "@rockite/web#build:webext"
       ]
     },
-    "dev": {
-      "dependsOn": ["build-core-app"],
+    "prepare-build-utils": {
+      "dependsOn": [
+        "@rockite/build-utils#build"
+      ]
+    },
+    "dev:chrome": {
+      "dependsOn": ["prepare-build-utils", "build-core-app"],
       "persistent": true,
       "cache": false
     },
-    "build": {
-      "dependsOn": ["build-core-app"]
+    "dev:firefox": {
+      "dependsOn": ["prepare-build-utils", "build-core-app"],
+      "persistent": true,
+      "cache": false
     },
-    "zip": {
-      "dependsOn": ["build-core-app"]
+    "build:chrome": {
+      "dependsOn": ["prepare-build-utils", "build-core-app"]
+    },
+    "build:firefox": {
+      "dependsOn": ["prepare-build-utils", "build-core-app"]
+    },
+    "zip:chrome": {
+      "dependsOn": ["prepare-build-utils", "build-core-app"]
+    },
+    "zip:firefox": {
+      "dependsOn": ["prepare-build-utils", "build-core-app"]
+    },
+    "postinstall": {
+      "dependsOn": ["prepare-build-utils"]
     }
   }
 }

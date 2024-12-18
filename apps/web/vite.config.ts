@@ -1,12 +1,18 @@
 import { defineConfig } from 'vite'
+import { fileURLToPath } from 'node:url'
 import react from '@vitejs/plugin-react'
 import tsconfigPaths from 'vite-tsconfig-paths'
-import {fileURLToPath} from 'node:url'
+import { getNodeEnv } from '@rockite/build-utils'
 
 const projectPath = (path: string) => fileURLToPath(new URL(path, import.meta.url));
 
 export default defineConfig(({ mode }) => {
-  const isProduction = mode === 'production'
+  const env = getNodeEnv();
+
+  const isProd = env === 'production';
+  // const isBuild = mode === 'build';
+
+  console.log({mode, env});
 
   return {
     root: projectPath('src'),
@@ -16,8 +22,8 @@ export default defineConfig(({ mode }) => {
     build: {
       emptyOutDir: true,
       assetsDir: 'assets',
-      minify: isProduction && 'terser',
-      cssMinify: isProduction && 'lightningcss',
+      minify: isProd && 'terser',
+      cssMinify: isProd && 'lightningcss',
       reportCompressedSize: false,
       outDir: projectPath('dist'),
       sourcemap: true,

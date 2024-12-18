@@ -1,11 +1,27 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "ui": "stream",
+  "envMode": "strict",
+  "globalEnv": ["NODE_ENV", "ROCKITE_*"],
   "tasks": {
     "build": {
+      "dependsOn": ["^build"],
       "outputs": ["dist/**"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "format": {
+      "dependsOn": ["^format"]
     },
     "check-types": {
       "dependsOn": ["^check-types"]
+    },
+    "postinstall": {
+      "dependsOn": ["^postinstall"]
+    },
+    "clean": {
+      "dependsOn": ["^clean"]
     },
     "dev": {
       "persistent": true,

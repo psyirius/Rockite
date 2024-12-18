@@ -11,6 +11,12 @@
       "persistent": true,
       "cache": false
     },
+    "build": {
+      "dependsOn": ["build-core-app"]
+    },
+    "start": {
+      "dependsOn": ["build"]
+    },
     "build:unpack": {
       "dependsOn": ["build-core-app"]
     },

@@ -1,25 +1,56 @@
 {
   "extends": ["//"],
   "tasks": {
+    "build-dep-pkgs": {
+      "dependsOn": [
+        "@rockite/react-code-editor#build"
+      ]
+    },
+    "prepare-build-utils": {
+      "dependsOn": [
+        "@rockite/build-utils#build"
+      ]
+    },
     "build": {
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**"],
+      "dependsOn": ["prepare-build-utils", "build-dep-pkgs"]
     },
     "preview": {
-      "depends": ["build"]
+      "dependsOn": ["prepare-build-utils", "build"]
     },
-    "build:app": {
+    "build:app-web": {
+      "dependsOn": ["prepare-build-utils", "build-dep-pkgs"],
       "outputs": ["dist/**"]
     },
     "build:desktop": {
+      "dependsOn": ["prepare-build-utils", "build-dep-pkgs"],
+      "outputs": ["out/desktop/**"]
+    },
+    "build:lib-desktop": {
+      "dependsOn": ["prepare-build-utils", "build-dep-pkgs"],
       "outputs": ["out/desktop/**"]
     },
     "build:webext": {
+      "dependsOn": ["prepare-build-utils", "build-dep-pkgs"],
+      "outputs": ["out/webext/**"]
+    },
+    "build:lib-webext": {
+      "dependsOn": ["prepare-build-utils", "build-dep-pkgs"],
       "outputs": ["out/webext/**"]
     },
     "build:storybook": {
+      "dependsOn": ["prepare-build-utils", "build-dep-pkgs"],
       "outputs": ["storybook-static/**"]
     },
+    "start:storybook": {
+      "dependsOn": ["prepare-build-utils", "build-dep-pkgs"],
+      "persistent": true,
+      "cache": false
+    },
+    "check-types": {},
+    "clean": {},
     "dev": {
+      "dependsOn": ["prepare-build-utils", "build-dep-pkgs"],
       "persistent": true,
       "cache": false
     }

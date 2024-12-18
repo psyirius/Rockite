@@ -1,16 +1,5 @@
 import { defineConfig } from 'wxt';
-
-const compileCSP = (csp: Record<string, string | string[]>) => {
-  return Object.entries(csp)
-    .map(([k, v]) => {
-      const values = (
-        Array.isArray(v) ? v : [v]
-      ).join(' ');
-
-      return `${k} ${values};`;
-    })
-    .join(' ');
-}
+import { compileCSP } from '@rockite/build-utils'
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({

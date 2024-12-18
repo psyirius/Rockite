@@ -1,14 +1,20 @@
 {
-  "name": "@rockite/platform-adapter",
-  "version": "0.6.0",
-  "description": "",
+  "name": "@rockite/build-utils",
+  "version": "1.0.0",
+  "description": "Utils for build scripts",
   "type": "module",
   "scripts": {
     "build": "unbuild",
     "prepack": "unbuild",
     "clean": "rimraf dist"
   },
-  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
   "files": ["dist"],
   "devDependencies": {
     "unbuild": "^3.0.1",

@@ -1,26 +1,34 @@
-appId: io.psyirius.rockite
 productName: Rockite
+appId: io.psyirius.rockite
+copyright: Copyright © 2024 Psyirius
+extraMetadata:
+  name: Rockite
 directories:
   buildResources: build
 files:
   - '!**/.vscode/*'
   - '!src/*'
   - '!tools/*'
-  - '!resources/*'
-  - '!electron.vite.config.{js,ts,mjs,cjs}'
-  - '!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}'
+  - '!{.turbo,.tmp}'
   - '!{.env,.env.*,.npmrc,pnpm-lock.yaml}'
-  - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
+  - '!electron.vite.config.{js,ts,mjs,cjs}'
+  - '!{turbo.json,tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
+  - '!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,TODO.md,CHANGELOG.md,README.md}'
 asarUnpack:
-#  - resources/**
+  - resources/**
 win:
   executableName: Rockite
 nsis:
-  artifactName: ${name}-${version}-setup.${ext}
+  artifactName: ${name}-${version}-Setup.${ext}
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
+  createStartMenuShortcut: true
+  displayLanguageSelector: true
+  deleteAppDataOnUninstall: false
+  allowToChangeInstallationDirectory: true
   oneClick: false
+  perMachine: false
 mac:
   entitlementsInherit: build/entitlements.mac.plist
   extendInfo:
