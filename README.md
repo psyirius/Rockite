@@ -31,7 +31,7 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
   - Connections
     - History
   - Payloads
-- Light & Dark Mode
+- Light & Dark Modes
 - Receive Text & Binary Messages
 - Send Text Messages (Binary is WIP 🚧)
 - Custom WebSocket Protocols
@@ -50,7 +50,7 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 - Runners (like Postman)
 - Scripting support
 - VSCode Extension
-- 
+- npx (npm) executable
 
 ## Limitations
 
