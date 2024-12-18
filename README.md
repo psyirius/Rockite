@@ -49,6 +49,8 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 - Other Real-time protocols support like MQTT, Socket.io, etc.
 - Runners (like Postman)
 - Scripting support
+- VSCode Extension
+- 
 
 ## Limitations
 
@@ -66,13 +68,11 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 
 ## Firefox Extension
 
-Coming Soon
+Coming Soon...
 
-## Desktop Client
+## Desktop Clients
 
-Windows: Check the [Releases](https://github.com/psyirius/Rockite/releases)
-Linux: Coming Soon
-macOS: Coming Soon
+Checkout [Releases](https://github.com/psyirius/Rockite/releases)
 
 ## Development
 
