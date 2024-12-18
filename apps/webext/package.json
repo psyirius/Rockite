@@ -2,7 +2,7 @@
   "name": "@rockite/webext",
   "description": "A WebSocket client for testing and debugging connections.",
   "private": true,
-  "version": "0.6.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev:chrome": "wxt -b chrome",
