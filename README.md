@@ -56,13 +56,8 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 
 ## Chrome Extension
 
-- Download the Chrome Extension `crx` file from the [Releases](https://github.com/psyirius/Rockite/releases) page.
-- Extract the crx file to a folder.
-- Open Chrome and navigate to `chrome://extensions/`.
-- Enable Developer Mode.
-- Click on `Load Unpacked` and select the extracted folder.
-- The extension should now be installed.
-- Will move to Chrome Web Store soon.
+- Get it from the [Chrome Web Store](https://chrome.google.com/webstore/detail/ajlfbfcpbnkjhmbpbdagjfnlmgcikmgg)
+- Alternatively, you can download the extension from the [Releases](https://github.com/psyirius/Rockite/releases) page and install it manually
 
 ## Firefox Extension
 
