@@ -1,0 +1,67 @@
+name: Build/Release Desktop Installers
+
+on:
+  push:
+    tags:
+      - v*.*.*
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v4
+
+      - name: Cache turbo build setup
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+
+      - name: build-linux
+        if: matrix.os == 'ubuntu-latest'
+        run: pnpm run build:linux
+
+      - name: build-mac
+        if: matrix.os == 'macos-latest'
+        run: pnpm run build:mac
+
+      - name: build-win
+        if: matrix.os == 'windows-latest'
+        run: pnpm run build:win
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: desktop
+          path: ${{ github.workspace }}/apps/desktop/dist/**/*
+          compression-level: '9'
+
+#      - name: Create Release
+#        uses: softprops/action-gh-release@v2
+#        if: startsWith(github.ref, 'refs/tags/')
+#        with:
+#          files: ${{ github.workspace }}/dist/**/*
