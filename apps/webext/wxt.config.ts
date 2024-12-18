@@ -7,6 +7,12 @@ export default defineConfig({
   extensionApi: 'chrome',
   modules: ['@wxt-dev/module-react'],
   manifestVersion: 3,
+  outDir: 'dist',
+  zip: {
+    name: 'Rockite',
+    artifactTemplate: "{{name}}-{{version}}-{{browser}}.zip",
+    compressionLevel: 9,
+  },
   manifest: {
     name: "Rockite - WebSocket Client",
     short_name: "Rockite",
