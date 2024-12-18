@@ -7,6 +7,12 @@ export default defineConfig({
   extensionApi: 'chrome',
   modules: ['@wxt-dev/module-react'],
   manifestVersion: 3,
+  outDir: 'dist',
+  zip: {
+    name: 'Rockite',
+    artifactTemplate: "{{name}}-{{version}}-{{browser}}.zip",
+    compressionLevel: 9,
+  },
   manifest: {
     name: "Rockite - WebSocket Client",
     short_name: "Rockite",
@@ -26,6 +32,7 @@ export default defineConfig({
         'script-src': ["'self'", "'wasm-unsafe-eval'"], // wasm-unsafe-eval is required for WebAssembly
         'style-src': ["'self'", "'unsafe-inline'"], // unsafe-inline is required for inline styles
         'font-src': ["'self'", "data:"], // data: is required for inline fonts
+        'img-src': ["'self'", "data:"], // data: is required for inline images
         'connect-src': [
           "'self'",
           "ws:",
