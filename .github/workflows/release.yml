@@ -71,7 +71,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: desktop
+          name: desktop-${{ matrix.os }}
           path: ${{ github.workspace }}/apps/desktop/dist/**/*
           compression-level: '9'
 
