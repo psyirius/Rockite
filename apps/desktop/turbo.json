@@ -1,0 +1,27 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build-core-app": {
+      "dependsOn": [
+        "@rockite/web#build:desktop"
+      ]
+    },
+    "dev": {
+      "dependsOn": ["build-core-app"],
+      "persistent": true,
+      "cache": false
+    },
+    "build:unpack": {
+      "dependsOn": ["build-core-app"]
+    },
+    "build:win": {
+      "dependsOn": ["build-core-app"]
+    },
+    "build:mac": {
+      "dependsOn": ["build-core-app"]
+    },
+    "build:linux": {
+      "dependsOn": ["build-core-app"]
+    }
+  }
+}

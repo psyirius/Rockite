@@ -1,0 +1,27 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "outputs": ["dist/**"]
+    },
+    "preview": {
+      "depends": ["build"]
+    },
+    "build:app": {
+      "outputs": ["dist/**"]
+    },
+    "build:desktop": {
+      "outputs": ["out/desktop/**"]
+    },
+    "build:webext": {
+      "outputs": ["out/webext/**"]
+    },
+    "build:storybook": {
+      "outputs": ["storybook-static/**"]
+    },
+    "dev": {
+      "persistent": true,
+      "cache": false
+    }
+  }
+}

@@ -10,6 +10,7 @@
 /build
 /dist
 /out
+/storybook-static
 
 # Misc
 .DS_Store

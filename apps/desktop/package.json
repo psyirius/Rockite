@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "rimraf": "^6.0.1",
+    "toml": "^3.0.0",
     "@rockite/web": "workspace:*",
     "@electron-toolkit/tsconfig": "^1.0.1",
     "@types/node": "^20.17.10",
