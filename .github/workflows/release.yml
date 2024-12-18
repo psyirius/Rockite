@@ -14,8 +14,8 @@ jobs:
       matrix:
         os:
           - windows-latest
-#          - ubuntu-latest
-#          - macos-latest
+          - ubuntu-latest
+          - macos-latest
 
     runs-on: ${{ matrix.os }}
 
@@ -98,14 +98,6 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v4
-
-      #      - name: Cache turbo build setup
-      #        uses: actions/cache@v4
-      #        with:
-      #          path: .turbo
-      #          key: ${{ runner.os }}-turbo-${{ github.sha }}
-      #          restore-keys: |
-      #            ${{ runner.os }}-turbo-
 
       - uses: pnpm/action-setup@v4
         with:
