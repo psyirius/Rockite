@@ -23,7 +23,7 @@ export default function HeaderRightHandDropdown() {
   if (!isPlatform('web')) {
     linkActions.push({
       label: 'Web',
-      onClick: () => window.open(config.websiteLink, '_blank'),
+      onClick: () => window.open(config.urls.web, '_blank'),
     })
   }
 
@@ -31,7 +31,17 @@ export default function HeaderRightHandDropdown() {
     linkActions.push({
       label: 'Chrome Extension',
       onClick: () => window.open(
-        config.chromeWebStoreLink,
+        config.urls.webext.chrome,
+        '_blank',
+      ),
+    });
+  }
+
+  if (!isPlatform('electron')) {
+    linkActions.push({
+      label: 'Desktop',
+      onClick: () => window.open(
+        config.urls.desktop,
         '_blank',
       ),
     });
@@ -39,7 +49,12 @@ export default function HeaderRightHandDropdown() {
 
   linkActions.push({
     label: 'Bugs and feature requests',
-    onClick: () => window.open(config.issueTrackerLink, '_blank'),
+    onClick: () => window.open(config.urls.issues, '_blank'),
+  })
+
+  linkActions.push({
+    label: 'GitHub',
+    onClick: () => window.open(config.urls.github, '_blank'),
   })
 
   return (

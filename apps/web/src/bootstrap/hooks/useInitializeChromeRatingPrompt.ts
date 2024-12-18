@@ -13,30 +13,31 @@ function useInitializeChromeRatingPrompt() {
   const internalProperties = useSelector<State, State['internalProperties']>((state) => state.internalProperties)
 
   useEffect(() => {
-    if (
-      internalProperties.RunCount.value > 20 &&
-      !internalProperties.HasShownChromeRatingPrompt.value &&
-      isPlatform('chrome')
-    ) {
-      notificationsDispatch({
-        type: NotificationsActions.Push,
-        payload: {
-          title: `Enjoying ${config.appName}?`,
-          body: 'Why not leave a rating on the Chrome Web Store.',
-          actions: [
-            {
-              label: 'No thanks',
-            },
-            {
-              label: 'Give rating',
-              theme: 'primary',
-              onClick: () => window.open(config.chromeWebStoreLink, '_blank'),
-            },
-          ],
-        },
-      })
-      dispatch(internalPropertiesSet('HasShownChromeRatingPrompt', true))
-    }
+    // TODO: Uncomment this code once the extension is published
+    // if (
+    //   internalProperties.RunCount.value > 20 &&
+    //   !internalProperties.HasShownChromeRatingPrompt.value &&
+    //   isPlatform('chrome')
+    // ) {
+    //   notificationsDispatch({
+    //     type: NotificationsActions.Push,
+    //     payload: {
+    //       title: `Enjoying ${config.appName}?`,
+    //       body: 'Why not leave a rating on the Chrome Web Store.',
+    //       actions: [
+    //         {
+    //           label: 'No thanks',
+    //         },
+    //         {
+    //           label: 'Give rating',
+    //           theme: 'primary',
+    //           onClick: () => window.open(config.urls.webext.chrome, '_blank'),
+    //         },
+    //       ],
+    //     },
+    //   })
+    //   dispatch(internalPropertiesSet('HasShownChromeRatingPrompt', true))
+    // }
   }, [])
 }
 
