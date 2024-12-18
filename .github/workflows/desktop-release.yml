@@ -46,14 +46,26 @@ jobs:
 
       - name: build-linux
         if: matrix.os == 'ubuntu-latest'
+        env:
+          ROCKITE_PLATFORM: electron
+          ROCKITE_PERSISTENCE_DRIVER: localstorage
+          ROCKITE_ENABLE_REDUX_DEV_TOOLS: false
         run: pnpm run build:desktop-linux
 
       - name: build-mac
         if: matrix.os == 'macos-latest'
+        env:
+          ROCKITE_PLATFORM: electron
+          ROCKITE_PERSISTENCE_DRIVER: localstorage
+          ROCKITE_ENABLE_REDUX_DEV_TOOLS: false
         run: pnpm run build:desktop-mac
 
       - name: build-win
         if: matrix.os == 'windows-latest'
+        env:
+          ROCKITE_PLATFORM: electron
+          ROCKITE_PERSISTENCE_DRIVER: localstorage
+          ROCKITE_ENABLE_REDUX_DEV_TOOLS: false
         run: pnpm run build:desktop-win
 
       - name: Upload Artifact
