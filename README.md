@@ -58,6 +58,11 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 
 - Get it from the [Chrome Web Store](https://chrome.google.com/webstore/detail/ajlfbfcpbnkjhmbpbdagjfnlmgcikmgg)
 - Alternatively, you can download the extension from the [Releases](https://github.com/psyirius/Rockite/releases) page and install it manually
+  - Download the `*-chrome.signed.crx` file
+  - Open the Chrome Extensions page (`chrome://extensions`)
+  - Drag and drop the downloaded file onto the Extensions page
+  - Click "Add Extension" when prompted
+  - Done!
 
 ## Firefox Extension
 
