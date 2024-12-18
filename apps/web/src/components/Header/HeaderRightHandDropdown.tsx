@@ -27,21 +27,21 @@ export default function HeaderRightHandDropdown() {
     })
   }
 
-  if (!isPlatform('chrome')) {
-    linkActions.push({
-      label: 'Chrome Extension',
-      onClick: () => window.open(
-        config.urls.webext.chrome,
-        '_blank',
-      ),
-    });
-  }
-
   if (!isPlatform('electron')) {
     linkActions.push({
       label: 'Desktop',
       onClick: () => window.open(
         config.urls.desktop,
+        '_blank',
+      ),
+    });
+  }
+
+  if (!isPlatform('chrome')) {
+    linkActions.push({
+      label: 'Chrome Extension',
+      onClick: () => window.open(
+        config.urls.webext.chrome,
         '_blank',
       ),
     });

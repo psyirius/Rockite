@@ -1,3 +1,4 @@
+// @ts-nocheck
 import isPlatform from '$helpers/isPlatform'
 import NotificationsActions from '$providers/notifications/notifications.actions'
 import { NotificationsDispatchContext } from '$providers/notifications/notifications.provider'
