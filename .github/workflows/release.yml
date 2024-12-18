@@ -93,6 +93,12 @@ jobs:
             ${{ github.workspace }}/apps/desktop/dist/latest*.yml
 
   webext-release:
+    strategy:
+      matrix:
+        browser:
+          - chrome
+#          - firefox
+
     runs-on: ubuntu-latest
 
     steps:
@@ -112,12 +118,26 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: build-webext
+      - name: build-chrome
+        if: matrix.browser == 'chrome'
         env:
           ROCKITE_PLATFORM: chrome
           ROCKITE_PERSISTENCE_DRIVER: localstorage
           ROCKITE_ENABLE_REDUX_DEV_TOOLS: false
         run: pnpm run build:webext-chrome
+
+      - name: build-firefox
+        if: matrix.browser == 'firefox'
+        env:
+          ROCKITE_PLATFORM: chrome
+          ROCKITE_PERSISTENCE_DRIVER: localstorage
+          ROCKITE_ENABLE_REDUX_DEV_TOOLS: false
+        run: pnpm run build:webext-firefox
+
+      - name: Rename chrome extension zip to crx
+        if: matrix.browser == 'chrome'
+        working-directory: ${{ github.workspace }}/apps/webext/dist
+        run: for f in *-chrome.zip; do mv "$f" "${f%.zip}.crx"; done
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
@@ -125,10 +145,6 @@ jobs:
           name: webext-chrome
           path: ${{ github.workspace }}/apps/webext/dist/**/*
           compression-level: '9'
-
-      - name: Rename to crx
-        working-directory: ${{ github.workspace }}/apps/webext/dist
-        run: for f in *-chrome.zip; do mv "$f" "${f%.zip}.crx"; done
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
