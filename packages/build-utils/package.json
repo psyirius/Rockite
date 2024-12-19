@@ -15,7 +15,9 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "unbuild": "^3.0.1",
     "rimraf": "^6.0.1",
