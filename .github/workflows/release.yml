@@ -42,7 +42,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: build-linux
         if: matrix.os == 'ubuntu-latest'
@@ -116,7 +116,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: build-chrome
         if: matrix.browser == 'chrome'
