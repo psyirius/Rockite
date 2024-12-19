@@ -9,7 +9,7 @@
 
 <div align="center">
 
-[![License](https://img.shields.io/npm/l/nx.svg?style=flat-square)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
 </div>
 
