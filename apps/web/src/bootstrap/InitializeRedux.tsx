@@ -1,18 +1,15 @@
 import { internalPropertiesAppIsReady } from '$redux/selectors/internal-properties'
 import type State from '$redux/state'
+import logo64 from '@/assets/images/logo64.png'
+import logo128 from '@/assets/images/logo128.png'
 import config from '@/config'
 import { AnimatePresence, motion } from 'motion/react'
 import type { ReactNode } from 'react'
 import { useSelector } from 'react-redux'
 import useInitializeRunCount from './hooks/useInitializeRunCount'
 import useInitializeWindowId from './hooks/useInitializeWindowId'
-import logo64 from '@/assets/images/logo64.png'
-import logo128 from '@/assets/images/logo128.png'
 
-const logoSrcSet = [
-  `${logo128} 2x`,
-  `${logo64} 1x`,
-]
+const logoSrcSet = [`${logo128} 2x`, `${logo64} 1x`]
 
 export interface InitializeReduxProps {
   children: ReactNode

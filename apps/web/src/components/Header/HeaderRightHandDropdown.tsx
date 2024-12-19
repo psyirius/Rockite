@@ -1,18 +1,14 @@
 import isPlatform from '$helpers/isPlatform'
 import { DropdownMenuContext } from '$providers/DropdownMenuProvider'
 import type LabelClickAction from '$types/UserInterface/LabelClickAction'
-import ButtonSecondary from '../General/Styled/ButtonSecondary'
-import { createRef, useContext } from 'react'
-import config from '@/config'
 import logo16 from '@/assets/images/logo16.png'
 import logo32 from '@/assets/images/logo32.png'
 import logo64 from '@/assets/images/logo64.png'
+import config from '@/config'
+import { createRef, useContext } from 'react'
+import ButtonSecondary from '../General/Styled/ButtonSecondary'
 
-const logoSrcSet = [
-  `${logo64} 4x`,
-  `${logo32} 2x`,
-  `${logo16} 1x`,
-]
+const logoSrcSet = [`${logo64} 4x`, `${logo32} 2x`, `${logo16} 1x`]
 
 export default function HeaderRightHandDropdown() {
   const dropdown = useContext(DropdownMenuContext)
@@ -30,21 +26,15 @@ export default function HeaderRightHandDropdown() {
   if (!isPlatform('electron')) {
     linkActions.push({
       label: 'Desktop',
-      onClick: () => window.open(
-        config.urls.desktop,
-        '_blank',
-      ),
-    });
+      onClick: () => window.open(config.urls.desktop, '_blank'),
+    })
   }
 
   if (!isPlatform('chrome')) {
     linkActions.push({
       label: 'Chrome Extension',
-      onClick: () => window.open(
-        config.urls.webext.chrome,
-        '_blank',
-      ),
-    });
+      onClick: () => window.open(config.urls.webext.chrome, '_blank'),
+    })
   }
 
   linkActions.push({
@@ -63,12 +53,7 @@ export default function HeaderRightHandDropdown() {
       ref={buttonElement}
       onClick={() => dropdown.openForElement(buttonElement.current!, linkActions)}
     >
-      <img
-        className="mr-2 w-4 h-4"
-        srcSet={logoSrcSet.join(', ')}
-        src={logo16}
-        alt={`${config.appName} logo`}
-      />
+      <img className="mr-2 w-4 h-4" srcSet={logoSrcSet.join(', ')} src={logo16} alt={`${config.appName} logo`} />
       <span>{config.appName}</span>
     </ButtonSecondary>
   )

@@ -13,7 +13,7 @@ const config = {
       chrome: 'https://github.com/psyirius/Rockite/releases',
       // edge: 'https://github.com/psyirius/Rockite/releases',
       // firefox: 'https://github.com/psyirius/Rockite/releases',
-    }
+    },
   },
 }
 

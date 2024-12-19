@@ -1,19 +1,10 @@
-import {
-  intro,
-  outro,
-  confirm,
-  spinner,
-  isCancel,
-  cancel,
-  text,
-  note,
-} from '@clack/prompts'
+import { cancel, confirm, intro, isCancel, note, outro, spinner, text } from '@clack/prompts'
 import color from 'picocolors'
 
-import path from 'node:path'
 import fs from 'node:fs/promises'
+import path from 'node:path'
+import { setTimeout as sleep } from 'node:timers/promises'
 import { fileURLToPath } from 'node:url'
-import { setTimeout as sleep } from 'node:timers/promises';
 
 import moment from 'moment'
 import slugify from 'slugify'
@@ -64,65 +55,65 @@ const generateMigration = (name: string): [string, string] => {
 }
 
 async function main() {
-  console.log();
-  intro(color.inverse(' create-migration '));
+  console.log()
+  intro(color.inverse(' create-migration '))
 
   const name = await text({
     message: 'Enter the name of the migration',
     placeholder: 'Name of the migration',
     validate(value) {
       if (value.length === 0) {
-        return 'Migration name is required!';
+        return 'Migration name is required!'
       }
     },
-  });
+  })
 
   if (isCancel(name)) {
-    cancel('Operation cancelled');
-    return process.exit(0);
+    cancel('Operation cancelled')
+    return process.exit(0)
   }
 
   const [defaultOutPath, migrationSource] = generateMigration(name)
 
-  note(migrationSource, 'Generated migration');
+  note(migrationSource, 'Generated migration')
 
   const defaultOutPathRelative = path.relative(process.cwd(), defaultOutPath)
 
   const outputPath = await text({
     message: 'Confirm the output path',
     initialValue: defaultOutPathRelative,
-  });
+  })
 
   if (isCancel(outputPath)) {
-    cancel('Operation cancelled');
-    return process.exit(0);
+    cancel('Operation cancelled')
+    return process.exit(0)
   }
 
   const writeToDisk = await confirm({
     message: 'Do you want to write the migration to disk?',
-  });
+  })
 
   if (isCancel(writeToDisk)) {
-    cancel('Operation cancelled');
-    return process.exit(0);
+    cancel('Operation cancelled')
+    return process.exit(0)
   }
 
   if (writeToDisk) {
-    const s = spinner();
-    const m = 'Writing migration to disk';
+    const s = spinner()
+    const m = 'Writing migration to disk'
 
-    s.start(m);
+    s.start(m)
 
-    await fs.writeFile(outputPath, migrationSource, { encoding: 'utf-8' });
+    await fs.writeFile(outputPath, migrationSource, { encoding: 'utf-8' })
 
-    s.stop(m);
+    s.stop(m)
 
-    outro("You're all set!");
+    outro("You're all set!")
   } else {
-    outro('Skipping writing to disk');
+    outro('Skipping writing to disk')
   }
 
-  await sleep(1000);
+  await sleep(1000)
 }
 
-main().catch(console.error);
+main().catch(console.error)
