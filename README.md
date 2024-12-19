@@ -44,8 +44,10 @@ Rockite is a tool designed to assist in developing and debugging WebSocket conne
 - Connection Timeout
 - Custom HTTP headers (in supported builds)
 - Binary data support & Hex Editor
+- Inspect WebSocket Frames
 - Low-level logging in Desktop builds
 - Optional BYOC (Bring Your Own Cloud) Sync
+- Actions
 - Other Real-time protocols support like MQTT, Socket.io, etc.
 - Runners (like Postman)
 - Scripting support
