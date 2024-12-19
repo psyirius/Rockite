@@ -8,14 +8,6 @@ export default {
   ],
   darkMode: 'class',
   theme: {
-    extend: {
-      fontFamily: {
-        'dm-sans': ['"DM Sans"', 'sans-serif'],
-        'lexend': ['Lexend', 'sans-serif'],
-        'manrope': ['Manrope', 'sans-serif'],
-        'figtree': ['Figtree', 'sans-serif'],
-      }
-    },
   },
   presets: [sharedConfig],
 } satisfies Config
