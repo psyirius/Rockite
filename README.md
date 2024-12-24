@@ -10,6 +10,7 @@
 <div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/ajlfbfcpbnkjhmbpbdagjfnlmgcikmgg.svg?style=flat-square)](https://chrome.google.com/webstore/detail/ajlfbfcpbnkjhmbpbdagjfnlmgcikmgg)
 
 </div>
 
