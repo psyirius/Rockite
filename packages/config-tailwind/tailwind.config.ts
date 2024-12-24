@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss'
 import forms from '@tailwindcss/forms'
+// @ts-ignore (No types available as of now)
+import motion from 'tailwindcss-motion'
 import animate from 'tailwindcss-animate'
 import scrollbar from 'tailwind-scrollbar'
 import typography from '@tailwindcss/typography'
@@ -209,5 +211,6 @@ export default {
     aspectRatio,
     scrollbar,
     animate,
+    motion,
   ],
 } satisfies Omit<Config, "content">
