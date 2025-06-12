@@ -17,6 +17,7 @@
     "build:desktop-mac": "turbo run build:mac --filter=@rockite/desktop",
     "build:desktop-linux": "turbo run build:linux --filter=@rockite/desktop",
     "postinstall": "turbo telemetry disable && turbo run postinstall",
+    "changeset": "changeset ",
     "version-packages": "changeset version"
   },
   "devDependencies": {

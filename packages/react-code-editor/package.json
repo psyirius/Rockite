@@ -1,6 +1,6 @@
 {
   "name": "@rockite/react-code-editor",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "A simple code editor with syntax highlighting.",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",

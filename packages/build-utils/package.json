@@ -1,6 +1,6 @@
 {
   "name": "@rockite/build-utils",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Utils for build scripts",
   "type": "module",
   "scripts": {

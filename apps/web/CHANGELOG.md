@@ -1,5 +1,13 @@
 # @rockite/web
 
+## 0.1.2
+
+### Patch Changes
+
+- added support for self-signed certificate (desktop)
+- Updated dependencies
+  - @rockite/react-code-editor@3.1.1
+
 ## 0.1.1
 
 ### Patch Changes

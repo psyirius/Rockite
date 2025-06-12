@@ -1,5 +1,14 @@
 # @rockite/webext
 
+## 0.1.2
+
+### Patch Changes
+
+- added support for self-signed certificate (desktop)
+- Updated dependencies
+  - @rockite/web@0.1.2
+  - @rockite/build-utils@0.1.2
+
 ## 0.1.1
 
 ### Patch Changes
