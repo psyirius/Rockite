@@ -37,6 +37,15 @@ function createWindow(): void {
   }
 }
 
+// support for self-signed certificate
+app.on('certificate-error', (event, _webContents, _url, _error, _certificate, callback) => {
+  // On certificate error we disable default behavior (stop loading the page)
+  // and we then say "it is all fine - true" to the callback
+  // TODO: make it configurable
+  event.preventDefault();
+  callback(true);
+});
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
